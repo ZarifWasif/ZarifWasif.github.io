@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Zarif Wasif Bhuiyan — deep learning for visual recognition in medical imaging and agricultural and food machine vision, with a second strand on machine learning for software engineering.">
+<meta name="author" content="Zarif Wasif Bhuiyan">
+<meta property="og:title" content="Zarif Wasif Bhuiyan">
+<meta property="og:description" content="Machine vision research — medical imaging, agricultural and food vision, ML for software engineering.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/portrait.jpg">
+<link rel="icon" href="img/portrait.jpg">
+<style>
+  :root{ color-scheme:light; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px) }
+  body{ margin:0 }
+  img{ max-width:100% }
+  [hidden]{ display:none !important }
+</style>
+<title>Zarif Wasif Bhuiyan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* Layout: a four-view site — sticky nav, a landing page that states a position,
+   then Research, Publications and About as separate bookmarkable views. */
+:root{
+  --paper:#F6F8FA;
+  --card:#FFFFFF;
+  --card2:#FBFCFD;
+  --line:#E1E7ED;
+  --line2:#CCD6E0;
+  --ink:#16202C;
+  --dim:#5A6B7D;
+  --faint:#8699AB;
+
+  --blue:#2563A8;
+  --teal:#13806A;
+  --sand:#9C6B14;
+  --rose:#AE3A60;
+  --peri:#5355B8;
+
+  --agri:var(--teal);
+  --med:var(--rose);
+  --se:var(--sand);
+  --env:var(--blue);
+  --other:var(--peri);
+
+  --display:"Archivo",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--paper); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--card)}
+img{max-width:100%; display:block}
+a{color:var(--blue); text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--blue); outline-offset:3px}
+h1,h2,h3{font-family:var(--display); font-weight:700; text-wrap:balance; margin:0; letter-spacing:-.018em}
+.wrap{max-width:1060px; margin:0 auto; padding-left:max(18px,env(safe-area-inset-left,0px)); padding-right:max(18px,env(safe-area-inset-right,0px))}
+
+/* ── nav ── */
+.skip{position:absolute; left:-9999px; top:0; background:var(--ink); color:#fff; padding:10px 16px; z-index:20; font-family:var(--mono); font-size:12px}
+.skip:focus{left:8px; top:8px}
+.nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:9; background:rgba(255,255,255,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+.navin{display:flex; align-items:center; justify-content:space-between; gap:14px; padding-block:13px; flex-wrap:wrap}
+.brand{font-family:var(--display); font-weight:700; font-size:16px; letter-spacing:-.01em; text-decoration:none; color:var(--ink); white-space:nowrap}
+.brand i{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.17em; text-transform:uppercase; color:var(--faint); font-style:normal; font-weight:400; margin-top:1px}
+.menu{display:flex; gap:3px; flex-wrap:wrap}
+.menu a{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--dim); text-decoration:none; padding:8px 11px; border:1px solid transparent;
+}
+.menu a:hover{color:var(--ink)}
+.menu a[aria-current="page"]{color:var(--blue); border-color:var(--line2); background:var(--paper)}
+
+/* ── view scaffolding ── */
+.view{padding-block:0 60px}
+.band{padding-block:48px; border-top:1px solid var(--line)}
+.band:first-child{border-top:0}
+.head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:24px}
+.head h2{font-size:clamp(22px,3.2vw,29px)}
+.head .tag{font-family:var(--mono); font-size:11px; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); border:1px solid var(--line2); padding:4px 9px}
+.note{font-size:13.5px; color:var(--faint); margin-top:16px; max-width:72ch}
+.intro{font-size:17px; line-height:1.64; color:#2E3E50; max-width:70ch; margin:0 0 6px}
+
+/* ── hero ── */
+.hero{position:relative; padding-block:52px 50px}
+#field{position:absolute; left:-30vw; right:-30vw; top:-20px; width:160vw; height:380px; opacity:.5; pointer-events:none; z-index:0;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 40%,transparent 92%); mask-image:linear-gradient(180deg,#000 0%,#000 40%,transparent 92%)}
+.hero > *{position:relative; z-index:1}
+.htop{position:relative; z-index:1; display:flex; gap:30px; align-items:flex-start}
+.hmain{flex:1 1 320px; min-width:0}
+.kicker{font-family:var(--mono); font-size:11px; letter-spacing:.19em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:10px; margin-bottom:20px}
+.kicker .dot{width:6px; height:6px; background:var(--teal); border-radius:50%}
+h1{font-size:clamp(38px,8.4vw,80px); line-height:.98; padding-bottom:.04em; letter-spacing:-.028em}
+.lede{font-size:clamp(17px,2.3vw,20px); line-height:1.56; margin-top:24px; max-width:66ch; color:#2E3E50}
+.lede em{font-style:normal; font-weight:600; color:var(--ink); border-bottom:2px solid}
+.lede em.a{border-color:var(--rose)} .lede em.b{border-color:var(--teal)} .lede em.c{border-color:var(--sand)}
+.cta{display:flex; flex-wrap:wrap; gap:9px; margin-top:30px}
+.cta a{font-family:var(--mono); font-size:12px; letter-spacing:.04em; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line2); padding:10px 15px; transition:border-color .18s, color .18s}
+.cta a:hover{border-color:var(--blue); color:var(--blue)}
+.cta a.key{background:var(--blue); color:#fff; border-color:var(--blue); font-weight:500}
+.cta a.key:hover{background:#1C4E85; border-color:#1C4E85}
+
+/* ── stats ── */
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(134px,1fr)); gap:12px}
+.stat{background:var(--card); border:1px solid var(--line); padding:17px 16px 14px; position:relative; overflow:hidden; box-shadow:0 1px 2px rgba(22,32,44,.03)}
+.stat::after{content:""; position:absolute; left:0; top:0; width:3px; height:100%; background:var(--c,var(--blue))}
+.stat b{display:block; font-family:var(--display); font-size:clamp(28px,4.2vw,36px); line-height:1; font-variant-numeric:tabular-nums}
+.stat span{display:block; font-family:var(--mono); font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); margin-top:9px}
+
+/* ── area cards ── */
+.areas{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:14px}
+.area{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c); padding:24px;
+  box-shadow:0 1px 2px rgba(22,32,44,.03); transition:transform .2s, box-shadow .2s}
+.area:hover{transform:translateY(-3px); box-shadow:0 14px 34px -18px rgba(22,32,44,.3)}
+.area .n{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--c)}
+.area h3{font-size:19px; margin:8px 0 10px}
+.area p{margin:0; font-size:14.5px; line-height:1.6; color:#2E3E50}
+.area .c{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:14px; border-top:1px solid var(--line); padding-top:11px}
+
+/* ── project cards ── */
+.thesis{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--se); padding:26px 28px; margin-bottom:34px; box-shadow:0 1px 2px rgba(22,32,44,.03)}
+.tl2{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--sand); margin-bottom:9px}
+.thesis h3{font-size:19px; line-height:1.3; max-width:60ch}
+.thesis p{margin:13px 0 0; font-size:15px; line-height:1.64; color:#2E3E50; max-width:76ch}
+.tbtn{display:inline-block; margin-top:16px; font-family:var(--mono); font-size:12px; text-decoration:none; color:var(--ink); border:1px solid var(--line2); padding:10px 15px}
+.tbtn:hover{border-color:var(--sand); color:var(--sand)}
+.pjs{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px}
+.pj{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c); padding:22px 24px 20px; box-shadow:0 1px 2px rgba(22,32,44,.03); transition:transform .2s, box-shadow .2s}
+.pj:hover{transform:translateY(-3px); box-shadow:0 16px 38px -22px rgba(22,32,44,.34)}
+.pj .kind{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--c)}
+.pj h3{font-size:18px; line-height:1.3; margin:9px 0 0}
+.pj p{margin:11px 0 0; font-size:14.5px; line-height:1.6; color:#2E3E50}
+.pj .stack{display:flex; flex-wrap:wrap; gap:6px; margin-top:15px}
+.pj .stack span{font-family:var(--mono); font-size:10px; letter-spacing:.05em; color:var(--dim); border:1px solid var(--line2); padding:3px 8px}
+.pj .src{font-family:var(--mono); font-size:10.5px; color:var(--faint); margin-top:13px; border-top:1px solid var(--line); padding-top:11px}
+.works{display:grid; gap:14px}
+.work{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c); padding:24px 26px 22px;
+  box-shadow:0 1px 2px rgba(22,32,44,.03); transition:box-shadow .2s}
+.work:hover{box-shadow:0 16px 38px -22px rgba(22,32,44,.34)}
+.wtop{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px}
+.pill{font-family:var(--mono); font-size:10px; letter-spacing:.09em; text-transform:uppercase; padding:4px 9px; border:1px solid var(--line2); color:var(--dim)}
+.pill.pub{border-color:var(--teal); color:var(--teal)}
+.pill.press{border-color:var(--sand); color:var(--sand)}
+.pill.rev{border-color:var(--peri); color:var(--peri)}
+.work h3{font-size:20px; line-height:1.26; margin-bottom:4px}
+.venue{font-family:var(--mono); font-size:11.5px; color:var(--faint)}
+.work p{margin:14px 0 0; font-size:15px; line-height:1.64; color:#2E3E50; max-width:76ch}
+.spec{display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:18px}
+.spec div{background:var(--card2); padding:11px 13px}
+.spec dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--faint)}
+.spec dd{margin:5px 0 0; font-family:var(--mono); font-size:14px; color:var(--c); font-variant-numeric:tabular-nums; font-weight:500}
+.meth{display:flex; flex-wrap:wrap; gap:6px; margin-top:15px}
+.meth span{font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:var(--dim); border:1px solid var(--line2); padding:3px 8px}
+
+/* ── dataset bars ── */
+.dbars{display:grid; gap:9px}
+.dbar{display:grid; grid-template-columns:minmax(120px,190px) 1fr; gap:14px; align-items:center}
+.dbar .lab{font-size:13.5px; text-align:right; line-height:1.3}
+.dbar .lab i{display:block; font-family:var(--mono); font-size:10px; color:var(--faint); font-style:normal; letter-spacing:.05em}
+.track{position:relative; height:30px; background:var(--card); border:1px solid var(--line)}
+.track i{display:block; height:100%; background:var(--c); opacity:.84}
+.track span{position:absolute; top:50%; transform:translateY(-50%); left:calc(var(--w) + 10px); font-family:var(--mono); font-size:12px; font-variant-numeric:tabular-nums; white-space:nowrap}
+.track span.inside{left:auto; right:10px; color:#fff}
+@media (max-width:560px){ .dbar{grid-template-columns:1fr; gap:4px} .dbar .lab{text-align:left} }
+
+/* ── benchmarks ── */
+.bgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px}
+.bcard{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c); padding:18px 20px 16px; box-shadow:0 1px 2px rgba(22,32,44,.03)}
+.bcard h3{font-size:16px; margin-bottom:2px}
+.bcard .u{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); margin-bottom:14px}
+.brow{margin-bottom:11px}
+.brow .n{display:flex; justify-content:space-between; gap:10px; font-size:13px; align-items:baseline; margin-bottom:4px}
+.brow .n b{font-weight:500; color:var(--dim)}
+.brow .n em{font-family:var(--mono); font-style:normal; font-size:13px; color:var(--dim); font-variant-numeric:tabular-nums}
+.brow.win .n b{color:var(--ink); font-weight:600}
+.brow.win .n em{color:var(--c); font-weight:500}
+.btrack{height:9px; background:var(--paper); border:1px solid var(--line)}
+.btrack i{display:block; height:100%; background:var(--line2)}
+.brow.win .btrack i{background:var(--c)}
+.bfoot{font-family:var(--mono); font-size:10px; color:var(--faint); letter-spacing:.04em; border-top:1px solid var(--line); padding-top:10px}
+
+/* ── matrix ── */
+.mx{overflow-x:auto; padding-bottom:4px}
+table.matrix{border-collapse:separate; border-spacing:4px; font-family:var(--mono); min-width:500px}
+table.matrix th{font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); font-weight:500; padding:4px 6px; text-align:center}
+table.matrix th.rowlab{text-align:right; white-space:nowrap; font-size:11.5px; color:var(--dim); text-transform:none; letter-spacing:.02em}
+table.matrix td{width:66px; height:50px; text-align:center; font-size:14px; font-weight:500; font-variant-numeric:tabular-nums; border:1px solid var(--line); transition:transform .15s}
+table.matrix td:hover{transform:scale(1.07); border-color:var(--ink)}
+table.matrix td.z{color:var(--faint); font-weight:400}
+.legend{display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:18px; font-family:var(--mono); font-size:11px; color:var(--dim)}
+.legend i{display:inline-block; width:10px; height:10px; margin-right:6px; vertical-align:-1px}
+
+/* ── publications ── */
+.tools{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px}
+.chip{font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; background:var(--card); border:1px solid var(--line2); color:var(--dim); padding:8px 13px; cursor:pointer; transition:.15s}
+.chip:hover{color:var(--ink); border-color:var(--faint)}
+.chip[aria-pressed="true"]{background:var(--blue); border-color:var(--blue); color:#fff; font-weight:500}
+#q{flex:1 1 210px; min-width:0; font-family:var(--mono); font-size:12.5px; color:var(--ink); background:var(--card); border:1px solid var(--line2); padding:8px 12px}
+#q::placeholder{color:var(--faint)}
+.count{font-family:var(--mono); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); margin-bottom:14px}
+ol.pubs{list-style:none; margin:0; padding:0; display:grid; gap:9px}
+ol.pubs li{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--c); padding:16px 18px; display:grid; grid-template-columns:38px 1fr; gap:14px; transition:background .16s, border-color .16s}
+ol.pubs li:hover{background:var(--card2); border-color:var(--line2); border-left-color:var(--c)}
+.idx{font-family:var(--mono); font-size:12px; color:var(--faint); padding-top:3px; font-variant-numeric:tabular-nums}
+.pb{min-width:0}
+.ti{font-family:var(--display); font-weight:600; font-size:16.5px; line-height:1.34}
+.au{font-size:13px; color:var(--dim); margin-top:7px}
+.au b{color:var(--ink); font-weight:600}
+.vn{font-size:13px; color:var(--dim); margin-top:4px}
+.vn i{color:#44566B}
+.meta{display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; align-items:center}
+.t{font-family:var(--mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase; padding:3px 8px; border:1px solid var(--line2); color:var(--dim)}
+.t.area{border-color:var(--c); color:var(--c)}
+.t.q{border-color:var(--teal); color:var(--teal)}
+.t.ip{border-color:var(--sand); color:var(--sand)}
+.t.rv{border-color:var(--peri); color:var(--peri)}
+.doi{font-family:var(--mono); font-size:10.5px; color:var(--faint); margin-top:8px; word-break:break-all}
+.empty{background:var(--card); border:1px dashed var(--line2); padding:26px; text-align:center; color:var(--faint); font-family:var(--mono); font-size:12.5px}
+
+/* ── about ── */
+.abt{display:grid; grid-template-columns:200px 1fr; gap:34px; align-items:start}
+.aportrait{width:200px; height:240px; object-fit:cover; object-position:50% 18%; border:1px solid var(--line2); box-shadow:0 14px 36px -20px rgba(22,32,44,.4)}
+@media (max-width:680px){ .abt{grid-template-columns:1fr; gap:22px} .aportrait{width:150px; height:180px} }
+.moments{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px}
+.moments figure{margin:0; background:var(--card); border:1px solid var(--line); box-shadow:0 1px 2px rgba(22,32,44,.03); overflow:hidden}
+.moments img{width:100%; height:360px; object-fit:cover; object-position:50% 30%}
+.moments figcaption{padding:16px 18px; font-size:13.5px; color:var(--dim); line-height:1.5}
+.moments figcaption b{display:block; font-family:var(--display); font-size:14.5px; color:var(--ink); font-weight:600; margin-bottom:4px}
+.moments figcaption i{color:#2E3E50}
+@media (max-width:560px){ .moments img{height:300px} }
+.tl{position:relative; padding-left:26px}
+.tl::before{content:""; position:absolute; left:5px; top:10px; bottom:10px; width:1px; background:linear-gradient(180deg,var(--rose),var(--blue),var(--teal),transparent)}
+.job{position:relative; padding-bottom:32px}
+.job:last-child{padding-bottom:0}
+.job::before{content:""; position:absolute; left:-26px; top:9px; width:11px; height:11px; background:var(--paper); border:2px solid var(--c,var(--blue)); border-radius:50%; box-shadow:0 0 0 4px var(--paper)}
+.jh{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline}
+.jh h3{font-size:18px}
+.when{font-family:var(--mono); font-size:11px; letter-spacing:.05em; color:var(--c,var(--blue)); white-space:nowrap}
+.where{font-size:12.5px; color:var(--dim); margin-top:4px; font-family:var(--mono)}
+.job ul{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:8px}
+.job li{font-size:14.5px; line-height:1.6; color:#2E3E50; padding-left:17px; position:relative}
+.job li::before{content:"—"; position:absolute; left:0; color:var(--c,var(--blue)); font-size:11px; top:1px}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(262px,1fr)); gap:13px}
+.card{background:var(--card); border:1px solid var(--line); padding:20px; box-shadow:0 1px 2px rgba(22,32,44,.03); transition:box-shadow .2s}
+.card:hover{box-shadow:0 12px 30px -20px rgba(22,32,44,.3)}
+.card h3{font-size:17px; margin-bottom:6px}
+.card .yr{font-family:var(--mono); font-size:11px; color:var(--blue); letter-spacing:.06em}
+.card p{margin:8px 0 0; font-size:13.5px; color:var(--dim); line-height:1.55}
+.card dl{display:grid; grid-template-columns:auto 1fr; gap:5px 12px; margin:12px 0 0; font-size:13.5px}
+.card dt{font-family:var(--mono); font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); padding-top:3px}
+.card dd{margin:0; min-width:0; color:#2E3E50}
+.talk{border-left:2px solid var(--line2); padding:0 0 18px 16px}
+.talk:hover{border-left-color:var(--blue)}
+.th{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap}
+.ev{font-family:var(--display); font-weight:600; font-size:15px; color:var(--blue)}
+.loc{font-size:12px; color:var(--faint); font-family:var(--mono)}
+.talk ul{margin:7px 0 0; padding:0; list-style:none; display:grid; gap:4px}
+.talk li{font-size:14px; color:#2E3E50; padding-left:14px; position:relative}
+.talk li::before{content:"·"; position:absolute; left:2px; color:var(--faint)}
+.sk{display:grid; gap:10px}
+.skrow{display:grid; grid-template-columns:172px 1fr; gap:8px 18px; background:var(--card); border:1px solid var(--line); padding:15px 18px}
+.skrow dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--c,var(--blue)); padding-top:4px}
+.skrow dd{margin:0; font-size:14px; color:#2E3E50; min-width:0; line-height:1.6}
+.hon{list-style:none; margin:0; padding:0; display:grid; gap:9px}
+.hon li{background:var(--card); border:1px solid var(--line); padding:14px 17px; font-size:14.5px; color:#2E3E50; display:grid; grid-template-columns:26px 1fr; gap:12px}
+.hon li .m{font-family:var(--mono); font-size:11px; color:var(--blue); padding-top:3px}
+.hon b{color:var(--ink)}
+@media (max-width:620px){ .skrow{grid-template-columns:1fr} ol.pubs li{grid-template-columns:28px 1fr; gap:10px; padding:14px} .card dl{grid-template-columns:1fr} .work{padding:19px} }
+
+/* ── contact ── */
+.cgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); gap:13px}
+.ccard{background:var(--card); border:1px solid var(--line); padding:24px; box-shadow:0 1px 2px rgba(22,32,44,.03)}
+.ccard .l{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint)}
+.ccard .v{font-size:16px; margin-top:8px; word-break:break-word}
+.ccard .v a{text-decoration:none}
+.plinks{display:flex; flex-wrap:wrap; gap:9px; margin-top:4px}
+.plinks a{font-family:var(--mono); font-size:12px; letter-spacing:.04em; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line2); padding:11px 16px}
+.plinks a:hover{border-color:var(--blue); color:var(--blue)}
+
+footer{padding-block:26px 46px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--faint)}
+footer b{color:var(--dim); font-weight:400}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#publications">Skip to content</a>
+<header class="nav"><div class="wrap navin">
+  <a class="brand" href="#home">Zarif Wasif Bhuiyan<i>Machine vision research</i></a>
+  <nav class="menu">
+    <a href="#home" data-nav="home">Home</a>
+    <a href="#research" data-nav="research">Research</a>
+    <a href="#projects" data-nav="projects">Projects</a>
+    <a href="#publications" data-nav="publications">Publications</a>
+    <a href="#about" data-nav="about">About</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+  </nav>
+</div></header>
+
+<main>
+
+<!-- ════════ HOME ════════ -->
+<div class="view" data-view="home">
+  <div class="wrap">
+    <div class="hero">
+      <canvas id="field" aria-hidden="true"></canvas>
+      <div>
+        <div class="kicker"><span class="dot"></span> Dhaka, Bangladesh</div>
+        <h1>I teach machines<br>to look carefully.</h1>
+        <p class="lede">Deep learning for visual recognition in <em class="a">medical imaging</em> and <em class="b">agricultural and food machine vision</em>, with a second strand on <em class="c">machine learning for software engineering</em>. I build the datasets myself, and I care more about whether a result survives scrutiny than about the headline number.</p>
+      </div>
+      <nav class="cta">
+        <a class="key" href="#research">See the work</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">42 papers</a>
+        <a href="https://scholar.google.com/citations?user=mVpBtfYAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=58634204800">Scopus</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="band">
+      <div class="stats">
+        <div class="stat" style="--c:var(--blue)"><b data-n="36">36</b><span>Accepted publications</span></div>
+        <div class="stat" style="--c:var(--rose)"><b data-n="5">5</b><span>Journal articles</span></div>
+        <div class="stat" style="--c:var(--teal)"><b data-n="9">9</b><span>Datasets built or curated</span></div>
+        <div class="stat" style="--c:var(--sand)"><b data-n="7">7</b><span>Systems deployed</span></div>
+        <div class="stat" style="--c:var(--peri)"><b data-n="6">6</b><span>Under review</span></div>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Three things I work on</h2></div>
+      <div class="areas">
+        <div class="area" style="--c:var(--rose)">
+          <div class="n">01 · Medical imaging</div>
+          <h3>Models a clinician could argue with</h3>
+          <p>Multi-organ CT, lung cancer across CT and histopathology, kidney disease, dermatology. Every result gets a Grad-CAM, LIME or SHAP pass, because a model that is right for the wrong reason is not usable in a clinic.</p>
+          <div class="c">6 publications</div>
+        </div>
+        <div class="area" style="--c:var(--teal)">
+          <div class="n">02 · Agricultural &amp; food vision</div>
+          <h3>Recognition where the data doesn't exist yet</h3>
+          <p>Meat, eggs, crop leaves, fruit disease, pests. Most of these problems have no public dataset for Bangladesh, so the work starts at a market stall with a camera, not at a download link.</p>
+          <div class="c">16 publications</div>
+        </div>
+        <div class="area" style="--c:var(--sand)">
+          <div class="n">03 · ML for software engineering</div>
+          <h3>Reading design, not just code</h3>
+          <p>My M.Sc. thesis: recognising UML diagrams with deep learning and detecting design patterns with LLMs. Related work covers AI-assisted testing, lifecycle selection and vulnerability remediation.</p>
+          <div class="c">8 publications</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>A few projects</h2><span class="tag">more under Research</span></div>
+      <div class="works" id="featured"></div>
+      <nav class="cta"><a class="key" href="#research">All nine projects</a></nav>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ RESEARCH ════════ -->
+<div class="view" data-view="research" hidden>
+  <div class="wrap">
+    <div class="band">
+      <div class="head"><h2>Research</h2><span class="tag">datasets, models, results</span></div>
+      <p class="intro">The pattern across almost everything below is the same. Find a recognition problem where the data does not exist, build the dataset properly, design a model for it, then put it against retrained baselines under identical conditions and check with explainability tools that it learned the right thing. Where it is useful, ship it as something people can open.</p>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>The data behind it</h2><span class="tag">what I collect and curate</span></div>
+      <div class="stats" style="margin-bottom:30px">
+        <div class="stat" style="--c:var(--teal)"><b data-n="9">9</b><span>Image datasets</span></div>
+        <div class="stat" style="--c:var(--blue)"><b data-n="7">7</b><span>Deployed to web or device</span></div>
+        <div class="stat" style="--c:var(--peri)"><b data-n="1268">1268</b><span>Survey respondents</span></div>
+        <div class="stat" style="--c:var(--sand)"><b data-n="137">137</b><span>Studies screened</span></div>
+      </div>
+      <div class="dbars" id="dbars"></div>
+      <p class="note">Images per dataset, labelled with the classes each covers. The ones marked <b>own</b> were photographed from scratch at market stalls, field sites and in the lab. Every one uses a stratified hold-out with augmentation applied after the split, never before — the cheapest way to fake a good number is to leak augmented copies into the test set.</p>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Does the new model actually win?</h2><span class="tag">proposed vs retrained baselines</span></div>
+      <p class="intro" style="margin-bottom:24px">Every architecture below was retrained and tested on the same splits under the same conditions. A proposed model only means something against baselines that got equal treatment.</p>
+      <div class="bgrid" id="bench"></div>
+    </div>
+
+    <div class="band">
+      <div class="thesis">
+        <div class="tl2">M.Sc. thesis · 2026</div>
+        <h3>Automated Software Requirement and Design Understanding Using Deep Learning-Based UML Diagram Recognition and LLM-Based Design Pattern Detection</h3>
+        <p>Two halves of one question: can a model read a software design the way an engineer does? The first recognises UML diagrams from images with a task-specific deep CNN; the second evaluates large language models on detecting design patterns in source systems. Both halves became conference papers at ICCVBIC 2026.</p>
+        <a class="tbtn" href="https://ar.iub.edu.bd/handle/11348/1597">Read it in the IUB repository →</a>
+      </div>
+
+      <div class="head"><h2>Projects</h2><span class="tag">nine</span></div>
+      <div class="works" id="works"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PROJECTS ════════ -->
+<div class="view" data-view="projects" hidden>
+  <div class="wrap">
+    <div class="band">
+      <div class="head"><h2>Projects</h2><span class="tag">things that run, not just results</span></div>
+      <p class="intro">A model that only exists in a results table has not been tested by anyone. Where it made sense, the work shipped: web applications a farmer or clinician can open, a device that sits on a counter, and production systems built during industry placements.</p>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Deployed systems</h2></div>
+      <div class="pjs" id="pjDeployed"></div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Models &amp; architectures</h2><span class="tag">named, released with their papers</span></div>
+      <div class="pjs" id="pjModels"></div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Industry work</h2></div>
+      <div class="pjs" id="pjIndustry"></div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Code</h2></div>
+      <p class="intro">Implementations, training scripts and dataset tooling live on GitHub.</p>
+      <div class="plinks"><a href="https://github.com/ZarifWasif">github.com/ZarifWasif</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PUBLICATIONS ════════ -->
+<div class="view" data-view="publications" hidden>
+  <div class="wrap">
+    <div class="band">
+      <div class="head"><h2>Publications</h2><span class="tag">42 entries</span></div>
+      <p class="intro">Thirty-six accepted, six under review. All accepted work is Scopus-indexed; journal metrics are the most recent publisher-reported figures. Filter or search below.</p>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Where the work went</h2><span class="tag">area × year</span></div>
+      <div class="mx"><table class="matrix" id="matrix"></table></div>
+      <div class="legend" id="legend"></div>
+      <p class="note">Accepted work only, counted once each, placed in the year of the venue — work in press sits in its own year rather than a separate column. The six papers under review are listed below but not counted here.</p>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Authorship</h2><span class="tag">who I write with</span></div>
+      <div class="stats" style="margin-bottom:28px">
+        <div class="stat" style="--c:var(--blue)"><b id="faN">0</b><span>As first author</span></div>
+        <div class="stat" style="--c:var(--teal)"><b id="coN">0</b><span>Distinct co-authors</span></div>
+        <div class="stat" style="--c:var(--sand)"><b id="veN">0</b><span>Distinct venues</span></div>
+        <div class="stat" style="--c:var(--peri)"><b id="prN">0</b><span>Publishers</span></div>
+      </div>
+      <div class="dbars" id="collab"></div>
+      <p class="note">Recurring collaborators, counted across every paper listed below. Three manuscripts under anonymous review are excluded from the author counts because their author lists are not yet public.</p>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>The list</h2></div>
+      <div class="tools">
+        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>
+        <button class="chip" data-f="type" data-v="j" aria-pressed="false">Journals</button>
+        <button class="chip" data-f="type" data-v="c" aria-pressed="false">Conferences</button>
+        <button class="chip" data-f="status" data-v="published" aria-pressed="false">Published</button>
+        <button class="chip" data-f="status" data-v="inpress" aria-pressed="false">In press</button>
+        <button class="chip" data-f="status" data-v="review" aria-pressed="false">Under review</button>
+        <input id="q" type="search" placeholder="search title, venue, co-author, doi…" aria-label="Search publications">
+      </div>
+      <div class="count" id="count"></div>
+      <ol class="pubs" id="pubs"></ol>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ ABOUT ════════ -->
+<div class="view" data-view="about" hidden>
+  <div class="wrap">
+    <div class="band">
+      <div class="head"><h2>About</h2></div>
+      <div class="abt">
+        <img class="aportrait" src="img/portrait.jpg" alt="Zarif Wasif Bhuiyan">
+        <div>
+      <p class="intro">I am a Graduate Research Assistant in Data Science and Machine Learning at Independent University, Bangladesh, where I finished an M.Sc. in Software Engineering ranked first in the programme. Before that I did my B.Sc. at the same university and two industry stints building production ML and backend systems.</p>
+      <p class="intro">Most of my time goes to comparative studies: designing the evaluation, tuning the candidates, testing whether the gaps are real, and checking with Grad-CAM++ and LIME that the model is looking where it should. I wrote the analysis workflow the lab now runs on, and I run the lab sessions for Neural Networks and Artificial Intelligence.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Experience</h2></div>
+      <div class="tl">
+        <div class="job" style="--c:var(--rose)">
+          <div class="jh"><h3>Graduate Research Assistant — Data Science &amp; Machine Learning</h3><span class="when">Aug 2025 — present</span></div>
+          <div class="where">Dept. of Computer Science and Engineering, Independent University, Bangladesh</div>
+          <ul>
+            <li>Lead comparative deep-learning studies in medical image classification across four clinical domains: multi-organ CT, lung cancer across CT and histopathology, kidney disease and multiclass dermatology. For each, design the comparative analysis, tune the candidate models, test performance differences against baselines for statistical significance, and run Grad-CAM++/LIME diagnostics.</li>
+            <li>Standardised the lab's analysis workflow — preprocessing, stratified splitting, multi-model training, evaluation and reporting — so results are reproducible and comparable across studies; others in the group now work from it.</li>
+            <li>Built a 12,270-image, six-class dataset from market locations across Bangladesh with a strict split-before-augmentation protocol, then designed and validated the model trained on it. Accepted at a Q1 journal.</li>
+            <li>Designed and built an IoT prototype for meat freshness and type recognition, pairing sensor instrumentation with a custom CNN.</li>
+            <li>Support faculty and student teams with study design, survey instruments, data collection and manuscript preparation; run lab sessions for CSE424 and CSE425 and co-supervise final-year theses.</li>
+          </ul>
+        </div>
+        <div class="job" style="--c:var(--blue)">
+          <div class="jh"><h3>Research Assistant</h3><span class="when">Jan — Jul 2025</span></div>
+          <div class="where">Dept. of Physical Sciences, Independent University, Bangladesh</div>
+          <ul>
+            <li>Built a multivariate time-series forecasting system on an 8-year environmental sensor record — temperature, humidity, rainfall, PM<sub>2.5</sub> and PM<sub>10</sub> — benchmarking a Transformer against Random Forest, XGBoost, CatBoost and LSTM.</li>
+            <li>Developed MCPNet, a lightweight hybrid CNN for multi-crop pest recognition: 99% across 13 classes on a curated 13,000-image dataset.</li>
+            <li>Built a bilingual Bangla/English academic-guidance assistant using large language models and LangChain.</li>
+          </ul>
+        </div>
+        <div class="job" style="--c:var(--teal)">
+          <div class="jh"><h3>Data Scientist Trainee</h3><span class="when">May — Jul 2024</span></div>
+          <div class="where">Digicon Technologies PLC. — Dhaka</div>
+          <ul>
+            <li>Designed and deployed a face-recognition attendance system for Nagad's Customer Management Platform.</li>
+            <li>Built and integrated an AI-powered FAQ chatbot into Uttara Motors' Customer Management System.</li>
+          </ul>
+        </div>
+        <div class="job" style="--c:var(--peri)">
+          <div class="jh"><h3>Python Developer Trainee</h3><span class="when">Feb — Apr 2024</span></div>
+          <div class="where">Jaish Trade International — Dhaka</div>
+          <ul><li>Built a Django-based inventory management and tracking system.</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Education</h2></div>
+      <div class="grid">
+        <div class="card" style="grid-column:1/-1">
+          <div class="yr">2026</div>
+          <h3>M.Sc. in Software Engineering</h3>
+          <p>Independent University, Bangladesh — Dhaka</p>
+          <dl>
+            <dt>CGPA</dt><dd>3.96 / 4.00</dd>
+            <dt>Standing</dt><dd><b style="color:var(--teal)">Ranked 1st in the programme</b></dd>
+            <dt>Thesis</dt><dd><i>Automated Software Requirement and Design Understanding Using Deep Learning-Based UML Diagram Recognition and LLM-Based Design Pattern Detection</i></dd>
+            <dt>Supervisor</dt><dd>Dr. Md. Tarek Habib, Associate Professor, CSE</dd>
+            <dt>Archive</dt><dd><a href="https://ar.iub.edu.bd/handle/11348/1597">ar.iub.edu.bd/handle/11348/1597</a></dd>
+          </dl>
+        </div>
+        <div class="card"><div class="yr">2024</div><h3>B.Sc. in Computer Science and Engineering</h3><p>Independent University, Bangladesh</p><dl><dt>CGPA</dt><dd>3.19 / 4.00</dd></dl></div>
+        <div class="card"><div class="yr">2018</div><h3>Higher Secondary Certificate</h3><p>Dhaka City College · Science</p><dl><dt>GPA</dt><dd>4.50 / 5.00</dd></dl></div>
+        <div class="card"><div class="yr">2016</div><h3>Secondary School Certificate</h3><p>Govt. Mohammadpur Model School and College · Science</p><dl><dt>GPA</dt><dd>5.00 / 5.00</dd></dl></div>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Two days that mattered</h2></div>
+      <div class="moments">
+        <figure><img src="img/defence.jpg" alt="Holding the bound M.Sc. thesis on defence day">
+          <figcaption><b>M.Sc. defence · August 2026</b>Holding the bound thesis: <i>Automated Software Requirement and Design Understanding Using Deep Learning-Based UML Diagram Recognition and LLM-Based Design Pattern Detection.</i></figcaption></figure>
+        <figure><img src="img/convocation.jpg" alt="At B.Sc. convocation in cap and gown">
+          <figcaption><b>B.Sc. convocation · 2024</b>Independent University, Bangladesh — B.Sc. in Computer Science and Engineering.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Toolkit</h2></div>
+      <dl class="sk">
+        <div class="skrow" style="--c:var(--rose)"><dt>Machine learning</dt><dd>Deep learning · computer vision · image classification and semantic segmentation · NLP and LLMs · explainable AI (Grad-CAM++, LIME, SHAP) · feature engineering · statistical analysis</dd></div>
+        <div class="skrow" style="--c:var(--teal)"><dt>Model development</dt><dd>CNN, ensemble and hybrid architectures · squeeze-and-excitation and residual blocks · Vision Transformers · transfer learning · U-Net and encoder–decoder segmentation · YOLOv8 · augmentation · hyperparameter tuning</dd></div>
+        <div class="skrow" style="--c:var(--blue)"><dt>Data &amp; evaluation</dt><dd>Dataset collection and curation · stratified, leakage-safe splitting · accuracy, precision, recall, F1 · Dice and IoU · confusion-matrix analysis · significance testing · information gain and chi-square ranking · psychometric reliability</dd></div>
+        <div class="skrow" style="--c:var(--sand)"><dt>Frameworks</dt><dd>TensorFlow · PyTorch · Keras · Scikit-learn · Hugging Face Transformers · LangChain · OpenCV · Pandas · NumPy</dd></div>
+        <div class="skrow" style="--c:var(--peri)"><dt>Engineering &amp; hardware</dt><dd>Python · SQL · Django · Flask · FastAPI · Flutter · Docker · Git · Raspberry Pi · ESP32-CAM · MQ-series gas sensors</dd></div>
+      </dl>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Talks</h2><span class="tag">11 venues · delivered online at hybrid conferences</span></div>
+      <div id="talks"></div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Honours &amp; service</h2></div>
+      <ul class="hon">
+        <li><span class="m">01</span><span>Ranked <b>1st in the M.Sc. in Software Engineering programme</b>, Independent University, Bangladesh</span></li>
+        <li><span class="m">02</span><span><b>Merit Scholarship</b>, M.Sc. in Software Engineering, Independent University, Bangladesh</span></li>
+        <li><span class="m">03</span><span><b>Champion</b>, System Analysis &amp; Design Project, IUB Techfest, Summer 2023</span></li>
+        <li><span class="m">04</span><span><b>Second Runner-Up</b>, Microprocessor Interfacing &amp; Assembly Language Project, IUB Techfest, Summer 2023</span></li>
+        <li><span class="m">05</span><span><b>Teaching</b> — lab instructor, CSE424 Neural Networks and CSE425 Artificial Intelligence; co-supervisor for final-year theses</span></li>
+        <li><span class="m">06</span><span><b>Volunteer</b> — IUB SETS Fest, IUB BC Orientation, IUB Club Carnival; moderator, Dhaka City College Science Fair</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ CONTACT ════════ -->
+<div class="view" data-view="contact" hidden>
+  <div class="wrap">
+    <div class="band">
+      <div class="head"><h2>Get in touch</h2></div>
+      <p class="intro">Open to PhD positions and research collaborations in computer vision, medical image analysis and applied machine learning. Happy to share datasets, code or full manuscripts on request.</p>
+    </div>
+
+    <div class="band">
+      <div class="cgrid">
+        <div class="ccard"><div class="l">Email</div><div class="v">zarifwasif20@gmail.com</div></div>
+        <div class="ccard"><div class="l">Phone</div><div class="v">+880 1537 108135</div></div>
+        <div class="ccard"><div class="l">Based in</div><div class="v">Dhaka, Bangladesh</div></div>
+      </div>
+      <div class="plinks" style="margin-top:14px">
+        <a href="https://scholar.google.com/citations?user=mVpBtfYAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=58634204800">Scopus</a>
+        <a href="https://www.researchgate.net/profile/Zarif-Bhuiyan">ResearchGate</a>
+        <a href="https://github.com/ZarifWasif">GitHub</a>
+        <a href="https://www.linkedin.com/in/zarif-wasif-bhuiyan-8ba79a266/">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>References</h2></div>
+      <div class="grid">
+        <div class="card"><h3>Prof. Dr. Shipra Banik</h3><p>Professor, Department of Physical Sciences<br>Independent University, Bangladesh</p><dl><dt>Email</dt><dd>banik@iub.edu.bd</dd></dl></div>
+        <div class="card"><h3>Dr. Mahady Hasan</h3><p>Senior Associate Professor, Department of CSE<br>Asian University for Women — Chattogram</p><dl><dt>Email</dt><dd>mahady1891@gmail.com</dd></dl></div>
+        <div class="card"><h3>Dr. Md. Tarek Habib</h3><p>Associate Professor, Department of CSE<br>Independent University, Bangladesh</p><dl><dt>Email</dt><dd>tarek@iub.edu.bd</dd></dl></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<div class="wrap"><footer>
+  <span><b>Zarif Wasif Bhuiyan</b> · Dhaka, Bangladesh</span>
+  <span>zarifwasif20@gmail.com</span>
+  <span>Updated October 2026</span>
+</footer></div>
+
+<script>
+const ME = "Zarif Wasif Bhuiyan";
+const AREAS = {agri:"Agri & food vision", med:"Medical imaging", se:"Software engineering", env:"Environment & forecasting", other:"Applied AI & platforms"};
+const AC = {agri:"#13806A", med:"#AE3A60", se:"#9C6B14", env:"#2563A8", other:"#5355B8"};
+const esc = function(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;"); };
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const DATA = [
+ ["Multi-fruit disease", 30260, "17 classes · own", "agri"],
+ ["Mango variety &amp; grade", 30260, "14 varieties · 3 grades", "agri"],
+ ["Multi-crop leaf disease", 21000, "14 classes · 4 crops", "agri"],
+ ["Multi-organ CT", 18000, "12 classes · 3 organs", "med"],
+ ["Multi-crop pest", 13000, "13 classes", "agri"],
+ ["Meat type", 12270, "6 classes · own", "agri"],
+ ["Meat freshness (IoT)", 9928, "2 tasks · own", "agri"],
+ ["Egg variety &amp; freshness", 9100, "5 species · 15 states · own", "agri"],
+ ["Medicinal fruit &amp; seed", 3800, "19 classes", "agri"]
+];
+
+const BENCH = [
+ {h:"Meat type recognition", u:"test accuracy · 6 classes", c:"agri", r:[
+   ["Custom MeatSE-ResidualNet",97.83,1],["ConvNeXt-V2-Atto",95.83,0],["MobileNet-V3",93.00,0],["EfficientNet-B0",90.41,0]]},
+ {h:"Multi-organ CT recognition", u:"overall accuracy · 12 classes", c:"med", r:[
+   ["MOCT-SE-ResidualNet",98.00,1],["ResNet50 / AlexNet + MLP",94.82,0],["ResNet50",88.10,0]]},
+ {h:"Medicinal fruit & seed", u:"test accuracy · 19 classes", c:"agri", r:[
+   ["Triple-Stream Hybrid Ensemble",99.30,1],["MobileNetV3-Large",98.42,0]]}
+];
+
+const WORK = [
+{ar:"agri", st:"press", stl:"In press", role:"First author", feat:1,
+ h:"Custom MeatSE-ResidualNet — multiclass meat type recognition",
+ v:"Intelligent Automation & Soft Computing · Scopus Q1 · CiteScore 7.7",
+ p:"Beef, goat and lamb look alike on a market stall, which is exactly what makes substitution profitable. I collected 12,270 original RGB images across six meat types from multiple market locations in Bangladesh, then built a lightweight network combining residual learning, squeeze-and-excitation attention and convolutional refinement to pick up the differences that matter: colour, fibre arrangement, surface texture and moisture. Augmentation touched the training split only, so validation and test stayed clean.",
+ s:[["Dataset","12,270 images"],["Classes","6"],["Split","70 : 15 : 15"],["Test accuracy","97.83%"]],
+ m:["Custom CNN","Squeeze-and-excitation","Residual blocks","Leakage-safe split","Own dataset"]},
+
+{ar:"med", st:"pub", stl:"Published", role:"First author", feat:1,
+ h:"MOCT-SE-ResidualNet — multi-organ CT disease recognition",
+ v:"Journal of Intelligent Decision Making and Information Science, 2026 · Scopus Q1 · SJR 0.771",
+ p:"Most CT models handle one organ. This one covers twelve diagnostic classes across brain, kidney and lung in a single pipeline — meningioma, pituitary tumour, stroke, renal cyst, stone and tumour, lung adenocarcinoma and healthy tissue for each organ. Benchmarked against ResNet-50, VGG-16, MobileNet-V3 and classical SVM, Random Forest, k-NN and Decision Tree baselines, and shipped as a web application where every prediction carries an explanation.",
+ s:[["Dataset","18,000 images"],["Classes","12"],["Organ groups","3"],["Accuracy","98%"]],
+ m:["Grad-CAM","LIME","SHAP","Transfer learning","Web deployment"]},
+
+{ar:"agri", st:"pub", stl:"Published", role:"First author", feat:1,
+ h:"IoT meat freshness and species classification",
+ v:"IEEE Access, vol. 12, 2024 · Web of Science · IF 4.2 · CiteScore 9.3",
+ p:"A device, not just a model. An ESP32-CAM feeds images to a Raspberry Pi 3 running a custom CNN, while MQ135, MQ136 and MQ4 sensors read the ammonia, hydrogen sulfide and methane that spoiling meat releases. Image evidence and gas readings are combined, and a three-colour LED reports fresh, borderline or spoiled on the spot — no lab, no waiting.",
+ s:[["Dataset","9,928 images"],["Freshness set","6,672"],["Species set","3,256"],["Accuracy","99%"]],
+ m:["Custom CNN","ESP32-CAM","Raspberry Pi 3","MQ gas sensors","Real-time"]},
+
+{ar:"agri", st:"press", stl:"In press", role:"First author",
+ h:"Unified multi-crop leaf disease recognition with web deployment",
+ v:"Intelligent Automation & Soft Computing · Scopus Q1",
+ p:"Fourteen classes of healthy and diseased leaves across corn, potato, rice and tomato, trained through one unified pipeline with standardised splits and preprocessing so the comparison against ResNet-50, VGG-16, k-NN, SVM and Random Forest is genuinely like for like. Deployed as a web application with real-time prediction for field use.",
+ s:[["Dataset","21,000 images"],["Classes","14"],["Crops","4"],["Accuracy","99.97%"]],
+ m:["Custom CNN","Unified pipeline","Reproducible splits","Web deployment"]},
+
+{ar:"agri", st:"rev", stl:"Under review", role:"First author",
+ h:"Egg variety, freshness and nutritional estimation",
+ v:"Under review",
+ p:"Three jobs in one pass: identify the species, judge freshness from storage-duration appearance, and estimate nutrition. A YOLOv8 segmentation mask plus a Bangladeshi five-taka coin as a known scale turns pixel area into egg mass, and species-specific nutrient tables turn that mass into calories, protein, fat, cholesterol and carbohydrate — on a consumer GPU, in under two seconds.",
+ s:[["Dataset","9,100 images"],["Species","5 · 99.95%"],["Freshness","15 · 99.85%"],["Response","< 2 s"]],
+ m:["YOLOv8 segmentation","Scale reference","Custom CNN","Nutrition estimation","Own dataset"]},
+
+{ar:"agri", st:"rev", stl:"Under review", role:"First author",
+ h:"Multi-fruit disease recognition across seventeen diseases",
+ v:"Under review",
+ p:"Citrus black spot, citrus canker, guava phytophthora, mango anthracnose, pomegranate bacterial blight and a dozen more: 30,260 images across four economically important fruits. The custom CNN carries extra convolutional depth for fine-grained lesion texture and was benchmarked against ResNet-50, VGG-16 and MobileNet-V3 as well as k-NN, SVM, Random Forest and Decision Tree, then deployed as a web application.",
+ s:[["Dataset","30,260 images"],["Diseases","17"],["Fruits","4"],["Accuracy","99%"]],
+ m:["Custom CNN","Fine-grained recognition","Full benchmark suite","Web deployment"]},
+
+{ar:"agri", st:"rev", stl:"Under review", role:"Co-author",
+ h:"AI-driven mango variety identification and quality grading",
+ v:"Under review",
+ p:"Fourteen mango varieties and three quality grades from a 30,260-image set, aimed at the sorting line rather than the lab bench. Confusion-matrix analysis showed the remaining errors sit between visually similar varieties, which is the argument for multi-scale feature extraction in fine-grained grading. Real-time deployment tests confirmed it runs fast enough for industrial sorting.",
+ s:[["Dataset","30,260 images"],["Varieties","14"],["Grades","3"],["Variety / grade","99% / 96%"]],
+ m:["Custom CNN","Fine-grained grading","Real-time deployment","Explainable AI"]},
+
+{ar:"agri", st:"press", stl:"In press", role:"Co-author",
+ h:"Triple-Stream Hybrid Ensemble for medicinal fruit and seed classification",
+ v:"Intelligent Automation & Soft Computing · Scopus Q1 · CiteScore 7.7",
+ p:"A stacked ensemble that reads the same image three ways — MobileNetV3-Large, ResNet50 and a ViT-B16 — and lets a meta-learner combine them. Focal Loss pushes the network at the classes it keeps getting wrong, and a Cosine Annealing Warm Restarts schedule handles convergence. Dual-layer Grad-CAM++ and LIME diagnostics confirm the model reads the specimen rather than the background.",
+ s:[["Dataset","BDMediHerb · 3,800"],["Classes","19"],["Accuracy","99.30%"],["Latency","24.2 ms"]],
+ m:["Vision Transformer","Stacked ensemble","Focal Loss","Grad-CAM++","LIME"]},
+
+{ar:"other", st:"rev", stl:"Under review", role:"Data paper",
+ h:"A multidimensional dataset on student financial stress",
+ v:"Under review",
+ p:"Not a model but an instrument. A twenty-variable questionnaire run across multiple private universities in Bangladesh produced 911 anonymised respondent records covering funding source, tuition responsibility, financial difficulty, academic and mental-health impact, employment and perceived institutional support. An eight-item Financial Stress Index was built and tested for internal consistency, then Information Gain, Gain Ratio, Gini impurity reduction and chi-square ranked which socioeconomic variables actually separate low, moderate and high stress.",
+ s:[["Respondents","911"],["Variables","20"],["Cronbach’s α","0.870"],["FSI mean","37.48"]],
+ m:["Survey instrument design","Psychometrics","Feature selection","Reusable open data"]},
+
+{ar:"other", st:"rev", stl:"Under review", role:"First author",
+ h:"Artificial intelligence in accounting practice and education",
+ v:"Under review",
+ p:"A step away from vision. A PRISMA systematic review of 87 peer-reviewed studies from 2016 to 2025 across auditing, financial reporting, taxation, accounting information systems and education, paired with original Bangladeshi survey evidence. The professional data separate digital maturity — ERP and business intelligence — from genuine AI deployment, which is at a much earlier stage than the discourse suggests.",
+ s:[["Studies reviewed","87"],["Students & faculty","305"],["Professionals","52"],["Domains","5"]],
+ m:["PRISMA","Systematic review","Survey research","Mixed methods"]}
+];
+
+const P = [
+{t:"j",s:"inpress",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Md. Ataur Rahman, Mahady Hasan, and Md. Tarek Habib",ti:"A Profound Exploration of Pretrained, Ensemble, and Custom Convolutional Neural Network Models for Machine-Vision-Based Meat Type Recognition",v:"Intelligent Automation & Soft Computing",d:"Tech Science Press, USA",m:["Scopus","Q1","CiteScore 7.7"]},
+{t:"j",s:"inpress",y:2026,ar:"agri",a:"Habibur Rahman Sajal, Mohammad Monirul Islam, Mahfuzur Rahman, Zarif Wasif Bhuiyan, Subrata Kumar Dey, and Md. Tarek Habib",ti:"Triple-Stream Hybrid Deep Learning with Explainable AI for Medicinal Fruit and Seed Classification",v:"Intelligent Automation & Soft Computing",d:"Tech Science Press, USA",m:["Scopus","Q1","CiteScore 7.7"]},
+{t:"j",s:"inpress",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Mahady Hasan, Shipra Banik, and Md. Tarek Habib",ti:"Unified CNN-Based Recognition of Multi-Crop Leaf Diseases with Web Deployment",v:"Intelligent Automation & Soft Computing",d:"Tech Science Press, USA",m:["Scopus","Q1"]},
+{t:"j",s:"published",y:2026,ar:"med",a:"Zarif Wasif Bhuiyan, Afroza Sultana, and Md. Tarek Habib",ti:"MOCT-SE-ResidualNet: An Explainable Web-Based Framework Integrating Pretrained, Ensemble, and Novel CNN Models for Multi-Organ Disease Recognition from CT Scan Images",v:"Journal of Intelligent Decision Making and Information Science",d:"vol. 3, no. 10s, pp. 1726–1759, 2026, Nexora Academic Press",m:["Scopus","Q1","SJR 0.771"]},
+{t:"j",s:"published",y:2024,ar:"agri",a:"Zarif Wasif Bhuiyan, Syed Ali Redwanul Haider, Adiba Haque, Mohammad Rejwan Uddin, and Mahady Hasan",ti:"IoT Based Meat Freshness Classification Using Deep Learning",v:"IEEE Access",d:"vol. 12, pp. 196047–196069, 2024, IEEE, USA",doi:"10.1109/ACCESS.2024.3520029",m:["Web of Science","Scopus","Q1","IF 4.2","CiteScore 9.3"]},
+{t:"j",s:"review",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Syed Ali Redwanul Haider, Subrata Kumar Dey, Mahady Hasan, Mohammad Shorif Uddin, and Md. Tarek Habib",ti:"A Machine-Vision Framework for Automated Egg Variety Recognition, Freshness Assessment, and Nutritional Estimation Using Machine Learning Techniques",v:"Manuscript under review",d:"",m:[]},
+{t:"j",s:"review",y:2026,ar:"other",a:"Zarif Wasif Bhuiyan, Anika Ibnat, Zaed Bin Monir Atib, Maqbool Kader Quraishi, and Md. Tarek Habib",ti:"Artificial Intelligence in Accounting Practice and Education: A Systematic Review and Survey Evidence from Bangladesh",v:"Manuscript under review",d:"",m:[]},
+{t:"j",s:"review",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Md. Rakib Rana, Shipra Banik, Mahady Hasan, and Md. Tarek Habib",ti:"A Comprehensive Analysis of Multi-Fruit Disease Recognition Through Deep Learning and Traditional Machine Learning Modeling",v:"Manuscript under review",d:"",m:[]},
+{t:"j",s:"review",y:2026,ar:"agri",a:"",ti:"AI-Driven Mango Variety Identification and Quality Grading: Comparative Analysis and Real-Time Deployment",v:"Manuscript under review",d:"",m:[]},
+{t:"j",s:"review",y:2026,ar:"other",a:"",ti:"A Critical Review on Green AI in Tertiary Computer Education in Bangladesh",v:"Manuscript under review",d:"",m:[]},
+{t:"j",s:"review",y:2026,ar:"other",a:"",ti:"A Multidimensional Dataset on Financial Stress and Socioeconomic Characteristics Among Private University Students in Bangladesh",v:"Manuscript under review",d:"",m:[]},
+{t:"c",s:"published",y:2026,ar:"se",a:"Zarif Wasif Bhuiyan, Md. Ataur Rahman, Farzana Sadia, and Md. Tarek Habib",ti:"A Task-Specific Deep CNN Framework for UML Diagram Recognition in Requirements Engineering",v:"7th Int. Conference on Computational Vision and Bio-Inspired Computing (ICCVBIC)",d:"pp. 54–59, 2026, Lalitpur, Nepal",doi:"10.1109/ICCVBIC71195.2026.11688368",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"se",a:"Md. Ataur Rahman, Zarif Wasif Bhuiyan, and Md. Tarek Habib",ti:"A Comprehensive Evaluation of LLMs for Design Pattern Recognition in Software Systems",v:"7th Int. Conference on Computational Vision and Bio-Inspired Computing (ICCVBIC)",d:"pp. 94–99, 2026, Lalitpur, Nepal",doi:"10.1109/ICCVBIC71195.2026.11688938",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"se",a:"Adiba Haque, Syed Ali Redwanul Haider, Zarif Wasif Bhuiyan, Md Abu Sayed, and Md. Tarek Habib",ti:"Bridging the Gap: Aligning Software Engineering Education with Industry",v:"7th Int. Conference on Computational Vision and Bio-Inspired Computing (ICCVBIC)",d:"pp. 704–709, 2026, Lalitpur, Nepal",doi:"10.1109/ICCVBIC71195.2026.11689417",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"agri",a:"Dip Kundu, Shakibur Rahman Bhuiyan, Zarif Wasif Bhuiyan, Shipra Banik, and Md. Tarek Habib",ti:"A Machine Vision Framework for Bangladeshi Geographical Indication Dessert Recognition",v:"IEEE/ACIS 24th Int. Conference on Software Engineering Research, Management and Applications (SERA)",d:"pp. 339–344, 2026, Towson, MD, USA",doi:"10.1109/SERA69989.2026.11618657",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"se",a:"Sarker Mahatab Masud, Asif Mahmood, Zarif Wasif Bhuiyan, Md Hasan Masud, Mashrur Ahmed Khan, Imtiaz Ahmmed, Shazid Chowdhury, Monosij Kanti Sarker, Abu Bakar Mohammad Abdullah, Toushif Hossain, and Nujhat Nahar",ti:"A Hybrid Project Management Framework for Large-Scale ERP Implementations: Design and Empirical Validation",v:"15th Int. Conference on Software and Computer Applications (ICSCA)",d:"pp. 363–375, February 2026, ACM",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Md. Ataur Rahman, Sherin Sultana, and Md. Tarek Habib",ti:"Deep Learning Based Multi Class Recognition of Medicinal Plant Leaf Diseases",v:"Int. Conference on Artificial Intelligence for Sustainable Engineering and Innovation (AISEI)",d:"pp. 762–766, 2026, Irbid, Jordan",doi:"10.1109/AISEI68628.2026.11572765",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"env",a:"Zarif Wasif Bhuiyan, Md. Rakib Rana, Md. Ataur Rahman, Md. Shirazim Munir, Md. Ismail Jabiullah, and Md. Tarek Habib",ti:"Comparative Evaluation of Hybrid Machine Learning Models for Predicting Weather and Air Quality in Dhaka City",v:"Int. Conference on Artificial Intelligence for Sustainable Engineering and Innovation (AISEI)",d:"pp. 980–984, 2026, Irbid, Jordan",doi:"10.1109/AISEI68628.2026.11572985",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"se",a:"Monosij Kanti Sarker, Syed Noor-A-Manik, Zarif Wasif Bhuiyan, Nujhat Nahar, Md. Ismail Jabiullah, and Md. Tarek Habib",ti:"Exploring the Implication of ML-Based Evaluation Techniques to Overcome the Software Development Lifecycle Selection Challenges Faced by Project Managers",v:"Int. Conference on Artificial Intelligence for Sustainable Engineering and Innovation (AISEI)",d:"pp. 588–592, 2026, Irbid, Jordan",doi:"10.1109/AISEI68628.2026.11572737",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"agri",a:"Dip Kundu, Shakibur Rahman Bhuiyan, Md. Tamzed Hossain Siam, Zarif Wasif Bhuiyan, Subrata Kumar Dey, and Md. Tarek Habib",ti:"Deep Learning-Based Recognition of Rare Bangladeshi Fruits Using Custom CNN and Transfer Learning Models",v:"Int. Conference on Artificial Intelligence for Sustainable Engineering and Innovation (AISEI)",d:"pp. 953–957, 2026, Irbid, Jordan",doi:"10.1109/AISEI68628.2026.11572882",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"env",a:"Zarif Wasif Bhuiyan, Md. Ataur Rahman, Sherin Sultana, and Md. Tarek Habib",ti:"A Hybrid Machine Learning Approach for Accurate Weather Forecasting in Dhaka City",v:"5th Int. Conference on Sentiment Analysis and Deep Learning (ICSADL)",d:"pp. 1–6, 2026, Birendranagar, Nepal",doi:"10.1109/ICSADL67539.2026.11451803",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"se",a:"Md. Ismail Hosen, Asif Karim Alif, Zayan Zaman, Zarif Wasif Bhuiyan, Nujhat Nahar, and Mahady Hasan",ti:"AI-Enhanced Software Testing: A Human-in-the-Loop Approach for Precision and Efficiency",v:"5th Int. Conference on Electrical, Computer & Telecommunication Engineering (ICECTE)",d:"pp. 1–6, 2026, Rajshahi, Bangladesh",doi:"10.1109/ICECTE69292.2026.11429460",m:["Scopus"]},
+{t:"c",s:"published",y:2026,ar:"agri",a:"Md. Ataur Rahman, Zaed Bin Monir Atib, Zarif Wasif Bhuiyan, Md. Ismail Jabiullah, Mahady Hasan, and Md. Tarek Habib",ti:"From Orchard to Checkpoint: Reliable Mango Cultivar Recognition with Deep Learning",v:"Machine and Computing Technologies for Sustainable Development (MCT4SD 2025)",d:"LNNS vol. 1957, 2026, Springer, Cham",doi:"10.1007/978-3-032-25187-9_21",m:["Scopus"]},
+{t:"c",s:"published",y:2025,ar:"med",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Afroza Sultana, Mahady Hasan, and Md. Tarek Habib",ti:"A Comprehensive Analysis of Deep and Traditional Machine Learning for Kidney Diseases and Lung Cancer CT Interpretation",v:"Int. Conference on Machine and Computing Technologies for Sustainable Development (MCT4SD)",d:"pp. 256–266, December 2025, Springer Nature, Cham",doi:"10.1007/978-3-032-23716-3_24",m:["Scopus"]},
+{t:"c",s:"published",y:2025,ar:"med",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Mahady Hasan, Afroza Sultana, and Md. Tarek Habib",ti:"A Comprehensive Analysis of Multiclass Dermatology Image Recognition Using Deep and Classical Machine Learning",v:"28th Int. Conference on Computer and Information Technology (ICCIT)",d:"pp. 1774–1779, December 2025, Cox's Bazar, Bangladesh",doi:"10.1109/ICCIT68739.2025.11491341",m:["Scopus"]},
+{t:"c",s:"published",y:2025,ar:"agri",a:"Zarif Wasif Bhuiyan, Supprio Ghosh Nil, Zaed Bin Monir Atib, Md. Zahirul Islam, Mahady Hasan, and Md. Tarek Habib",ti:"Deep Learning for Pest Recognition in Potato and Tomato Crops: A Comparative Study of Convolutional Neural Networks",v:"28th Int. Conference on Computer and Information Technology (ICCIT)",d:"pp. 2046–2051, December 2025, Cox's Bazar, Bangladesh",doi:"10.1109/ICCIT68739.2025.11490142",m:["Scopus"]},
+{t:"c",s:"published",y:2025,ar:"med",a:"Zarif Wasif Bhuiyan, Md. Mokhlesur Rahman, Zaed Bin Monir Atib, Mahady Hasan, and Md. Tarek Habib",ti:"A Unified Deep Learning Approach for Lung Cancer Detection Across CT and Histopathological Modalities",v:"28th Int. Conference on Computer and Information Technology (ICCIT)",d:"pp. 4070–4075, December 2025, Cox's Bazar, Bangladesh",doi:"10.1109/ICCIT68739.2025.11491208",m:["Scopus"]},
+{t:"c",s:"published",y:2025,ar:"agri",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Md. Zahirul Islam, Md. Tarek Habib, and Mahady Hasan",ti:"Unified Training and Evaluation for Multi-Crop Leaf Disease Recognition with Deep and Traditional Machine Learning Models",v:"28th Int. Conference on Computer and Information Technology (ICCIT)",d:"pp. 4142–4147, December 2025, Cox's Bazar, Bangladesh",doi:"10.1109/ICCIT68739.2025.11491232",m:["Scopus"]},
+{t:"c",s:"published",y:2025,ar:"med",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Mahady Hasan, Farhad Alam, and Md. Tarek Habib",ti:"Comprehensive Assessment of Deep and Traditional ML Approaches for Multiclass Skin Disease Recognition",v:"Information Systems for Intelligent Systems (ISBM 2025)",d:"LNNS vol. 1744, September 2025, Springer, Cham",doi:"10.1007/978-3-032-12996-3_40",m:["Scopus"]},
+{t:"c",s:"published",y:2025,ar:"env",a:"Zarif Wasif Bhuiyan, Md. Humayun Kabir, Paramita Saha, Md Mahbub Alam, and Mahady Hasan",ti:"Rural Bangladesh Before COVID: Baseline Trends and District Forecasts from the Life in the Field Program",v:"Information Systems for Intelligent Systems (ISBM 2025)",d:"LNNS vol. 1742, September 2025, Springer, Cham",doi:"10.1007/978-3-032-12987-1_42",m:["Scopus"]},
+{t:"c",s:"published",y:2025,ar:"other",a:"Md. Rakib Rana, Zarif Wasif Bhuiyan, Monayem Hossian Limon, Arifa Rahman, Mahady Hasan, and Md. Tarek Habib",ti:"Review of Modern Chatbot Technologies: Performance, Capabilities and Applications",v:"48th MIPRO ICT and Electronics Convention",d:"pp. 81–86, June 2025, Opatija, Croatia",doi:"10.1109/MIPRO65660.2025.11131741",m:["Scopus"]},
+{t:"c",s:"published",y:2024,ar:"agri",a:"Zarif Wasif Bhuiyan, Monayem Hossian Limon, Md. Rakib Rana, Sayeda Rahnuma Akthar, Md. Tarek Habib, and Mahady Hasan",ti:"A Comparative Study of Deep Learning Models for Plant Leaf and Disease Recognition in Jackfruit, Rice, and Rose",v:"4th Int. Conference on Advances in Communication Technology and Computer Engineering (ICACTCE'24)",d:"LNNS vol. 1313, 2024, Springer, Cham",doi:"10.1007/978-3-031-94623-3_40",m:["Scopus"]},
+{t:"c",s:"published",y:2024,ar:"agri",a:"Zarif Wasif Bhuiyan, Md. Rakib Rana, Monayem Hossian Limon, Sayeda Rahnuma Akthar, Md. Tarek Habib, and Mahady Hasan",ti:"A Comparative Analysis of Deep Learning and Machine Learning Models for Fruit and Fruit Disease Recognition: Citrus, Guava, and Mango",v:"4th Int. Conference on Advances in Communication Technology and Computer Engineering (ICACTCE'24)",d:"LNNS vol. 1313, 2024, Springer, Cham",doi:"10.1007/978-3-031-94623-3_35",m:["Scopus"]},
+{t:"c",s:"published",y:2023,ar:"agri",a:"Zarif Wasif Bhuiyan, Syed Ali Redwanul Haider, Adiba Haque, Mahady Hasan, and Mohammad Rejwan Uddin",ti:"Meat Freshness Classifier with Machine and AI",v:"IEEE Region 10 Symposium (TENSYMP)",d:"pp. 1–5, 2023, Canberra, Australia",doi:"10.1109/TENSYMP55890.2023.10223681",m:["Scopus"]},
+{t:"c",s:"inpress",y:2026,ar:"se",a:"Imtiaz Ahmmed, Monosij Kanti Sarker, Miraz Or Rashid Alvee, Zarif Wasif Bhuiyan, Subrata Kumar Dey, and Md. Tarek Habib",ti:"Zero Trust Architecture with AI-Based Threat Intelligence: A Survey and Hybrid Security Framework",v:"5th World Conference on Information Systems for Business Management (ISBM 2026)",d:"Thailand",m:["Scopus"]},
+{t:"c",s:"inpress",y:2026,ar:"se",a:"Imtiaz Ahmmed, Monosij Kanti Sarker, Miraz Or Rashid Alvee, Zarif Wasif Bhuiyan, Subrata Kumar Dey, and Md. Tarek Habib",ti:"A Context-Aware XGBoost Framework for Vulnerability Remediation Recommendation Using GitHub Security Advisories",v:"12th IEEE Int. Conference on Sustainable Technologies for Engineering (i-COSTE 2026)",d:"IEEE",m:["Scopus"]},
+{t:"c",s:"inpress",y:2026,ar:"agri",a:"Zaed Bin Monir Atib, Zarif Wasif Bhuiyan, Md. Ataur Rahman, Fahad Monir, Mahady Hasan, and Md. Tarek Habib",ti:"Deep and Traditional Machine Learning Approaches for Meat-Type Recognition: Comparative Analysis with a Web-Based System",v:"Int. Conference on Trusted Networks and Intelligent Systems (TrustNet'26)",d:"Manipal University Jaipur, India",m:["Scopus"]},
+{t:"c",s:"inpress",y:2026,ar:"env",a:"Md. Ataur Rahman, Md. Najmus Sakib Sourov, Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Supprio Ghosh Nil, and Md. Tarek Habib",ti:"A Comprehensive Analysis of Environmental and Road Factors for Traffic Accident Severity Prediction",v:"5th Int. Conference on Intelligent Computing, Information and Control Systems (ICOIICS)",d:"",m:["Scopus"]},
+{t:"c",s:"inpress",y:2025,ar:"agri",a:"Shakibur Rahman Bhuiyan, Dip Kundu, Aunti Saha, Syeda Ayesha Mostofa, Marufa Akter, and Zarif Wasif Bhuiyan",ti:"Smart Bidding Based Agri-Trade Platform for the Fairness of Farmers",v:"16th Int. IEEE Conference on Computing, Communication and Networking Technologies (ICCCNT'25)",d:"IEEE",m:["Scopus"]},
+{t:"c",s:"inpress",y:2025,ar:"other",a:"Md Saif Ahmed Shishir, Hannan Ashrafy, Md. Ataur Rahman, Zarif Wasif Bhuiyan, Marufa Akter, and Mahady Hasan",ti:"EventPass — A Sustainable Platform for Last-Minute Discounted Event Tickets in Bangladesh",v:"16th Int. IEEE Conference on Computing, Communication and Networking Technologies (ICCCNT'25)",d:"IEEE",m:["Scopus"]},
+{t:"c",s:"inpress",y:2025,ar:"med",a:"Md. Ashraful Babu, Nadim Ahmed, Zarif Wasif Bhuiyan, Mufti Mahmud, and M Shamim Kaiser",ti:"Enhancing Lung Cancer Recognition through Deep Learning: A Comparative Analysis of CT and Histopathological Imaging",v:"5th Int. Conference on Applied Intelligence and Informatics (AII 2025)",d:"",m:["Scopus"]},
+{t:"c",s:"inpress",y:2025,ar:"agri",a:"Nadim Ahmed, Md. Ashraful Babu, Zarif Wasif Bhuiyan, and Kavikumar Jacob",ti:"Smart Farming with MCPNet: A Hybrid Deep Learning Framework for Multi-Crop Pest Detection",v:"5th Int. Conference on Applied Intelligence and Informatics (AII 2025)",d:"",m:["Scopus"]}
+];
+
+const TALKS = [
+ ["ISBM 2026","Bangkok, Thailand",["Zero Trust Architecture with AI-Based Threat Intelligence"]],
+ ["ICCVBIC 2026","Lalitpur, Nepal",["A Task-Specific Deep CNN Framework for UML Diagram Recognition in Requirements Engineering","A Comprehensive Evaluation of LLMs for Design Pattern Recognition in Software Systems","Bridging the Gap: Aligning Software Engineering Education with Industry"]],
+ ["AISEI 2026","Irbid, Jordan",["Deep Learning-Based Multiclass Recognition of Medicinal Plant Leaf Diseases","Comparative Evaluation of Hybrid Machine Learning Models for Weather and Air Quality in Dhaka City","Exploring the Implication of ML-Based Evaluation Techniques for SDLC Selection"]],
+ ["ICSADL 2026","Birendranagar, Nepal",["A Hybrid Machine Learning Approach for Accurate Weather Forecasting in Dhaka City"]],
+ ["TrustNet 2026","Manipal University Jaipur, India",["Deep and Traditional Machine Learning Approaches for Meat-Type Recognition"]],
+ ["ICCIT 2025","Cox's Bazar, Bangladesh",["A Comprehensive Analysis of Multiclass Dermatology Image Recognition","Deep Learning for Pest Recognition in Potato and Tomato Crops","A Unified Deep Learning Approach for Lung Cancer Detection Across CT and Histopathological Modalities","Unified Training and Evaluation for Multi-Crop Leaf Disease Recognition"]],
+ ["MCT4SD 2025","Manila, Philippines",["A Comprehensive Analysis of Deep and Traditional Machine Learning for Kidney Diseases and Lung Cancer"]],
+ ["ISBM 2025","Bangkok, Thailand",["Rural Bangladesh Before COVID: Baseline Trends and District Forecasts"]],
+ ["MIPRO 2025","Opatija, Croatia",["Review of Modern Chatbot Technologies: Performance, Capabilities and Applications"]],
+ ["ICACTCE 2024","Marrakech, Morocco",["A Comparative Study of Deep Learning Models for Plant Leaf and Disease Recognition"]],
+ ["TENSYMP 2023","Canberra, Australia",["Meat Freshness Classifier with Machine and AI"]]
+];
+
+/* ── routing ── */
+const VIEWS = ["home","research","projects","publications","about","contact"];
+function route(){
+  let v = (location.hash || "").replace(/^#/, "");
+  if(VIEWS.indexOf(v) === -1) v = "home";
+  document.querySelectorAll("[data-view]").forEach(function(el){ el.hidden = el.dataset.view !== v; });
+  document.querySelectorAll("[data-nav]").forEach(function(a){
+    if(a.dataset.nav === v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
+  });
+  window.scrollTo(0,0);
+}
+addEventListener("hashchange", route);
+
+/* ── activation field ── */
+(function(){
+  const cv = document.getElementById("field");
+  if(!cv || !cv.getContext) return;
+  const ctx = cv.getContext("2d");
+  const STOPS = [[0,[238,242,246]],[.36,[205,222,238]],[.60,[150,194,221]],[.80,[109,176,172]],[1,[214,178,118]]];
+  function ramp(t){
+    if(t < 0) t = 0; if(t > 1) t = 1;
+    for(let i=1;i<STOPS.length;i++){
+      if(t <= STOPS[i][0]){
+        const p0=STOPS[i-1][0], c0=STOPS[i-1][1], p1=STOPS[i][0], c1=STOPS[i][1], k=(t-p0)/(p1-p0);
+        return "rgb(" + c0.map(function(c,j){ return Math.round(c + (c1[j]-c)*k); }).join(",") + ")";
+      }
+    }
+    return "rgb(214,178,118)";
+  }
+  const CELL = 18, GAP = 2;
+  let cols, rows, srcs;
+  function size(){
+    const w = Math.max(320, cv.clientWidth || 900), h = 380;
+    cv.width = w; cv.height = h;
+    cols = Math.ceil(w/CELL); rows = Math.ceil(h/CELL);
+    srcs = [];
+    for(let i=0;i<5;i++) srcs.push({x:Math.random()*cols, y:Math.random()*rows,
+      vx:(Math.random()-.5)*.045, vy:(Math.random()-.5)*.032, r:6+Math.random()*7, w:.55+Math.random()*.55});
+  }
+  function frame(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    for(let gy=0; gy<rows; gy++) for(let gx=0; gx<cols; gx++){
+      let v = 0;
+      for(let i=0;i<srcs.length;i++){
+        const s=srcs[i], dx=gx-s.x, dy=gy-s.y;
+        v += s.w*Math.exp(-(dx*dx+dy*dy)/(2*s.r*s.r));
+      }
+      if(v > 1) v = 1;
+      if(v < .07) continue;
+      ctx.fillStyle = ramp(v);
+      ctx.globalAlpha = Math.min(.9, .2 + v*.8);
+      ctx.fillRect(gx*CELL, gy*CELL, CELL-GAP, CELL-GAP);
+    }
+    ctx.globalAlpha = 1;
+  }
+  function tick(){
+    for(let i=0;i<srcs.length;i++){
+      const s = srcs[i]; s.x += s.vx; s.y += s.vy;
+      if(s.x < -4 || s.x > cols+4) s.vx *= -1;
+      if(s.y < -4 || s.y > rows+4) s.vy *= -1;
+    }
+    frame(); requestAnimationFrame(tick);
+  }
+  size(); frame();
+  if(!reduce) requestAnimationFrame(tick);
+  let t;
+  addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(function(){ size(); frame(); }, 180); });
+})();
+
+/* ── dataset bars ── */
+(function(){
+  const max = Math.max.apply(null, DATA.map(function(d){ return d[1]; }));
+  document.getElementById("dbars").innerHTML = DATA.map(function(d){
+    const pct = (d[1]/max*100).toFixed(1);
+    return '<div class="dbar" style="--c:' + AC[d[3]] + '">' +
+      '<div class="lab">' + d[0] + "<i>" + d[2] + "</i></div>" +
+      '<div class="track" style="--w:' + pct + '%"><i style="width:' + pct + '%"></i>' +
+      '<span class="' + (pct > 68 ? "inside" : "") + '">' + d[1].toLocaleString("en-US") + "</span></div></div>";
+  }).join("");
+})();
+
+/* ── benchmarks ── */
+document.getElementById("bench").innerHTML = BENCH.map(function(b){
+  const FLOOR = 85;
+  return '<div class="bcard" style="--c:' + AC[b.c] + '"><h3>' + esc(b.h) + '</h3><div class="u">' + esc(b.u) + "</div>" +
+    b.r.map(function(x){
+      const w = Math.max(2, (x[1]-FLOOR)/(100-FLOOR)*100);
+      return '<div class="brow' + (x[2] ? " win" : "") + '"><div class="n"><b>' + esc(x[0]) + "</b><em>" +
+        x[1].toFixed(2) + '%</em></div><div class="btrack"><i style="width:' + w.toFixed(1) + '%"></i></div></div>';
+    }).join("") + '<div class="bfoot">scale 85 – 100%</div></div>';
+}).join("");
+
+/* ── project cards ── */
+function workCard(w){
+  return '<article class="work" style="--c:' + AC[w.ar] + '">' +
+    '<div class="wtop"><span class="pill ' + w.st + '">' + w.stl + '</span><span class="pill">' + w.role + '</span>' +
+      '<span class="pill" style="border-color:' + AC[w.ar] + ';color:' + AC[w.ar] + '">' + AREAS[w.ar] + '</span></div>' +
+    "<h3>" + esc(w.h) + '</h3><div class="venue">' + esc(w.v) + "</div><p>" + esc(w.p) + "</p>" +
+    '<dl class="spec">' + w.s.map(function(x){ return "<div><dt>" + x[0] + "</dt><dd>" + x[1] + "</dd></div>"; }).join("") + "</dl>" +
+    '<div class="meth">' + w.m.map(function(x){ return "<span>" + x + "</span>"; }).join("") + "</div></article>";
+}
+document.getElementById("works").innerHTML = WORK.map(workCard).join("");
+document.getElementById("featured").innerHTML = WORK.filter(function(w){ return w.feat; }).map(workCard).join("");
+
+/* ── matrix ── */
+(function(){
+  const cols = ["2023","2024","2025","2026"];
+  const keys = Object.keys(AREAS);
+  const M = {};
+  keys.forEach(function(k){ M[k] = {}; cols.forEach(function(c){ M[k][c] = 0; }); });
+  const acc = P.filter(function(p){ return p.s !== "review"; });
+  acc.forEach(function(p){ M[p.ar][String(p.y)]++; });
+  let max = 0;
+  keys.forEach(function(k){ cols.forEach(function(c){ if(M[k][c] > max) max = M[k][c]; }); });
+  const total = function(k){ return cols.reduce(function(s,c){ return s + M[k][c]; }, 0); };
+  const order = keys.slice().sort(function(a,b){ return total(b) - total(a); });
+  let html = "<tr><th></th>" + cols.map(function(c){ return "<th>"+c+"</th>"; }).join("") + "<th>Σ</th></tr>";
+  order.forEach(function(k){
+    html += '<tr><th class="rowlab">' + AREAS[k] + "</th>" + cols.map(function(c){
+      const n = M[k][c];
+      if(!n) return '<td class="z" style="background:#FFFFFF">·</td>';
+      const a = .14 + .72*(n/max);
+      return '<td style="background:color-mix(in srgb, ' + AC[k] + " " + Math.round(a*100) +
+        '%, #FFFFFF);color:' + (a > .5 ? "#FFFFFF" : AC[k]) + '" title="' + AREAS[k] + " · " + c + ": " + n + '">' + n + "</td>";
+    }).join("") + '<td style="background:#FFFFFF;color:' + AC[k] + '">' + total(k) + "</td></tr>";
+  });
+  html += '<tr><th class="rowlab">Σ</th>' + cols.map(function(c){
+    return '<th style="font-size:13px;color:#16202C;font-weight:600">' + keys.reduce(function(a,k){ return a + M[k][c]; }, 0) + "</th>";
+  }).join("") + '<th style="font-size:13px;color:#16202C;font-weight:600">' + acc.length + "</th></tr>";
+  document.getElementById("matrix").innerHTML = html;
+  document.getElementById("legend").innerHTML = order.map(function(k){
+    return '<span><i style="background:' + AC[k] + '"></i>' + AREAS[k] + "</span>";
+  }).join("");
+})();
+
+/* ── count-up ── */
+function countUp(el, n){
+  if(!el) return;
+  if(reduce || !isFinite(n) || n <= 0){ el.textContent = isFinite(n) ? n : "0"; return; }
+  let i = 0; const step = Math.max(1, Math.round(n/24));
+  const id = setInterval(function(){
+    i = Math.min(n, i + step);
+    el.textContent = n > 999 ? i.toLocaleString("en-US") : i;
+    if(i >= n) clearInterval(id);
+  }, 30);
+}
+document.querySelectorAll(".stat b[data-n]").forEach(function(el){ countUp(el, +el.dataset.n); });
+
+/* ── publications ── */
+const state = {type:"all", status:"all", q:""};
+const markMe = function(s){ return esc(s).split(ME).join("<b>"+ME+"</b>"); };
+function render(){
+  const q = state.q.trim().toLowerCase();
+  const list = P.filter(function(p){
+    if(state.type !== "all" && p.t !== state.type) return false;
+    if(state.status !== "all" && p.s !== state.status) return false;
+    if(q){
+      const hay = (p.ti+" "+p.v+" "+p.a+" "+(p.d||"")+" "+(p.doi||"")+" "+AREAS[p.ar]).toLowerCase();
+      if(hay.indexOf(q) === -1) return false;
+    }
+    return true;
+  });
+  document.getElementById("count").textContent =
+    list.length === P.length ? "showing all " + P.length : list.length + " of " + P.length;
+  const ol = document.getElementById("pubs");
+  if(!list.length){ ol.innerHTML = '<li class="empty">no match — try “CNN”, “CT”, “Habib”, “Springer”</li>'; return; }
+  ol.innerHTML = list.map(function(p,i){
+    const tags = p.m.map(function(t){
+      const hi = /^Q[1-4]$/.test(t) || t.indexOf("IF ") === 0 || t.indexOf("CiteScore") === 0 || t.indexOf("SJR") === 0 || t === "Web of Science";
+      return '<span class="t' + (hi ? " q" : "") + '">' + esc(t) + "</span>";
+    }).join("");
+    const st = p.s === "inpress" ? '<span class="t ip">In press</span>'
+             : p.s === "review" ? '<span class="t rv">Under review</span>' : "";
+    return '<li style="--c:' + AC[p.ar] + '"><span class="idx">' + String(i+1).padStart(2,"0") + '</span><div class="pb">' +
+      '<div class="ti">' + esc(p.ti) + "</div>" +
+      (p.a ? '<div class="au">' + markMe(p.a) + "</div>" : "") +
+      '<div class="vn"><i>' + esc(p.v) + "</i>" + (p.d ? ", " + esc(p.d) : "") + "</div>" +
+      '<div class="meta"><span class="t area">' + AREAS[p.ar] + "</span>" + st + tags + "</div>" +
+      (p.doi ? '<div class="doi">doi: <a href="https://doi.org/' + p.doi + '">' + p.doi + "</a></div>" : "") + "</div></li>";
+  }).join("");
+}
+document.querySelectorAll(".chip").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    const f = btn.dataset.f, v = btn.dataset.v;
+    if(f === "type"){ state.type = v; state.status = "all"; }
+    else { state.status = state.status === v ? "all" : v; state.type = "all"; }
+    document.querySelectorAll(".chip").forEach(function(b){
+      const on = b.dataset.f === "type" ? state.type === b.dataset.v : state.status === b.dataset.v;
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    if(state.type === "all" && state.status === "all")
+      document.querySelector('.chip[data-v="all"]').setAttribute("aria-pressed","true");
+    render();
+  });
+});
+document.getElementById("q").addEventListener("input", function(e){ state.q = e.target.value; render(); });
+render();
+
+/* ── projects ── */
+const PJ = {
+ deployed:[
+  {c:"med", k:"Web application", h:"Multi-organ CT diagnosis",
+   p:"Upload a CT slice and get a prediction across twelve diagnostic classes spanning brain, kidney and lung, with a Grad-CAM, LIME and SHAP view attached to every answer so the reasoning can be inspected rather than trusted blindly.",
+   t:["MOCT-SE-ResidualNet","Grad-CAM","LIME","SHAP","Web"], s:"Published in JIDMIS, 2026"},
+  {c:"agri", k:"Web application", h:"Multi-crop leaf disease recognition",
+   p:"Fourteen healthy and diseased classes across corn, potato, rice and tomato, served for real-time prediction so a diagnosis is reachable from a phone standing in the field.",
+   t:["Custom CNN","Real-time inference","Web"], s:"In press, Intelligent Automation & Soft Computing"},
+  {c:"agri", k:"Web application", h:"Multi-fruit disease recognition",
+   p:"Seventeen disease classes across citrus, guava, mango and pomegranate, from a 30,260-image dataset, deployed so growers can check a fruit without waiting for an agronomist.",
+   t:["Custom CNN","Fine-grained recognition","Web"], s:"Under review"},
+  {c:"agri", k:"Hardware device", h:"IoT meat freshness monitor",
+   p:"An ESP32-CAM feeds images to a Raspberry Pi 3 running a custom CNN, while MQ135, MQ136 and MQ4 sensors read the ammonia, hydrogen sulfide and methane that spoiling meat releases. A three-colour LED reports fresh, borderline or spoiled on the spot.",
+   t:["ESP32-CAM","Raspberry Pi 3","MQ gas sensors","Custom CNN"], s:"IEEE Access, 2024"},
+  {c:"agri", k:"Pipeline", h:"Egg variety, freshness and nutrition",
+   p:"YOLOv8 segmentation with a Bangladeshi five-taka coin as a known scale turns pixel area into egg mass, then species-specific nutrient tables turn that mass into calories, protein, fat, cholesterol and carbohydrate. Under two seconds on a consumer GPU.",
+   t:["YOLOv8","Segmentation","Scale reference","Custom CNN"], s:"Under review"},
+  {c:"other", k:"LLM assistant", h:"Bilingual academic-guidance assistant",
+   p:"A Bangla and English assistant built on large language models and LangChain, answering student questions on academic, career and financial matters with context pulled from institutional material.",
+   t:["LLM","LangChain","RAG","Bangla / English"], s:"Dept. of Physical Sciences, IUB"}
+ ],
+ models:[
+  {c:"agri", k:"Architecture", h:"Custom MeatSE-ResidualNet",
+   p:"A lightweight network combining residual learning, squeeze-and-excitation attention and convolutional refinement, designed for the subtle colour, fibre and moisture differences that separate six meat types. 97.83% on a held-out test set.",
+   t:["Squeeze-and-excitation","Residual","Lightweight"], s:"In press, IASC"},
+  {c:"med", k:"Architecture", h:"MOCT-SE-ResidualNet",
+   p:"A residual squeeze-and-excitation network built to carry twelve diagnostic classes across three organ groups in one model instead of three. 98% overall accuracy against transfer-learning, ensemble and classical baselines.",
+   t:["Squeeze-and-excitation","Multi-organ","Transfer learning"], s:"JIDMIS, 2026"},
+  {c:"agri", k:"Architecture", h:"MCPNet",
+   p:"A lightweight hybrid CNN for multi-crop pest recognition, reaching 99% across thirteen pest classes on a curated 13,000-image dataset, small enough to be worth deploying at the edge.",
+   t:["Hybrid CNN","Lightweight","13 classes"], s:"In press, AII 2025"},
+  {c:"agri", k:"Ensemble", h:"Triple-Stream Hybrid Ensemble",
+   p:"MobileNetV3-Large, ResNet50 and a ViT-B16 read the same image in parallel and a meta-learner combines them, trained with Focal Loss and Cosine Annealing Warm Restarts. 99.30% at 24.2 ms per sample.",
+   t:["Vision Transformer","Stacked ensemble","Focal Loss"], s:"In press, IASC"},
+  {c:"env", k:"Forecasting", h:"Environmental time-series system",
+   p:"A Transformer forecaster over an eight-year multivariate sensor record covering temperature, humidity, rainfall, PM2.5 and PM10, benchmarked against Random Forest, XGBoost, CatBoost and LSTM to see which approach actually held up out of sample.",
+   t:["Transformer","XGBoost","CatBoost","LSTM"], s:"Dept. of Physical Sciences, IUB"}
+ ],
+ industry:[
+  {c:"se", k:"Production system", h:"Face-recognition attendance",
+   p:"Designed and deployed for Nagad's Customer Management Platform, replacing manual entry and improving the accuracy of attendance records.",
+   t:["Computer vision","Python","Deployment"], s:"Digicon Technologies PLC."},
+  {c:"se", k:"Production system", h:"AI-powered FAQ chatbot",
+   p:"Built and integrated into Uttara Motors' Customer Management System, automating routine customer inquiries and cutting response time.",
+   t:["NLP","Chatbot","Integration"], s:"Digicon Technologies PLC."},
+  {c:"se", k:"Backend", h:"Inventory management and tracking",
+   p:"A Django system for stock monitoring, automating what had been a manual operational routine.",
+   t:["Django","Python","SQL"], s:"Jaish Trade International"}
+ ]
+};
+["deployed","models","industry"].forEach(function(key){
+  const id = "pj" + key.charAt(0).toUpperCase() + key.slice(1);
+  document.getElementById(id).innerHTML = PJ[key].map(function(x){
+    return '<article class="pj" style="--c:' + AC[x.c] + '"><div class="kind">' + x.k + "</div>" +
+      "<h3>" + esc(x.h) + "</h3><p>" + esc(x.p) + "</p>" +
+      '<div class="stack">' + x.t.map(function(t){ return "<span>" + esc(t) + "</span>"; }).join("") + "</div>" +
+      '<div class="src">' + esc(x.s) + "</div></article>";
+  }).join("");
+});
+
+/* ── authorship ── */
+(function(){
+  const withAuthors = P.filter(function(p){ return p.a; });
+  const firstAuthor = withAuthors.filter(function(p){ return p.a.indexOf(ME) === 0; }).length;
+  const counts = {};
+  withAuthors.forEach(function(p){
+    p.a.replace(/,? and /g, ", ").split(", ").forEach(function(n){
+      n = n.trim();
+      if(!n || n === ME) return;
+      counts[n] = (counts[n] || 0) + 1;
+    });
+  });
+  const names = Object.keys(counts);
+  const venues = {}, pubs = {};
+  P.forEach(function(p){
+    if(p.v && p.v !== "Manuscript under review") venues[p.v] = 1;
+    const d = p.d || "";
+    ["IEEE","Springer","ACM","Tech Science Press","Nexora Academic Press"].forEach(function(x){
+      if(d.indexOf(x) !== -1 || p.v.indexOf(x) !== -1) pubs[x] = 1;
+    });
+  });
+  countUp(document.getElementById("faN"), firstAuthor);
+  countUp(document.getElementById("coN"), names.length);
+  countUp(document.getElementById("veN"), Object.keys(venues).length);
+  countUp(document.getElementById("prN"), Object.keys(pubs).length);
+
+  const top = names.sort(function(a,b){ return counts[b] - counts[a]; }).slice(0,7);
+  const max = counts[top[0]];
+  document.getElementById("collab").innerHTML = top.map(function(n,i){
+    const pct = (counts[n]/max*100).toFixed(1);
+    const col = [AC.med, AC.agri, AC.env, AC.se, AC.other][i % 5];
+    return '<div class="dbar" style="--c:' + col + '">' +
+      '<div class="lab">' + esc(n) + "</div>" +
+      '<div class="track" style="--w:' + pct + '%"><i style="width:' + pct + '%"></i>' +
+      '<span class="' + (pct > 68 ? "inside" : "") + '">' + counts[n] + " papers</span></div></div>";
+  }).join("");
+})();
+
+/* ── talks ── */
+document.getElementById("talks").innerHTML = TALKS.map(function(t){
+  return '<div class="talk"><div class="th"><span class="ev">' + t[0] + '</span><span class="loc">' + t[1] + "</span></div><ul>" +
+    t[2].map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ul></div>";
+}).join("");
+
+route();
+</script>
+
+</body>
+</html>
