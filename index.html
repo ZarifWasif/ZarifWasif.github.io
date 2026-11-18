@@ -5,292 +5,567 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Zarif Wasif Bhuiyan — deep learning for visual recognition in medical imaging and agricultural and food machine vision, with a second strand on machine learning for software engineering.">
 <meta name="author" content="Zarif Wasif Bhuiyan">
+<meta name="theme-color" content="#0B1626">
+<meta name="format-detection" content="telephone=no">
 <meta property="og:title" content="Zarif Wasif Bhuiyan">
 <meta property="og:description" content="Machine vision research — medical imaging, agricultural and food vision, ML for software engineering.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="img/portrait.jpg">
-<link rel="icon" href="img/portrait.jpg">
+<meta property="og:url" content="https://zarifwasif.github.io/">
+<meta property="og:image" content="https://zarifwasif.github.io/img/portrait.jpg">
+<meta property="og:image:alt" content="Portrait of Zarif Wasif Bhuiyan">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://zarifwasif.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2312233B'/%3E%3Cstop offset='1' stop-color='%231F5FBF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='41' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EZW%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="img/portrait.jpg">
+<script>(function(){var d=document.documentElement,v=(location.hash||"").replace("#","");if(["home","research","projects","publications","about","contact"].indexOf(v)<0)v="home";d.className+=" js";d.setAttribute("data-page",v);})();</script>
 <style>
   :root{ color-scheme:light; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px) }
   body{ margin:0 }
   img{ max-width:100% }
   [hidden]{ display:none !important }
 </style>
-<title>Zarif Wasif Bhuiyan</title>
+<title>Zarif Wasif Bhuiyan — Machine Vision Researcher</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <style>
-/* Layout: a four-view site — sticky nav, a landing page that states a position,
-   then Research, Publications and About as separate bookmarkable views. */
+/* Zarif Wasif Bhuiyan — portfolio website.
+   Six pages in one file (Home, Research, Projects, Publications, About, Contact), switched by the
+   address-bar hash like the original site. Colour system: navy ink + one brand blue for the
+   interface; five validated research-area hues (aqua, blue, red, yellow, violet) on marks only. */
 :root{
-  --paper:#F6F8FA;
-  --card:#FFFFFF;
-  --card2:#FBFCFD;
-  --line:#E1E7ED;
-  --line2:#CCD6E0;
-  --ink:#16202C;
-  --dim:#5A6B7D;
-  --faint:#8699AB;
-
-  --blue:#2563A8;
-  --teal:#13806A;
-  --sand:#9C6B14;
-  --rose:#AE3A60;
-  --peri:#5355B8;
-
-  --agri:var(--teal);
-  --med:var(--rose);
-  --se:var(--sand);
-  --env:var(--blue);
-  --other:var(--peri);
-
+  --paper:#F5F7FA; --card:#FFFFFF; --card2:#F9FAFC; --line:#E3E8EF; --line2:#CBD5E1;
+  --ink:#0E1B2C; --ink2:#2B3A4E; --dim:#52627A; --faint:#66758B;
+  --navy:#0B1626; --navy2:#12233B; --brand:#1F5FBF; --brand-d:#184F95; --brand-l:#E8F0FB; --mint:#5CD3A8;
+  --agri:#1BAF7A; --se:#2A78D6; --med:#E34948; --env:#EDA100; --other:#6250D6;
+  --st-pub:#184F95; --st-press:#2A78D6; --st-rev:#86B6EF;
   --display:"Archivo",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
   --body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --shadow:0 1px 2px rgba(14,27,44,.04),0 6px 18px -12px rgba(14,27,44,.18);
+  --shadow-h:0 18px 40px -22px rgba(14,27,44,.38);
+  --ease:cubic-bezier(.2,.7,.2,1);
   color-scheme:light;
 }
 *{box-sizing:border-box}
 body{background:var(--paper); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased; overflow-x:hidden}
-body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--card)}
+body::before{content:""; position:fixed; top:0; left:0; right:0; height:env(safe-area-inset-top,0px); z-index:10; background:var(--card)}
 img{max-width:100%; display:block}
-a{color:var(--blue); text-underline-offset:3px}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--blue); outline-offset:3px}
-h1,h2,h3{font-family:var(--display); font-weight:700; text-wrap:balance; margin:0; letter-spacing:-.018em}
-.wrap{max-width:1060px; margin:0 auto; padding-left:max(18px,env(safe-area-inset-left,0px)); padding-right:max(18px,env(safe-area-inset-right,0px))}
+a{color:var(--brand); text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--brand); outline-offset:3px}
+h1,h2,h3,h4{font-family:var(--display); font-weight:700; text-wrap:balance; margin:0; letter-spacing:-.018em}
+.wrap{max-width:1100px; margin:0 auto; padding-left:max(20px,env(safe-area-inset-left,0px)); padding-right:max(20px,env(safe-area-inset-right,0px))}
+.key{display:inline-block; width:9px; height:9px; border-radius:3px; background:var(--c,var(--brand)); flex:none}
+
+/* ── pages: one at a time once the script runs (all stacked without it) ── */
+.js [data-view]{display:none}
+.js[data-page="home"] [data-view="home"],
+.js[data-page="research"] [data-view="research"],
+.js[data-page="projects"] [data-view="projects"],
+.js[data-page="publications"] [data-view="publications"],
+.js[data-page="about"] [data-view="about"],
+.js[data-page="contact"] [data-view="contact"]{display:block; animation:pagein .45s var(--ease) both}
+@keyframes pagein{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+.js[data-page="contact"] .sitecta{display:none}
+
+/* ── reading progress + back to top ── */
+#progress{position:fixed; left:0; top:0; height:3px; width:0; z-index:40; background:linear-gradient(90deg,var(--brand),var(--mint)); pointer-events:none}
+#totop{position:fixed; right:calc(18px + env(safe-area-inset-right,0px)); bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:35; width:46px; height:46px; border-radius:50%; border:0; background:var(--ink); color:#fff; display:grid; place-items:center; cursor:pointer; box-shadow:0 12px 26px -10px rgba(14,27,44,.6); opacity:0; transform:translateY(10px); pointer-events:none; transition:opacity .2s, transform .2s, background .2s}
+#totop.on{opacity:1; transform:none; pointer-events:auto}
+#totop:hover{background:var(--brand)}
+#totop svg{width:18px; height:18px}
 
 /* ── nav ── */
-.skip{position:absolute; left:-9999px; top:0; background:var(--ink); color:#fff; padding:10px 16px; z-index:20; font-family:var(--mono); font-size:12px}
+.skip{position:absolute; left:-9999px; top:0; background:var(--ink); color:#fff; padding:10px 16px; z-index:50; font-family:var(--mono); font-size:12px}
 .skip:focus{left:8px; top:8px}
-.nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:9; background:rgba(255,255,255,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
-.navin{display:flex; align-items:center; justify-content:space-between; gap:14px; padding-block:13px; flex-wrap:wrap}
-.brand{font-family:var(--display); font-weight:700; font-size:16px; letter-spacing:-.01em; text-decoration:none; color:var(--ink); white-space:nowrap}
-.brand i{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.17em; text-transform:uppercase; color:var(--faint); font-style:normal; font-weight:400; margin-top:1px}
-.menu{display:flex; gap:3px; flex-wrap:wrap}
-.menu a{
-  font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--dim); text-decoration:none; padding:8px 11px; border:1px solid transparent;
+.nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:rgba(255,255,255,.94); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line)}
+.navin{position:relative; display:flex; align-items:center; justify-content:space-between; gap:14px; padding-block:12px}
+.brand{display:flex; align-items:center; gap:11px; font-family:var(--display); font-weight:700; font-size:16px; letter-spacing:-.01em; text-decoration:none; color:var(--ink); white-space:nowrap}
+.brand .mono{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--navy2),var(--brand)); color:#fff; display:grid; place-items:center; font-size:13px; letter-spacing:.02em; flex:none}
+.brand i{display:block; font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); font-style:normal; font-weight:400; margin-top:1px}
+.menu{display:flex; gap:2px; align-items:center}
+.menu a{font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); text-decoration:none; padding:8px 11px; border-radius:8px; transition:background .15s,color .15s}
+.menu a:hover{color:var(--ink); background:var(--paper)}
+.menu a[aria-current="page"]{color:var(--brand); background:var(--brand-l)}
+.burger{display:none; flex:none; width:44px; height:44px; border-radius:11px; border:1px solid var(--line2); background:#fff; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:4px; padding:0}
+.burger span{display:block; width:18px; height:2px; background:var(--ink); border-radius:2px; transition:transform .2s, opacity .2s}
+.nav.open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:880px){
+  .burger{display:inline-flex}
+  .menu{display:none; position:absolute; left:0; right:0; top:calc(100% + 1px); flex-direction:column; align-items:stretch; gap:2px; padding:10px 20px 18px; background:#fff; border-bottom:1px solid var(--line); box-shadow:0 22px 30px -22px rgba(14,27,44,.4)}
+  .nav.open .menu{display:flex}
+  .menu a{font-size:13px; padding:13px 14px}
 }
-.menu a:hover{color:var(--ink)}
-.menu a[aria-current="page"]{color:var(--blue); border-color:var(--line2); background:var(--paper)}
 
-/* ── view scaffolding ── */
-.view{padding-block:0 60px}
-.band{padding-block:48px; border-top:1px solid var(--line)}
-.band:first-child{border-top:0}
+/* ── shared scaffolding ── */
+.view{padding-block:0 20px}
+.band{padding-block:52px; border-top:1px solid var(--line); scroll-margin-top:76px}
+.band:first-child,.statwrap + .band{border-top:0}
 .head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:24px}
-.head h2{font-size:clamp(22px,3.2vw,29px)}
-.head .tag{font-family:var(--mono); font-size:11px; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); border:1px solid var(--line2); padding:4px 9px}
-.note{font-size:13.5px; color:var(--faint); margin-top:16px; max-width:72ch}
-.intro{font-size:17px; line-height:1.64; color:#2E3E50; max-width:70ch; margin:0 0 6px}
+.head h2{font-size:clamp(22px,3.2vw,30px)}
+.tag{font-family:var(--mono); font-size:11px; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); border:1px solid var(--line2); border-radius:999px; padding:4px 11px}
+.note{font-size:13.5px; color:var(--faint); margin-top:16px; max-width:76ch}
+.intro{font-size:17px; line-height:1.66; color:var(--ink2); max-width:72ch; margin:0 0 6px}
 
-/* ── hero ── */
-.hero{position:relative; padding-block:52px 50px}
-#field{position:absolute; left:-30vw; right:-30vw; top:-20px; width:160vw; height:380px; opacity:.5; pointer-events:none; z-index:0;
-  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 40%,transparent 92%); mask-image:linear-gradient(180deg,#000 0%,#000 40%,transparent 92%)}
-.hero > *{position:relative; z-index:1}
-.htop{position:relative; z-index:1; display:flex; gap:30px; align-items:flex-start}
-.hmain{flex:1 1 320px; min-width:0}
-.kicker{font-family:var(--mono); font-size:11px; letter-spacing:.19em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:10px; margin-bottom:20px}
-.kicker .dot{width:6px; height:6px; background:var(--teal); border-radius:50%}
-h1{font-size:clamp(38px,8.4vw,80px); line-height:.98; padding-bottom:.04em; letter-spacing:-.028em}
-.lede{font-size:clamp(17px,2.3vw,20px); line-height:1.56; margin-top:24px; max-width:66ch; color:#2E3E50}
-.lede em{font-style:normal; font-weight:600; color:var(--ink); border-bottom:2px solid}
-.lede em.a{border-color:var(--rose)} .lede em.b{border-color:var(--teal)} .lede em.c{border-color:var(--sand)}
-.cta{display:flex; flex-wrap:wrap; gap:9px; margin-top:30px}
-.cta a{font-family:var(--mono); font-size:12px; letter-spacing:.04em; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line2); padding:10px 15px; transition:border-color .18s, color .18s}
-.cta a:hover{border-color:var(--blue); color:var(--blue)}
-.cta a.key{background:var(--blue); color:#fff; border-color:var(--blue); font-weight:500}
-.cta a.key:hover{background:#1C4E85; border-color:#1C4E85}
+/* ── page header (inner pages) ── */
+.phead{position:relative; overflow:hidden; background:linear-gradient(180deg,#FFFFFF 0%,var(--paper) 100%); border-bottom:1px solid var(--line)}
+.phead::before{content:""; position:absolute; right:-60px; top:-70px; width:560px; height:380px; background-image:radial-gradient(rgba(31,95,191,.30) 1.3px,transparent 1.5px); background-size:18px 18px; -webkit-mask-image:radial-gradient(closest-side,#000,transparent); mask-image:radial-gradient(closest-side,#000,transparent); pointer-events:none}
+.phead::after{content:""; position:absolute; right:16%; top:18%; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle,rgba(92,211,168,.20),transparent 70%); pointer-events:none}
+.phead .wrap{position:relative; z-index:1; padding-block:44px 40px}
+.crumb{display:flex; gap:8px; align-items:center; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin-bottom:18px}
+.crumb a{color:var(--faint); text-decoration:none}
+.crumb a:hover{color:var(--brand)}
+.crumb b{color:var(--brand); font-weight:500}
+.ptitle{display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+.ptitle .pic{width:54px; height:54px; border-radius:15px; background:linear-gradient(135deg,var(--navy2),var(--brand)); color:#fff; display:grid; place-items:center; flex:none; box-shadow:0 12px 24px -12px rgba(31,95,191,.8)}
+.ptitle .pic svg{width:25px; height:25px}
+.phead h1{font-size:clamp(32px,5vw,50px); line-height:1.04}
+.phead p{margin:18px 0 0; color:var(--ink2); font-size:17px; line-height:1.66; max-width:72ch}
+
+/* ── hero (home) ── */
+.heroband{position:relative; overflow:hidden; background:radial-gradient(1100px 520px at 85% -10%,#1C3A66 0%,transparent 60%),linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%); color:#F2F5F9}
+#field{position:absolute; top:0; left:0; width:100%; height:100%; opacity:.42; pointer-events:none; z-index:0; -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%,#000 100%); mask-image:linear-gradient(90deg,transparent 0%,#000 45%,#000 100%)}
+.hero{position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:48px; align-items:center; padding-block:70px 112px}
+.kicker{font-family:var(--mono); font-size:11px; letter-spacing:.17em; text-transform:uppercase; color:#A9B7C9; display:flex; align-items:center; gap:10px; margin-bottom:22px}
+.kicker .dot{width:7px; height:7px; background:var(--agri); border-radius:50%; box-shadow:0 0 0 4px rgba(27,175,122,.18)}
+.hero h1{font-size:clamp(36px,5.4vw,62px); line-height:1.03; letter-spacing:-.028em; color:#FFFFFF; padding-bottom:.04em}
+.hero h1 .grad{background:linear-gradient(90deg,#7FB2F0 0%,var(--mint) 100%); -webkit-background-clip:text; background-clip:text; color:transparent}
+.lede{font-size:clamp(17px,2.1vw,19.5px); line-height:1.6; margin-top:24px; max-width:62ch; color:#C9D4E2}
+.lede em{font-style:normal; font-weight:600; color:#FFFFFF; border-bottom:2px solid; padding-bottom:1px}
+.lede em.a{border-color:var(--med)} .lede em.b{border-color:var(--agri)} .lede em.c{border-color:var(--se)}
+.cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:32px}
+.cta a{font-family:var(--mono); font-size:12px; letter-spacing:.04em; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line2); border-radius:10px; padding:11px 16px; transition:border-color .18s,color .18s,background .18s,transform .18s}
+.cta a:hover{border-color:var(--brand); color:var(--brand); transform:translateY(-1px)}
+.cta a.primary{background:var(--brand); color:#fff; border-color:var(--brand); font-weight:500}
+.cta a.primary:hover{background:var(--brand-d); border-color:var(--brand-d); color:#fff}
+.heroband .cta a{background:rgba(255,255,255,.06); color:#E6ECF4; border-color:rgba(255,255,255,.18)}
+.heroband .cta a:hover{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.45); color:#fff}
+.heroband .cta a.primary{background:#FFFFFF; color:var(--navy); border-color:#FFFFFF}
+.heroband .cta a.primary:hover{background:#E8F0FB; color:var(--navy)}
+.hphoto{margin:0; position:relative}
+.hphoto .frame{position:relative; border-radius:22px; padding:6px; background:linear-gradient(140deg,rgba(127,178,240,.75),rgba(92,211,168,.55) 55%,rgba(255,255,255,.08)); box-shadow:0 30px 60px -28px rgba(0,0,0,.7)}
+.hphoto img{width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 22%; border-radius:17px}
+.frame.noimg img{display:none}
+.frame.noimg::after{content:"ZW"; display:grid; place-items:center; aspect-ratio:4/5; border-radius:17px; background:linear-gradient(160deg,#1C3A66,#0B1626); color:#fff; font-family:var(--display); font-weight:700; font-size:64px}
+.hphoto figcaption{position:absolute; left:50%; bottom:-18px; transform:translateX(-50%); width:max-content; max-width:min(115%, calc(100vw - 24px)); text-align:center; display:flex; align-items:center; gap:9px; background:#FFFFFF; color:var(--ink); border-radius:999px; padding:9px 15px; font-size:12.5px; font-weight:500; box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+.pulse{width:8px; height:8px; border-radius:50%; background:#0CA30C; position:relative; flex:none}
+.pulse::after{content:""; position:absolute; top:-4px; right:-4px; bottom:-4px; left:-4px; border-radius:50%; border:2px solid #0CA30C; opacity:.5; animation:ping 2s ease-out infinite}
+@keyframes ping{0%{transform:scale(.6); opacity:.6} 100%{transform:scale(1.7); opacity:0}}
+@media (max-width:860px){ .hero{grid-template-columns:1fr; gap:40px; padding-block:50px 104px} .hphoto{max-width:260px} }
 
 /* ── stats ── */
-.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(134px,1fr)); gap:12px}
-.stat{background:var(--card); border:1px solid var(--line); padding:17px 16px 14px; position:relative; overflow:hidden; box-shadow:0 1px 2px rgba(22,32,44,.03)}
-.stat::after{content:""; position:absolute; left:0; top:0; width:3px; height:100%; background:var(--c,var(--blue))}
-.stat b{display:block; font-family:var(--display); font-size:clamp(28px,4.2vw,36px); line-height:1; font-variant-numeric:tabular-nums}
+.statwrap{position:relative; z-index:2; margin-top:-58px; margin-bottom:6px}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr)); gap:12px}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 18px 16px; position:relative; overflow:hidden; box-shadow:var(--shadow)}
+.stat::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:linear-gradient(90deg,var(--brand),var(--mint))}
+.stat .ic{width:30px; height:30px; border-radius:9px; background:var(--brand-l); color:var(--brand); display:grid; place-items:center; margin-bottom:12px}
+.stat .ic svg{width:16px; height:16px}
+.stat b{display:block; font-family:var(--display); font-size:clamp(28px,4vw,36px); line-height:1; color:var(--ink)}
 .stat span{display:block; font-family:var(--mono); font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:var(--faint); margin-top:9px}
 
 /* ── area cards ── */
-.areas{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:14px}
-.area{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c); padding:24px;
-  box-shadow:0 1px 2px rgba(22,32,44,.03); transition:transform .2s, box-shadow .2s}
-.area:hover{transform:translateY(-3px); box-shadow:0 14px 34px -18px rgba(22,32,44,.3)}
-.area .n{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--c)}
+.areas{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr)); gap:16px}
+.area{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; position:relative; overflow:hidden; box-shadow:var(--shadow); transition:transform .2s, box-shadow .2s}
+.area::before{content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--c)}
+.area:hover{transform:translateY(-3px); box-shadow:var(--shadow-h)}
+.area .ic{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:#EEF2F6; background:color-mix(in srgb,var(--c) 13%,#fff); color:var(--ink); margin-bottom:16px}
+.area .ic svg{width:22px; height:22px}
+.area .n{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:8px}
 .area h3{font-size:19px; margin:8px 0 10px}
-.area p{margin:0; font-size:14.5px; line-height:1.6; color:#2E3E50}
-.area .c{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:14px; border-top:1px solid var(--line); padding-top:11px}
+.area p{margin:0; font-size:14.5px; line-height:1.6; color:var(--ink2)}
+.share{margin-top:18px; border-top:1px solid var(--line); padding-top:14px}
+.share .row{display:flex; justify-content:space-between; align-items:baseline; gap:10px; font-family:var(--mono); font-size:11px; color:var(--faint); margin-bottom:8px}
+.share .row b{color:var(--ink); font-weight:500; font-size:12px}
+.share .bar{height:8px; border-radius:999px; background:#EEF2F6; background:color-mix(in srgb,var(--c) 14%,#fff); overflow:hidden}
+.share .bar i{display:block; height:100%; width:var(--w,0); border-radius:999px; background:var(--c); transition:width 1.1s var(--ease)}
 
-/* ── project cards ── */
-.thesis{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--se); padding:26px 28px; margin-bottom:34px; box-shadow:0 1px 2px rgba(22,32,44,.03)}
-.tl2{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--sand); margin-bottom:9px}
+/* ── explore the site (home) ── */
+.explore{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr)); gap:14px}
+.ex{position:relative; display:flex; flex-direction:column; gap:6px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px; text-decoration:none; color:var(--ink); box-shadow:var(--shadow); transition:transform .2s, box-shadow .2s, border-color .2s}
+.ex:hover{transform:translateY(-3px); box-shadow:var(--shadow-h); border-color:#BBD2F3}
+.ex .ic{width:42px; height:42px; border-radius:12px; background:var(--brand-l); color:var(--brand); display:grid; place-items:center; margin-bottom:8px; transition:background .2s,color .2s}
+.ex:hover .ic{background:var(--brand); color:#fff}
+.ex .ic svg{width:20px; height:20px}
+.ex b{font-family:var(--display); font-size:17px}
+.ex span{font-size:13px; color:var(--dim); line-height:1.45}
+.ex .go{margin-top:auto; padding-top:10px; font-family:var(--mono); font-size:11px; color:var(--brand); letter-spacing:.06em}
+
+/* ── pipeline (research) ── */
+.pipe{display:grid; grid-template-columns:repeat(5,1fr); gap:14px; position:relative}
+.pipe::before{content:""; position:absolute; left:8%; right:8%; top:31px; height:2px; background:linear-gradient(90deg,var(--brand),var(--mint))}
+.step{position:relative; text-align:center; padding:0 6px}
+.step .dot{width:62px; height:62px; margin:0 auto 14px; border-radius:50%; background:var(--card); border:2px solid var(--brand); display:grid; place-items:center; color:var(--brand); box-shadow:0 0 0 6px var(--paper), var(--shadow); transition:background .2s,color .2s}
+.step:hover .dot{background:var(--brand); color:#fff}
+.step .dot svg{width:24px; height:24px}
+.step .k{font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--faint); text-transform:uppercase}
+.step h3{font-size:16px; margin:4px 0 6px}
+.step p{margin:0; font-size:13.5px; color:var(--dim); line-height:1.5}
+@media (max-width:820px){
+  .pipe{grid-template-columns:1fr; gap:0}
+  .pipe::before{left:30px; right:auto; top:20px; bottom:20px; width:2px; height:auto; background:linear-gradient(180deg,var(--brand),var(--mint))}
+  .step{display:grid; grid-template-columns:62px 1fr; gap:4px 16px; text-align:left; padding:0 0 22px}
+  .step .dot{grid-row:span 3; margin:0}
+}
+
+/* ── chart cards ── */
+.vgrid{display:grid; grid-template-columns:1.45fr 1fr; gap:16px}
+@media (max-width:880px){ .vgrid{grid-template-columns:1fr} }
+.viz{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 22px 18px; box-shadow:var(--shadow); min-width:0}
+.viz h3{font-size:16.5px}
+.viz .sub{font-size:13px; color:var(--dim); margin:3px 0 16px}
+.viz svg{display:block; width:100%; max-width:100%; height:auto; overflow:visible}
+.vlegend{display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:12px; font-size:12.5px; color:var(--dim)}
+.vlegend span{display:inline-flex; align-items:center; gap:7px}
+.viz .gl{stroke:#E8ECF2; stroke-width:1}
+.viz .bl{stroke:#C3CCD8; stroke-width:1}
+.viz .tk{font-family:var(--mono); font-size:11px; fill:var(--faint)}
+.viz .yl{font-family:var(--display); font-weight:600; font-size:14px; fill:var(--ink)}
+.vlabel{font-family:var(--mono); font-size:11.5px; fill:var(--ink); font-weight:500}
+.mark{transition:opacity .15s; cursor:default}
+.viz svg:hover .mark{opacity:.55}
+.viz svg .mark:hover,.viz svg .mark:focus{opacity:1; outline:none}
+.viz .grow{-webkit-clip-path:inset(0 0 0 0); clip-path:inset(0 0 0 0); transition:clip-path 1.2s var(--ease)}
+.seg{display:flex; gap:2px; height:28px; border-radius:6px; overflow:hidden; margin-top:6px}
+.seg div{display:flex; align-items:center; padding-left:9px; font-family:var(--mono); font-size:11.5px; font-weight:500; white-space:nowrap; overflow:hidden; border-radius:4px; width:calc(var(--w,0%) - 2px); transition:width 1.1s var(--ease); cursor:default}
+.facts{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px}
+.fact{background:var(--card2); border:1px solid var(--line); border-radius:12px; padding:12px 14px}
+.fact b{display:block; font-family:var(--display); font-size:24px; line-height:1.05; color:var(--ink)}
+.fact span{display:block; font-size:12px; color:var(--dim); margin-top:4px; line-height:1.4}
+
+/* tooltip */
+#tip{position:fixed; z-index:60; pointer-events:none; background:var(--ink); color:#fff; font-size:12.5px; line-height:1.45; padding:8px 11px; border-radius:8px; box-shadow:0 10px 26px -10px rgba(0,0,0,.5); opacity:0; transform:translateY(4px); transition:opacity .12s, transform .12s; max-width:270px; left:0; top:0}
+#tip.on{opacity:1; transform:none}
+#tip b{font-weight:600}
+#tip .key{margin-right:6px}
+
+/* ── thesis + project cards ── */
+.thesis{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px 28px; margin-bottom:34px; box-shadow:var(--shadow); position:relative; overflow:hidden}
+.thesis::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--se)}
+.tl2{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); margin-bottom:9px; display:flex; align-items:center; gap:8px}
 .thesis h3{font-size:19px; line-height:1.3; max-width:60ch}
-.thesis p{margin:13px 0 0; font-size:15px; line-height:1.64; color:#2E3E50; max-width:76ch}
-.tbtn{display:inline-block; margin-top:16px; font-family:var(--mono); font-size:12px; text-decoration:none; color:var(--ink); border:1px solid var(--line2); padding:10px 15px}
-.tbtn:hover{border-color:var(--sand); color:var(--sand)}
-.pjs{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px}
-.pj{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c); padding:22px 24px 20px; box-shadow:0 1px 2px rgba(22,32,44,.03); transition:transform .2s, box-shadow .2s}
-.pj:hover{transform:translateY(-3px); box-shadow:0 16px 38px -22px rgba(22,32,44,.34)}
-.pj .kind{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--c)}
+.thesis p{margin:13px 0 0; font-size:15px; line-height:1.64; color:var(--ink2); max-width:76ch}
+.tbtn{display:inline-block; margin-top:16px; font-family:var(--mono); font-size:12px; text-decoration:none; color:var(--ink); border:1px solid var(--line2); border-radius:10px; padding:10px 15px}
+.tbtn:hover{border-color:var(--brand); color:var(--brand)}
+.jump{display:flex; flex-wrap:wrap; gap:8px; margin-top:24px}
+.jump button{font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; background:var(--card); border:1px solid var(--line2); border-radius:999px; color:var(--ink); padding:8px 14px; cursor:pointer; display:inline-flex; gap:8px; align-items:center; transition:.15s}
+.jump button:hover{border-color:var(--brand); color:var(--brand)}
+.jump button b{font-weight:500; color:var(--faint)}
+.pjs{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr)); gap:16px}
+.pj{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 24px 20px; box-shadow:var(--shadow); transition:transform .2s, box-shadow .2s; position:relative; overflow:hidden}
+.pj::before{content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--c)}
+.pj:hover{transform:translateY(-3px); box-shadow:var(--shadow-h)}
+.pj .kind{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:8px}
 .pj h3{font-size:18px; line-height:1.3; margin:9px 0 0}
-.pj p{margin:11px 0 0; font-size:14.5px; line-height:1.6; color:#2E3E50}
+.pj p{margin:11px 0 0; font-size:14.5px; line-height:1.6; color:var(--ink2)}
 .pj .stack{display:flex; flex-wrap:wrap; gap:6px; margin-top:15px}
-.pj .stack span{font-family:var(--mono); font-size:10px; letter-spacing:.05em; color:var(--dim); border:1px solid var(--line2); padding:3px 8px}
+.pj .stack span{font-family:var(--mono); font-size:10px; letter-spacing:.05em; color:var(--dim); background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:3px 8px}
 .pj .src{font-family:var(--mono); font-size:10.5px; color:var(--faint); margin-top:13px; border-top:1px solid var(--line); padding-top:11px}
-.works{display:grid; gap:14px}
-.work{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c); padding:24px 26px 22px;
-  box-shadow:0 1px 2px rgba(22,32,44,.03); transition:box-shadow .2s}
-.work:hover{box-shadow:0 16px 38px -22px rgba(22,32,44,.34)}
+.works{display:grid; gap:16px}
+.work{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px 26px 22px; box-shadow:var(--shadow); transition:box-shadow .2s; position:relative; overflow:hidden}
+.work::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--c)}
+.work:hover{box-shadow:var(--shadow-h)}
 .wtop{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px}
-.pill{font-family:var(--mono); font-size:10px; letter-spacing:.09em; text-transform:uppercase; padding:4px 9px; border:1px solid var(--line2); color:var(--dim)}
-.pill.pub{border-color:var(--teal); color:var(--teal)}
-.pill.press{border-color:var(--sand); color:var(--sand)}
-.pill.rev{border-color:var(--peri); color:var(--peri)}
+.pill{font-family:var(--mono); font-size:10px; letter-spacing:.09em; text-transform:uppercase; padding:4px 10px; border:1px solid var(--line2); border-radius:999px; color:var(--dim); display:inline-flex; align-items:center; gap:7px}
+.pill .key{width:8px; height:8px; border-radius:50%}
+.pill.pub{--c:var(--st-pub)} .pill.press{--c:var(--st-press)} .pill.rev{--c:var(--st-rev)}
 .work h3{font-size:20px; line-height:1.26; margin-bottom:4px}
 .venue{font-family:var(--mono); font-size:11.5px; color:var(--faint)}
-.work p{margin:14px 0 0; font-size:15px; line-height:1.64; color:#2E3E50; max-width:76ch}
-.spec{display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:18px}
+.work p{margin:14px 0 0; font-size:15px; line-height:1.64; color:var(--ink2); max-width:76ch}
+.spec{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(122px,100%),1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-top:18px}
 .spec div{background:var(--card2); padding:11px 13px}
-.spec dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--faint)}
-.spec dd{margin:5px 0 0; font-family:var(--mono); font-size:14px; color:var(--c); font-variant-numeric:tabular-nums; font-weight:500}
+.spec dt{font-family:var(--mono); font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:var(--faint)}
+.spec dd{margin:5px 0 0; font-family:var(--display); font-size:17px; color:var(--ink); font-weight:600}
 .meth{display:flex; flex-wrap:wrap; gap:6px; margin-top:15px}
-.meth span{font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:var(--dim); border:1px solid var(--line2); padding:3px 8px}
+.meth span{font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:var(--dim); background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:3px 8px}
 
-/* ── dataset bars ── */
-.dbars{display:grid; gap:9px}
-.dbar{display:grid; grid-template-columns:minmax(120px,190px) 1fr; gap:14px; align-items:center}
-.dbar .lab{font-size:13.5px; text-align:right; line-height:1.3}
+/* ── horizontal bars (datasets, collaborators, publishers) ── */
+.dbars{display:grid; gap:10px}
+.dbar{display:grid; grid-template-columns:minmax(130px,200px) 1fr; gap:14px; align-items:center}
+.dbar .lab{font-size:13.5px; text-align:right; line-height:1.3; color:var(--ink)}
 .dbar .lab i{display:block; font-family:var(--mono); font-size:10px; color:var(--faint); font-style:normal; letter-spacing:.05em}
-.track{position:relative; height:30px; background:var(--card); border:1px solid var(--line)}
-.track i{display:block; height:100%; background:var(--c); opacity:.84}
-.track span{position:absolute; top:50%; transform:translateY(-50%); left:calc(var(--w) + 10px); font-family:var(--mono); font-size:12px; font-variant-numeric:tabular-nums; white-space:nowrap}
-.track span.inside{left:auto; right:10px; color:#fff}
+.track{position:relative; height:22px; display:flex; align-items:center; gap:10px; padding-right:84px}
+.track i{display:block; height:100%; width:var(--w,0); background:var(--c); border-radius:0 4px 4px 0; transition:width 1.1s var(--ease); flex:none; cursor:default}
+.track span{font-family:var(--mono); font-size:12px; color:var(--ink); white-space:nowrap}
 @media (max-width:560px){ .dbar{grid-template-columns:1fr; gap:4px} .dbar .lab{text-align:left} }
+.legend{display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:16px; font-size:12.5px; color:var(--dim)}
+.legend span{display:inline-flex; align-items:center; gap:7px}
 
 /* ── benchmarks ── */
-.bgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px}
-.bcard{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c); padding:18px 20px 16px; box-shadow:0 1px 2px rgba(22,32,44,.03)}
-.bcard h3{font-size:16px; margin-bottom:2px}
-.bcard .u{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); margin-bottom:14px}
-.brow{margin-bottom:11px}
-.brow .n{display:flex; justify-content:space-between; gap:10px; font-size:13px; align-items:baseline; margin-bottom:4px}
+.bgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr)); gap:16px}
+.bcard{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 22px 16px; box-shadow:var(--shadow)}
+.bcard h3{font-size:16px; margin-bottom:2px; display:flex; align-items:center; gap:9px}
+.bcard .u{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); margin-bottom:16px}
+.brow{margin-bottom:12px}
+.brow .n{display:flex; justify-content:space-between; gap:10px; font-size:13px; align-items:baseline; margin-bottom:5px}
 .brow .n b{font-weight:500; color:var(--dim)}
-.brow .n em{font-family:var(--mono); font-style:normal; font-size:13px; color:var(--dim); font-variant-numeric:tabular-nums}
-.brow.win .n b{color:var(--ink); font-weight:600}
-.brow.win .n em{color:var(--c); font-weight:500}
-.btrack{height:9px; background:var(--paper); border:1px solid var(--line)}
-.btrack i{display:block; height:100%; background:var(--line2)}
+.brow .n em{font-family:var(--mono); font-style:normal; font-size:13px; color:var(--dim)}
+.brow.win .n b,.brow.win .n em{color:var(--ink); font-weight:600}
+.btrack{height:10px; background:var(--paper); border-radius:999px; overflow:hidden}
+.btrack i{display:block; height:100%; width:var(--w,0); background:#B9C4D2; border-radius:999px; transition:width 1.1s var(--ease)}
 .brow.win .btrack i{background:var(--c)}
 .bfoot{font-family:var(--mono); font-size:10px; color:var(--faint); letter-spacing:.04em; border-top:1px solid var(--line); padding-top:10px}
 
-/* ── matrix ── */
+/* ── matrix (single-hue sequential) ── */
 .mx{overflow-x:auto; padding-bottom:4px}
-table.matrix{border-collapse:separate; border-spacing:4px; font-family:var(--mono); min-width:500px}
+table.matrix{border-collapse:separate; border-spacing:4px; font-family:var(--mono); min-width:520px}
 table.matrix th{font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); font-weight:500; padding:4px 6px; text-align:center}
-table.matrix th.rowlab{text-align:right; white-space:nowrap; font-size:11.5px; color:var(--dim); text-transform:none; letter-spacing:.02em}
-table.matrix td{width:66px; height:50px; text-align:center; font-size:14px; font-weight:500; font-variant-numeric:tabular-nums; border:1px solid var(--line); transition:transform .15s}
-table.matrix td:hover{transform:scale(1.07); border-color:var(--ink)}
-table.matrix td.z{color:var(--faint); font-weight:400}
-.legend{display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:18px; font-family:var(--mono); font-size:11px; color:var(--dim)}
-.legend i{display:inline-block; width:10px; height:10px; margin-right:6px; vertical-align:-1px}
+table.matrix th.rowlab{text-align:right; white-space:nowrap; font-size:12px; color:var(--ink); text-transform:none; letter-spacing:.01em; font-family:var(--body)}
+table.matrix th.rowlab .key{margin-right:8px}
+table.matrix td{width:68px; height:50px; text-align:center; font-size:14px; font-weight:500; border-radius:8px; transition:transform .15s; cursor:default}
+table.matrix td:hover{transform:scale(1.07); box-shadow:0 0 0 2px var(--ink)}
+table.matrix td.z{color:#B3BECC; font-weight:400; background:var(--card2)}
+table.matrix td.sum{background:transparent; color:var(--ink); font-weight:600}
+.ramp{display:flex; align-items:center; gap:6px; margin-top:16px; font-family:var(--mono); font-size:11px; color:var(--faint)}
+.ramp i{display:block; width:22px; height:10px; border-radius:3px}
 
-/* ── publications ── */
+/* ── publications list ── */
 .tools{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px}
-.chip{font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; background:var(--card); border:1px solid var(--line2); color:var(--dim); padding:8px 13px; cursor:pointer; transition:.15s}
+.chip{font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; background:var(--card); border:1px solid var(--line2); border-radius:999px; color:var(--dim); padding:8px 14px; cursor:pointer; transition:.15s}
 .chip:hover{color:var(--ink); border-color:var(--faint)}
-.chip[aria-pressed="true"]{background:var(--blue); border-color:var(--blue); color:#fff; font-weight:500}
-#q{flex:1 1 210px; min-width:0; font-family:var(--mono); font-size:12.5px; color:var(--ink); background:var(--card); border:1px solid var(--line2); padding:8px 12px}
+.chip[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:#fff; font-weight:500}
+#q{flex:1 1 210px; min-width:0; font-family:var(--mono); font-size:12.5px; color:var(--ink); background:var(--card); border:1px solid var(--line2); border-radius:999px; padding:8px 15px}
 #q::placeholder{color:var(--faint)}
 .count{font-family:var(--mono); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); margin-bottom:14px}
-ol.pubs{list-style:none; margin:0; padding:0; display:grid; gap:9px}
-ol.pubs li{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--c); padding:16px 18px; display:grid; grid-template-columns:38px 1fr; gap:14px; transition:background .16s, border-color .16s}
-ol.pubs li:hover{background:var(--card2); border-color:var(--line2); border-left-color:var(--c)}
-.idx{font-family:var(--mono); font-size:12px; color:var(--faint); padding-top:3px; font-variant-numeric:tabular-nums}
+ol.pubs{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+ol.pubs li{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; display:grid; grid-template-columns:38px 1fr; gap:14px; transition:border-color .16s, box-shadow .16s; position:relative; overflow:hidden}
+ol.pubs li::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--c)}
+ol.pubs li:hover{border-color:var(--line2); box-shadow:var(--shadow)}
+.idx{font-family:var(--mono); font-size:12px; color:var(--faint); padding-top:3px}
 .pb{min-width:0}
 .ti{font-family:var(--display); font-weight:600; font-size:16.5px; line-height:1.34}
 .au{font-size:13px; color:var(--dim); margin-top:7px}
 .au b{color:var(--ink); font-weight:600}
 .vn{font-size:13px; color:var(--dim); margin-top:4px}
-.vn i{color:#44566B}
+.vn i{color:var(--ink2)}
 .meta{display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; align-items:center}
-.t{font-family:var(--mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase; padding:3px 8px; border:1px solid var(--line2); color:var(--dim)}
-.t.area{border-color:var(--c); color:var(--c)}
-.t.q{border-color:var(--teal); color:var(--teal)}
-.t.ip{border-color:var(--sand); color:var(--sand)}
-.t.rv{border-color:var(--peri); color:var(--peri)}
+.t{font-family:var(--mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase; padding:3px 9px; border:1px solid var(--line2); border-radius:999px; color:var(--dim); display:inline-flex; align-items:center; gap:6px}
+.t .key{width:7px; height:7px; border-radius:50%}
+.t.q{border-color:#BBD2F3; background:var(--brand-l); color:var(--brand-d)}
 .doi{font-family:var(--mono); font-size:10.5px; color:var(--faint); margin-top:8px; word-break:break-all}
-.empty{background:var(--card); border:1px dashed var(--line2); padding:26px; text-align:center; color:var(--faint); font-family:var(--mono); font-size:12.5px}
+.empty{background:var(--card); border:1px dashed var(--line2); border-radius:14px; padding:26px; text-align:center; color:var(--faint); font-family:var(--mono); font-size:12.5px}
 
 /* ── about ── */
-.abt{display:grid; grid-template-columns:200px 1fr; gap:34px; align-items:start}
-.aportrait{width:200px; height:240px; object-fit:cover; object-position:50% 18%; border:1px solid var(--line2); box-shadow:0 14px 36px -20px rgba(22,32,44,.4)}
-@media (max-width:680px){ .abt{grid-template-columns:1fr; gap:22px} .aportrait{width:150px; height:180px} }
-.moments{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px}
-.moments figure{margin:0; background:var(--card); border:1px solid var(--line); box-shadow:0 1px 2px rgba(22,32,44,.03); overflow:hidden}
-.moments img{width:100%; height:360px; object-fit:cover; object-position:50% 30%}
+.abt{display:grid; grid-template-columns:220px 1fr; gap:36px; align-items:start}
+.pwrap{width:220px}
+.aportrait{width:220px; height:260px; object-fit:cover; object-position:50% 18%; border-radius:18px; border:4px solid #fff; box-shadow:var(--shadow-h)}
+.pwrap.noimg img{display:none}
+.pwrap.noimg::after{content:"ZW"; display:grid; place-items:center; width:100%; height:260px; border-radius:18px; background:linear-gradient(160deg,#1C3A66,#0B1626); color:#fff; font-family:var(--display); font-weight:700; font-size:56px}
+@media (max-width:680px){ .abt{grid-template-columns:1fr; gap:22px} .pwrap{width:160px} .aportrait{width:160px; height:190px} .pwrap.noimg::after{height:190px} }
+.journey{display:grid; grid-auto-flow:column; grid-auto-columns:minmax(min(120px,100%),1fr); overflow-x:auto; padding:6px 2px 10px; scrollbar-width:thin}
+.ms{position:relative; text-align:center; padding:0 8px}
+.ms::before{content:""; position:absolute; top:11px; left:0; right:0; height:2px; background:#BBD2F3}
+.ms:first-child::before{left:50%}
+.ms:last-child::before{right:50%}
+.ms .d{position:relative; z-index:1; display:block; width:24px; height:24px; margin:0 auto 12px; border-radius:50%; border:3px solid var(--brand); background:#fff; box-shadow:0 0 0 4px var(--card)}
+.ms.edu .d{background:var(--brand)}
+.ms .y{font-family:var(--mono); font-size:11px; color:var(--brand-d); letter-spacing:.04em}
+.ms b{display:block; font-family:var(--display); font-size:14px; line-height:1.25; margin-top:3px; color:var(--ink)}
+.ms span{display:block; font-size:12px; color:var(--dim); margin-top:4px; line-height:1.35}
+.lg{display:inline-block; width:12px; height:12px; border-radius:50%; border:2.5px solid var(--brand); background:#fff}
+.lg.edu{background:var(--brand)}
+.moments{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr)); gap:18px}
+.moments figure{margin:0; background:var(--card); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden}
+.moments .ph{overflow:hidden}
+.moments img{width:100%; height:380px; object-fit:cover; object-position:50% 30%; transition:transform .6s ease}
+.moments figure:hover img{transform:scale(1.03)}
+.ph.noimg img{display:none}
+.ph.noimg{height:200px; background:linear-gradient(135deg,var(--brand-l),#DDF5EC)}
 .moments figcaption{padding:16px 18px; font-size:13.5px; color:var(--dim); line-height:1.5}
 .moments figcaption b{display:block; font-family:var(--display); font-size:14.5px; color:var(--ink); font-weight:600; margin-bottom:4px}
-.moments figcaption i{color:#2E3E50}
+.moments figcaption i{color:var(--ink2)}
 @media (max-width:560px){ .moments img{height:300px} }
-.tl{position:relative; padding-left:26px}
-.tl::before{content:""; position:absolute; left:5px; top:10px; bottom:10px; width:1px; background:linear-gradient(180deg,var(--rose),var(--blue),var(--teal),transparent)}
-.job{position:relative; padding-bottom:32px}
+.tl{position:relative; padding-left:28px}
+.tl::before{content:""; position:absolute; left:5px; top:10px; bottom:10px; width:2px; background:linear-gradient(180deg,var(--brand),var(--mint) 70%,transparent); border-radius:2px}
+.job{position:relative; padding-bottom:22px}
 .job:last-child{padding-bottom:0}
-.job::before{content:""; position:absolute; left:-26px; top:9px; width:11px; height:11px; background:var(--paper); border:2px solid var(--c,var(--blue)); border-radius:50%; box-shadow:0 0 0 4px var(--paper)}
+.job::before{content:""; position:absolute; left:-28px; top:20px; width:14px; height:14px; background:var(--card); border:3px solid var(--brand); border-radius:50%; box-shadow:0 0 0 4px var(--paper)}
+.job.now::before{background:var(--brand)}
+.jcard{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow)}
 .jh{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline}
 .jh h3{font-size:18px}
-.when{font-family:var(--mono); font-size:11px; letter-spacing:.05em; color:var(--c,var(--blue)); white-space:nowrap}
+.when{font-family:var(--mono); font-size:11px; letter-spacing:.05em; color:var(--brand-d); background:var(--brand-l); border-radius:999px; padding:3px 10px; white-space:nowrap}
 .where{font-size:12.5px; color:var(--dim); margin-top:4px; font-family:var(--mono)}
 .job ul{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:8px}
-.job li{font-size:14.5px; line-height:1.6; color:#2E3E50; padding-left:17px; position:relative}
-.job li::before{content:"—"; position:absolute; left:0; color:var(--c,var(--blue)); font-size:11px; top:1px}
-.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(262px,1fr)); gap:13px}
-.card{background:var(--card); border:1px solid var(--line); padding:20px; box-shadow:0 1px 2px rgba(22,32,44,.03); transition:box-shadow .2s}
-.card:hover{box-shadow:0 12px 30px -20px rgba(22,32,44,.3)}
+.job li{font-size:14.5px; line-height:1.6; color:var(--ink2); padding-left:17px; position:relative}
+.job li::before{content:""; position:absolute; left:2px; top:10px; width:6px; height:6px; border-radius:50%; background:#9DB4D3}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr)); gap:14px}
+.grid.edu{grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr))}
+.card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; box-shadow:var(--shadow); transition:box-shadow .2s}
+.card:hover{box-shadow:var(--shadow-h)}
 .card h3{font-size:17px; margin-bottom:6px}
-.card .yr{font-family:var(--mono); font-size:11px; color:var(--blue); letter-spacing:.06em}
+.card .yr{font-family:var(--mono); font-size:11px; color:var(--brand); letter-spacing:.06em}
 .card p{margin:8px 0 0; font-size:13.5px; color:var(--dim); line-height:1.55}
 .card dl{display:grid; grid-template-columns:auto 1fr; gap:5px 12px; margin:12px 0 0; font-size:13.5px}
 .card dt{font-family:var(--mono); font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); padding-top:3px}
-.card dd{margin:0; min-width:0; color:#2E3E50}
-.talk{border-left:2px solid var(--line2); padding:0 0 18px 16px}
-.talk:hover{border-left-color:var(--blue)}
+.card dd{margin:0; min-width:0; color:var(--ink2)}
+.gpa{margin-top:14px}
+.gpa .row{display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--faint); margin-bottom:6px; letter-spacing:.06em; text-transform:uppercase}
+.gpa .row b{color:var(--ink); font-weight:600; letter-spacing:0}
+.gpa .bar{height:8px; border-radius:999px; background:var(--brand-l); overflow:hidden}
+.gpa .bar i{display:block; height:100%; width:var(--w,0); border-radius:999px; background:linear-gradient(90deg,var(--brand),#3F86DE); transition:width 1.1s var(--ease)}
+.badge{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:#7A5300; background:#FFF4D6; border:1px solid #F5D27A; border-radius:999px; padding:3px 10px; margin-left:8px; vertical-align:3px}
+.rank{color:#0B7A53; font-weight:600}
+.tyears{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:26px}
+.ty{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 14px 12px; box-shadow:var(--shadow)}
+.ty .y{display:flex; justify-content:space-between; align-items:baseline; font-family:var(--display); font-weight:700; font-size:18px}
+.ty .y span{font-family:var(--mono); font-size:11px; font-weight:400; color:var(--faint)}
+.ty .dots{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
+.ty .dots i{width:14px; height:14px; border-radius:50%; background:var(--brand); box-shadow:0 0 0 2px #fff; cursor:default}
+.ty .v{font-size:12px; color:var(--dim); margin-top:10px; line-height:1.45}
+@media (max-width:700px){ .tyears{grid-template-columns:repeat(2,1fr)} }
+.talks{columns:3 280px; column-gap:28px}
+.talk{border-left:2px solid var(--line2); padding:0 0 4px 16px; margin-bottom:18px; break-inside:avoid; transition:border-color .15s}
+.talk:hover{border-left-color:var(--brand)}
 .th{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap}
-.ev{font-family:var(--display); font-weight:600; font-size:15px; color:var(--blue)}
+.ev{font-family:var(--display); font-weight:600; font-size:15px; color:var(--ink)}
 .loc{font-size:12px; color:var(--faint); font-family:var(--mono)}
 .talk ul{margin:7px 0 0; padding:0; list-style:none; display:grid; gap:4px}
-.talk li{font-size:14px; color:#2E3E50; padding-left:14px; position:relative}
+.talk li{font-size:14px; color:var(--ink2); padding-left:14px; position:relative}
 .talk li::before{content:"·"; position:absolute; left:2px; color:var(--faint)}
-.sk{display:grid; gap:10px}
-.skrow{display:grid; grid-template-columns:172px 1fr; gap:8px 18px; background:var(--card); border:1px solid var(--line); padding:15px 18px}
-.skrow dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--c,var(--blue)); padding-top:4px}
-.skrow dd{margin:0; font-size:14px; color:#2E3E50; min-width:0; line-height:1.6}
-.hon{list-style:none; margin:0; padding:0; display:grid; gap:9px}
-.hon li{background:var(--card); border:1px solid var(--line); padding:14px 17px; font-size:14.5px; color:#2E3E50; display:grid; grid-template-columns:26px 1fr; gap:12px}
-.hon li .m{font-family:var(--mono); font-size:11px; color:var(--blue); padding-top:3px}
+.sk{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr)); gap:14px; margin:0}
+.skrow{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow)}
+.skrow dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink); display:flex; align-items:center; gap:9px; margin-bottom:12px}
+.skrow dt .ic{width:30px; height:30px; border-radius:9px; background:var(--brand-l); color:var(--brand); display:grid; place-items:center}
+.skrow dt .ic svg{width:16px; height:16px}
+.skrow dd{margin:0; display:flex; flex-wrap:wrap; gap:6px; font-size:14px; color:var(--ink2); line-height:1.6}
+.skrow dd span{font-size:13px; color:var(--ink2); background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:4px 10px; line-height:1.4}
+.hon{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr)); gap:10px}
+.hon li{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 17px; font-size:14.5px; color:var(--ink2); display:grid; grid-template-columns:34px 1fr; gap:12px; align-items:start; box-shadow:var(--shadow)}
+.hon li .m{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:var(--brand-l); color:var(--brand)}
+.hon li .m.gold{background:#FFF4D6; color:#8A5D00}
+.hon li .m svg{width:17px; height:17px}
 .hon b{color:var(--ink)}
-@media (max-width:620px){ .skrow{grid-template-columns:1fr} ol.pubs li{grid-template-columns:28px 1fr; gap:10px; padding:14px} .card dl{grid-template-columns:1fr} .work{padding:19px} }
+@media (max-width:620px){ ol.pubs li{grid-template-columns:28px 1fr; gap:10px; padding:14px} .card dl{grid-template-columns:1fr} .work{padding:19px} .sk,.hon{grid-template-columns:1fr} }
 
 /* ── contact ── */
-.cgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); gap:13px}
-.ccard{background:var(--card); border:1px solid var(--line); padding:24px; box-shadow:0 1px 2px rgba(22,32,44,.03)}
+.cgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(248px,100%),1fr)); gap:14px}
+.ccard{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow); display:flex; gap:14px; align-items:center}
+.ccard .ic{width:44px; height:44px; border-radius:12px; background:var(--brand-l); color:var(--brand); display:grid; place-items:center; flex:none}
+.ccard .ic svg{width:20px; height:20px}
 .ccard .l{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint)}
-.ccard .v{font-size:16px; margin-top:8px; word-break:break-word}
+.ccard .v{font-size:15.5px; margin-top:3px; word-break:break-word}
 .ccard .v a{text-decoration:none}
 .plinks{display:flex; flex-wrap:wrap; gap:9px; margin-top:4px}
-.plinks a{font-family:var(--mono); font-size:12px; letter-spacing:.04em; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line2); padding:11px 16px}
-.plinks a:hover{border-color:var(--blue); color:var(--blue)}
+.plinks a{font-family:var(--mono); font-size:12px; letter-spacing:.04em; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line2); border-radius:10px; padding:11px 16px; transition:.15s}
+.plinks a:hover{border-color:var(--brand); color:var(--brand); transform:translateY(-1px)}
+.refs .card h3{display:flex; align-items:center; gap:10px}
+.refs .card h3 .av{width:34px; height:34px; border-radius:50%; background:var(--brand-l); color:var(--brand); display:grid; place-items:center; font-family:var(--mono); font-size:11px; font-weight:500; flex:none}
 
-footer{padding-block:26px 46px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--faint)}
-footer b{color:var(--dim); font-weight:400}
-@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+/* ── previous / next page ── */
+.pager{display:grid; grid-template-columns:1fr 1fr; gap:14px; padding-block:34px 8px; border-top:1px solid var(--line)}
+.np{display:flex; align-items:center; gap:16px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 20px; text-decoration:none; color:var(--ink); box-shadow:var(--shadow); transition:transform .2s, box-shadow .2s, border-color .2s}
+.np:hover{transform:translateY(-2px); box-shadow:var(--shadow-h); border-color:#BBD2F3}
+.np.next{grid-column:2; justify-content:flex-end; text-align:right}
+.np small{display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint)}
+.np b{display:block; font-family:var(--display); font-size:20px; margin-top:2px}
+.np em{display:block; font-style:normal; font-size:13px; color:var(--dim)}
+.np .arr{width:42px; height:42px; border-radius:50%; background:var(--brand-l); color:var(--brand); display:grid; place-items:center; flex:none; transition:background .2s, color .2s}
+.np:hover .arr{background:var(--brand); color:#fff}
+.np .arr svg{width:18px; height:18px}
+@media (max-width:620px){ .pager{grid-template-columns:1fr} .np.next{grid-column:auto} }
+
+/* ── site-wide call to action + footer ── */
+.sitecta{margin-top:26px}
+.ctaband{position:relative; overflow:hidden; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; padding:36px; border-radius:22px; color:#fff; background:radial-gradient(600px 300px at 90% 0%,rgba(92,211,168,.25),transparent 60%),linear-gradient(135deg,var(--navy) 0%,#163A6B 100%); box-shadow:var(--shadow-h)}
+.ctaband::after{content:""; position:absolute; right:-40px; bottom:-70px; width:320px; height:220px; background-image:radial-gradient(rgba(255,255,255,.22) 1.2px,transparent 1.4px); background-size:16px 16px; -webkit-mask-image:radial-gradient(closest-side,#000,transparent); mask-image:radial-gradient(closest-side,#000,transparent); pointer-events:none}
+.ctaband h3{font-size:clamp(22px,3vw,28px); color:#fff}
+.ctaband p{margin:8px 0 0; color:#C9D4E2; max-width:60ch}
+.ctaband .acts{position:relative; z-index:1; display:flex; gap:10px; flex-wrap:wrap}
+.ctaband a{font-family:var(--mono); font-size:12.5px; text-decoration:none; padding:12px 18px; border-radius:12px; font-weight:500; white-space:nowrap; transition:.15s}
+.ctaband a.solid{background:#fff; color:var(--navy)}
+.ctaband a.solid:hover{background:#E8F0FB}
+.ctaband a.ghost{color:#fff; border:1px solid rgba(255,255,255,.35)}
+.ctaband a.ghost:hover{background:rgba(255,255,255,.1)}
+@media (max-width:700px){ .ctaband{grid-template-columns:1fr; padding:26px} }
+footer.site{margin-top:48px; background:var(--card); border-top:1px solid var(--line)}
+.fgrid{display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr; gap:28px; padding-block:44px 30px}
+.fgrid p{margin:14px 0 0; font-size:13.5px; color:var(--dim); line-height:1.6; max-width:42ch}
+.fgrid h4{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); font-weight:500; margin-bottom:12px}
+.fcol{display:grid; gap:8px; align-content:start}
+.fcol a,.fcol span{font-size:14px; color:var(--ink2); text-decoration:none; width:max-content; max-width:100%}
+.fcol a:hover{color:var(--brand)}
+.fbot{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-block:18px 30px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--faint)}
+.fbot b{color:var(--dim); font-weight:400}
+@media (max-width:820px){ .fgrid{grid-template-columns:1fr 1fr} .fgrid > div:first-child{grid-column:1/-1} }
+
+/* ── scroll reveal (only while the script runs) ── */
+.js .rv{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s var(--ease)}
+.js .rv.in{opacity:1; transform:none}
+.js .rv:not(.in) .share .bar i,.js .rv:not(.in) .gpa .bar i,.js .rv:not(.in) .track i,.js .rv:not(.in) .btrack i{width:0}
+.js .rv:not(.in) .seg div{width:0; padding-left:0}
+.js .viz.rv:not(.in) .grow{-webkit-clip-path:inset(0 100% 0 0); clip-path:inset(0 100% 0 0)}
+/* ── every device: phones, tablets, touch screens, notches ── */
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%}
+body{-webkit-tap-highlight-color:rgba(31,95,191,.14)}
+.brand > span:last-child{min-width:0}
+.swipe{display:none; font-family:var(--mono); font-size:11px; color:var(--faint); margin:-6px 0 10px}
+@media (max-width:880px){ #q{font-size:16px} }
+@media (min-width:641px) and (max-width:1059px){
+  .journey{grid-auto-flow:row; grid-template-columns:repeat(4,1fr); grid-auto-columns:auto; row-gap:26px; overflow:visible}
+  .ms:nth-child(4)::before{right:50%}
+  .ms:nth-child(5)::before{left:50%}
+}
+@media (max-width:640px){
+  .journey{grid-auto-flow:row; grid-auto-columns:auto; overflow:visible; padding:4px 0 0}
+  .ms{display:grid; grid-template-columns:24px 1fr; column-gap:14px; text-align:left; padding:0 0 18px}
+  .ms .d{grid-row:1 / span 3; margin:0}
+  .ms .y,.ms b,.ms span{grid-column:2}
+  .ms::before,.ms:first-child::before{top:12px; bottom:0; left:11px; right:auto; width:2px; height:auto}
+  .ms:last-child::before{display:none}
+}
+@media (max-width:600px){ .swipe{display:block} }
+@media (max-width:480px){
+  .fgrid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ctaband .acts{width:100%}
+  .ctaband a{flex:1 1 auto; text-align:center}
+  .phead .wrap{padding-block:34px 30px}
+  .band{padding-block:40px}
+}
+@media (max-width:400px){ .tyears{grid-template-columns:1fr} }
+@media (max-width:360px){
+  .wrap{padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .brand{font-size:14.5px; gap:9px}
+  .brand .mono{width:32px; height:32px; font-size:12px}
+  .brand i{display:none}
+  .ptitle{gap:12px}
+  .ptitle .pic{width:42px; height:42px; border-radius:12px}
+  .phead h1{font-size:28px}
+  .hero h1{font-size:32px}
+  .stat{padding:14px}
+}
+@media (pointer:coarse){
+  .menu a,.cta a,.plinks a,.chip,.jump button,.tbtn,#q,.brand{min-height:44px}
+  .menu a,.cta a,.plinks a,.tbtn{display:inline-flex; align-items:center}
+  .jump button,.chip{justify-content:center}
+  .crumb a{padding:14px 8px; margin:-14px -8px}
+  .fcol{gap:0}
+  .fcol a,.fcol span{padding:11px 0}
+  .fcol a{min-width:44px}
+  #q{font-size:16px}
+  .ccard .v a{display:inline-block; padding:12px 0; margin:-12px 0}
+  .ty .dots i{width:18px; height:18px}
+  .fbot{padding-bottom:calc(30px + env(safe-area-inset-bottom,0px))}
+}
+@media (hover:none){
+  .area:hover,.pj:hover,.ex:hover,.np:hover,.cta a:hover,.plinks a:hover{transform:none}
+  .viz svg:hover .mark{opacity:1}
+  .moments figure:hover img{transform:none}
+  table.matrix td:hover{transform:none; box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important; animation:none!important} }
+@media print{ .nav,#field,#totop,#progress,.sitecta,.pager{display:none!important} .js [data-view]{display:block!important} .heroband{background:#fff; color:var(--ink)} .hero h1{color:var(--ink)} .lede{color:var(--ink2)} }
 </style>
-
 </head>
 <body>
+<div id="progress" aria-hidden="true"></div>
 <a class="skip" href="#publications">Skip to content</a>
 <header class="nav"><div class="wrap navin">
-  <a class="brand" href="#home">Zarif Wasif Bhuiyan<i>Machine vision research</i></a>
-  <nav class="menu">
+  <a class="brand" href="#home"><span class="mono">ZW</span><span>Zarif Wasif Bhuiyan<i>Machine vision research</i></span></a>
+  <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <nav class="menu" id="menu">
     <a href="#home" data-nav="home">Home</a>
     <a href="#research" data-nav="research">Research</a>
     <a href="#projects" data-nav="projects">Projects</a>
@@ -304,84 +579,120 @@ footer b{color:var(--dim); font-weight:400}
 
 <!-- ════════ HOME ════════ -->
 <div class="view" data-view="home">
-  <div class="wrap">
-    <div class="hero">
-      <canvas id="field" aria-hidden="true"></canvas>
+  <section class="heroband">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="wrap hero">
       <div>
-        <div class="kicker"><span class="dot"></span> Dhaka, Bangladesh</div>
-        <h1>I teach machines<br>to look carefully.</h1>
-        <p class="lede">Deep learning for visual recognition in <em class="a">medical imaging</em> and <em class="b">agricultural and food machine vision</em>, with a second strand on <em class="c">machine learning for software engineering</em>. I build the datasets myself, and I care more about whether a result survives scrutiny than about the headline number.</p>
+        <div class="kicker"><span class="dot"></span> Graduate Research Assistant · Dhaka, Bangladesh</div>
+        <h1>Building machine vision<br><span class="grad">people can trust.</span></h1>
+        <p class="lede">I conduct research in deep learning for visual recognition, focused on <em class="a">medical imaging</em> and <em class="b">agricultural and food machine vision</em>, with a further strand in <em class="c">machine learning for software engineering</em>. I build my own datasets and judge each result by whether it holds up under rigorous evaluation.</p>
+        <nav class="cta">
+          <a class="primary" href="#research">See the work</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="https://scholar.google.com/citations?user=mVpBtfYAAAAJ&amp;hl=en">Google Scholar</a>
+          <a href="https://www.scopus.com/authid/detail.uri?authorId=58634204800">Scopus</a>
+        </nav>
       </div>
-      <nav class="cta">
-        <a class="key" href="#research">See the work</a>
-        <a href="#projects">Projects</a>
-        <a href="#publications">42 papers</a>
-        <a href="https://scholar.google.com/citations?user=mVpBtfYAAAAJ&amp;hl=en">Google Scholar</a>
-        <a href="https://www.scopus.com/authid/detail.uri?authorId=58634204800">Scopus</a>
-      </nav>
+      <figure class="hphoto">
+        <div class="frame"><img src="img/portrait.jpg" alt="Portrait of Zarif Wasif Bhuiyan" onerror="this.parentNode.classList.add('noimg')"></div>
+        <figcaption><span class="pulse"></span>Open to PhD positions &amp; collaborations</figcaption>
+      </figure>
     </div>
-  </div>
+  </section>
 
   <div class="wrap">
-    <div class="band">
+    <div class="statwrap">
       <div class="stats">
-        <div class="stat" style="--c:var(--blue)"><b data-n="36">36</b><span>Accepted publications</span></div>
-        <div class="stat" style="--c:var(--rose)"><b data-n="5">5</b><span>Journal articles</span></div>
-        <div class="stat" style="--c:var(--teal)"><b data-n="9">9</b><span>Datasets built or curated</span></div>
-        <div class="stat" style="--c:var(--sand)"><b data-n="7">7</b><span>Systems deployed</span></div>
-        <div class="stat" style="--c:var(--peri)"><b data-n="6">6</b><span>Under review</span></div>
+        <div class="stat"><div class="ic" data-ic="doc"></div><b data-n="37">37</b><span>Accepted publications</span></div>
+        <div class="stat"><div class="ic" data-ic="book"></div><b data-n="5">5</b><span>Journal articles</span></div>
+        <div class="stat"><div class="ic" data-ic="db"></div><b data-n="9">9</b><span>Datasets built or curated</span></div>
+        <div class="stat"><div class="ic" data-ic="monitor"></div><b data-n="7">7</b><span>Systems deployed</span></div>
+        <div class="stat"><div class="ic" data-ic="clock"></div><b data-n="6">6</b><span>Under review</span></div>
       </div>
     </div>
 
     <div class="band">
       <div class="head"><h2>Three things I work on</h2></div>
       <div class="areas">
-        <div class="area" style="--c:var(--rose)">
-          <div class="n">01 · Medical imaging</div>
+        <div class="area rv" style="--c:var(--med)">
+          <div class="ic" data-ic="pulse"></div>
+          <div class="n"><span class="key"></span>01 · Medical imaging</div>
           <h3>Models a clinician could argue with</h3>
           <p>Multi-organ CT, lung cancer across CT and histopathology, kidney disease, dermatology. Every result gets a Grad-CAM, LIME or SHAP pass, because a model that is right for the wrong reason is not usable in a clinic.</p>
-          <div class="c">6 publications</div>
+          <div class="share c" data-area="med"><div class="row"><b>7 publications</b><span class="of">of 37 accepted</span></div><div class="bar"><i style="--w:18.9%"></i></div></div>
         </div>
-        <div class="area" style="--c:var(--teal)">
-          <div class="n">02 · Agricultural &amp; food vision</div>
+        <div class="area rv" style="--c:var(--agri)">
+          <div class="ic" data-ic="leaf"></div>
+          <div class="n"><span class="key"></span>02 · Agricultural &amp; food vision</div>
           <h3>Recognition where the data doesn't exist yet</h3>
           <p>Meat, eggs, crop leaves, fruit disease, pests. Most of these problems have no public dataset for Bangladesh, so the work starts at a market stall with a camera, not at a download link.</p>
-          <div class="c">16 publications</div>
+          <div class="share c" data-area="agri"><div class="row"><b>16 publications</b><span class="of">of 37 accepted</span></div><div class="bar"><i style="--w:43.2%"></i></div></div>
         </div>
-        <div class="area" style="--c:var(--sand)">
-          <div class="n">03 · ML for software engineering</div>
+        <div class="area rv" style="--c:var(--se)">
+          <div class="ic" data-ic="code"></div>
+          <div class="n"><span class="key"></span>03 · ML for software engineering</div>
           <h3>Reading design, not just code</h3>
           <p>My M.Sc. thesis: recognising UML diagrams with deep learning and detecting design patterns with LLMs. Related work covers AI-assisted testing, lifecycle selection and vulnerability remediation.</p>
-          <div class="c">8 publications</div>
+          <div class="share c" data-area="se"><div class="row"><b>8 publications</b><span class="of">of 37 accepted</span></div><div class="bar"><i style="--w:21.6%"></i></div></div>
         </div>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Explore the site</h2><span class="tag">five more pages</span></div>
+      <div class="explore">
+        <a class="ex rv" href="#research"><span class="ic" data-ic="flask"></span><b>Research</b><span>Datasets, models, results, the M.Sc. thesis and all ten projects</span><span class="go">Open page →</span></a>
+        <a class="ex rv" href="#projects"><span class="ic" data-ic="monitor"></span><b>Projects</b><span>Deployed systems, named models and industry work</span><span class="go">Open page →</span></a>
+        <a class="ex rv" href="#publications"><span class="ic" data-ic="book"></span><b>Publications</b><span>43 entries with charts, filters and search</span><span class="go">Open page →</span></a>
+        <a class="ex rv" href="#about"><span class="ic" data-ic="user"></span><b>About</b><span>Experience, education, talks, toolkit and honours</span><span class="go">Open page →</span></a>
+        <a class="ex rv" href="#contact"><span class="ic" data-ic="send"></span><b>Contact</b><span>Email, phone, research profiles and references</span><span class="go">Open page →</span></a>
       </div>
     </div>
 
     <div class="band">
       <div class="head"><h2>A few projects</h2><span class="tag">more under Research</span></div>
       <div class="works" id="featured"></div>
-      <nav class="cta"><a class="key" href="#research">All nine projects</a></nav>
+      <nav class="cta"><a class="primary" href="#research">All ten projects</a></nav>
     </div>
+
+    <div class="pager" data-pager></div>
   </div>
 </div>
 
 <!-- ════════ RESEARCH ════════ -->
-<div class="view" data-view="research" hidden>
+<div class="view" data-view="research">
+  <header class="phead"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a><span>/</span><b>Research</b></div>
+    <div class="ptitle"><span class="pic" data-ic="flask"></span><h1>Research</h1><span class="tag">datasets, models, results</span></div>
+    <p>The pattern across almost everything below is the same. Find a recognition problem where the data does not exist, build the dataset properly, design a model for it, then put it against retrained baselines under identical conditions and check with explainability tools that it learned the right thing. Where it is useful, ship it as something people can open.</p>
+  </div></header>
   <div class="wrap">
     <div class="band">
-      <div class="head"><h2>Research</h2><span class="tag">datasets, models, results</span></div>
-      <p class="intro">The pattern across almost everything below is the same. Find a recognition problem where the data does not exist, build the dataset properly, design a model for it, then put it against retrained baselines under identical conditions and check with explainability tools that it learned the right thing. Where it is useful, ship it as something people can open.</p>
+      <div class="head"><h2>How a project runs</h2><span class="tag">the same five steps in every study</span></div>
+      <div class="pipe">
+        <div class="step rv"><div class="dot" data-ic="camera"></div><div class="k">Step 01</div><h3>Collect</h3><p>Original images photographed at market stalls, field sites and in the lab.</p></div>
+        <div class="step rv"><div class="dot" data-ic="split"></div><div class="k">Step 02</div><h3>Split first</h3><p>A stratified hold-out before any augmentation, so nothing leaks into the test set.</p></div>
+        <div class="step rv"><div class="dot" data-ic="cpu"></div><div class="k">Step 03</div><h3>Train &amp; compare</h3><p>The proposed model against retrained baselines under identical conditions, with significance tests.</p></div>
+        <div class="step rv"><div class="dot" data-ic="eye"></div><div class="k">Step 04</div><h3>Explain</h3><p>Grad-CAM++, LIME and SHAP checks that the model attends to the right evidence.</p></div>
+        <div class="step rv"><div class="dot" data-ic="cloud"></div><div class="k">Step 05</div><h3>Deploy</h3><p>Shipped as a web application, an IoT device or a production service.</p></div>
+      </div>
     </div>
 
     <div class="band">
       <div class="head"><h2>The data behind it</h2><span class="tag">what I collect and curate</span></div>
-      <div class="stats" style="margin-bottom:30px">
-        <div class="stat" style="--c:var(--teal)"><b data-n="9">9</b><span>Image datasets</span></div>
-        <div class="stat" style="--c:var(--blue)"><b data-n="7">7</b><span>Deployed to web or device</span></div>
-        <div class="stat" style="--c:var(--peri)"><b data-n="1268">1268</b><span>Survey respondents</span></div>
-        <div class="stat" style="--c:var(--sand)"><b data-n="137">137</b><span>Studies screened</span></div>
+      <div class="stats" style="margin-bottom:22px">
+        <div class="stat"><div class="ic" data-ic="db"></div><b data-n="9">9</b><span>Image datasets</span></div>
+        <div class="stat"><div class="ic" data-ic="monitor"></div><b data-n="7">7</b><span>Deployed to web or device</span></div>
+        <div class="stat"><div class="ic" data-ic="users"></div><b data-n="1268">1,268</b><span>Survey respondents</span></div>
+        <div class="stat"><div class="ic" data-ic="doc"></div><b data-n="137">137</b><span>Studies screened</span></div>
       </div>
-      <div class="dbars" id="dbars"></div>
+      <div class="viz rv">
+        <h3>Images per dataset</h3>
+        <div class="sub">Hover a bar for details</div>
+        <div class="dbars" id="dbars"></div>
+        <div class="legend" id="dlegend"></div>
+      </div>
       <p class="note">Images per dataset, labelled with the classes each covers. The ones marked <b>own</b> were photographed from scratch at market stalls, field sites and in the lab. Every one uses a stratified hold-out with augmentation applied after the split, never before — the cheapest way to fake a good number is to leak augmented copies into the test set.</p>
     </div>
 
@@ -392,74 +703,125 @@ footer b{color:var(--dim); font-weight:400}
     </div>
 
     <div class="band">
-      <div class="thesis">
-        <div class="tl2">M.Sc. thesis · 2026</div>
+      <div class="thesis rv">
+        <div class="tl2"><span class="key" style="--c:var(--se)"></span>M.Sc. thesis · 2026</div>
         <h3>Automated Software Requirement and Design Understanding Using Deep Learning-Based UML Diagram Recognition and LLM-Based Design Pattern Detection</h3>
         <p>Two halves of one question: can a model read a software design the way an engineer does? The first recognises UML diagrams from images with a task-specific deep CNN; the second evaluates large language models on detecting design patterns in source systems. Both halves became conference papers at ICCVBIC 2026.</p>
         <a class="tbtn" href="https://ar.iub.edu.bd/handle/11348/1597">Read it in the IUB repository →</a>
       </div>
 
-      <div class="head"><h2>Projects</h2><span class="tag">nine</span></div>
+      <div class="head"><h2>Projects</h2><span class="tag">ten</span></div>
       <div class="works" id="works"></div>
     </div>
+
+    <div class="pager" data-pager></div>
   </div>
 </div>
 
 <!-- ════════ PROJECTS ════════ -->
-<div class="view" data-view="projects" hidden>
-  <div class="wrap">
-    <div class="band">
-      <div class="head"><h2>Projects</h2><span class="tag">things that run, not just results</span></div>
-      <p class="intro">A model that only exists in a results table has not been tested by anyone. Where it made sense, the work shipped: web applications a farmer or clinician can open, a device that sits on a counter, and production systems built during industry placements.</p>
+<div class="view" data-view="projects">
+  <header class="phead"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a><span>/</span><b>Projects</b></div>
+    <div class="ptitle"><span class="pic" data-ic="monitor"></span><h1>Projects</h1><span class="tag">things that run, not just results</span></div>
+    <p>A model that only exists in a results table has not been tested by anyone. Where it made sense, the work shipped: web applications a farmer or clinician can open, a device that sits on a counter, and production systems built during industry placements.</p>
+    <div class="jump">
+      <button type="button" data-jump="sec-deployed">Deployed systems <b>6</b></button>
+      <button type="button" data-jump="sec-models">Models &amp; architectures <b>5</b></button>
+      <button type="button" data-jump="sec-industry">Industry work <b>3</b></button>
+      <button type="button" data-jump="sec-code">Code</button>
     </div>
-
-    <div class="band">
+  </div></header>
+  <div class="wrap">
+    <div class="band" id="sec-deployed">
       <div class="head"><h2>Deployed systems</h2></div>
       <div class="pjs" id="pjDeployed"></div>
     </div>
 
-    <div class="band">
+    <div class="band" id="sec-models">
       <div class="head"><h2>Models &amp; architectures</h2><span class="tag">named, released with their papers</span></div>
       <div class="pjs" id="pjModels"></div>
     </div>
 
-    <div class="band">
+    <div class="band" id="sec-industry">
       <div class="head"><h2>Industry work</h2></div>
       <div class="pjs" id="pjIndustry"></div>
     </div>
 
-    <div class="band">
+    <div class="band" id="sec-code">
       <div class="head"><h2>Code</h2></div>
       <p class="intro">Implementations, training scripts and dataset tooling live on GitHub.</p>
       <div class="plinks"><a href="https://github.com/ZarifWasif">github.com/ZarifWasif</a></div>
     </div>
+
+    <div class="pager" data-pager></div>
   </div>
 </div>
 
 <!-- ════════ PUBLICATIONS ════════ -->
-<div class="view" data-view="publications" hidden>
+<div class="view" data-view="publications">
+  <header class="phead"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a><span>/</span><b>Publications</b></div>
+    <div class="ptitle"><span class="pic" data-ic="book"></span><h1>Publications</h1><span class="tag">43 entries</span></div>
+    <p>Thirty-seven accepted, six under review. All accepted work is Scopus-indexed; journal metrics are the most recent publisher-reported figures. Filter or search below.</p>
+  </div></header>
   <div class="wrap">
     <div class="band">
-      <div class="head"><h2>Publications</h2><span class="tag">42 entries</span></div>
-      <p class="intro">Thirty-six accepted, six under review. All accepted work is Scopus-indexed; journal metrics are the most recent publisher-reported figures. Filter or search below.</p>
+      <div class="head"><h2>At a glance</h2><span class="tag">2023 – 2026</span></div>
+      <div class="vgrid">
+        <div class="viz rv">
+          <h3>Accepted publications per year, by area</h3>
+          <div class="sub">Hover a segment for its count. Work in press is placed in its venue year.</div>
+          <svg id="yearChart" role="img" aria-label="Accepted publications per year, stacked by research area"></svg>
+          <div class="vlegend" id="yearLegend"></div>
+        </div>
+        <div class="viz rv">
+          <h3>Where every manuscript stands</h3>
+          <div class="sub"><span id="totalAll">43</span> manuscripts in total</div>
+          <div class="seg" id="statusSeg" role="img"></div>
+          <div class="vlegend" id="statusLegend"></div>
+          <div class="facts">
+            <div class="fact"><b id="fQ1">4</b><span>Q1 journal articles</span></div>
+            <div class="fact"><b id="fFirst">18</b><span>Accepted papers as first author</span></div>
+            <div class="fact"><b id="fVenues">11</b><span>Conference venues presented at</span></div>
+            <div class="fact"><b id="fCountries">9</b><span>Countries those venues were in</span></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="band">
       <div class="head"><h2>Where the work went</h2><span class="tag">area × year</span></div>
-      <div class="mx"><table class="matrix" id="matrix"></table></div>
-      <div class="legend" id="legend"></div>
+      <div class="vgrid">
+        <div class="viz rv">
+          <h3>Accepted publications by area and year</h3>
+          <div class="sub">Darker cells hold more papers. Hover a cell for the exact count.</div>
+          <div class="swipe">Swipe sideways to see every year →</div>
+          <div class="mx"><table class="matrix" id="matrix"></table></div>
+          <div class="ramp" id="ramp"></div>
+          <div class="legend" id="legend"></div>
+        </div>
+        <div class="viz rv">
+          <h3>Accepted publications by publisher</h3>
+          <div class="sub">Counted once each, accepted work only</div>
+          <div class="dbars" id="publishers"></div>
+        </div>
+      </div>
       <p class="note">Accepted work only, counted once each, placed in the year of the venue — work in press sits in its own year rather than a separate column. The six papers under review are listed below but not counted here.</p>
     </div>
 
     <div class="band">
       <div class="head"><h2>Authorship</h2><span class="tag">who I write with</span></div>
-      <div class="stats" style="margin-bottom:28px">
-        <div class="stat" style="--c:var(--blue)"><b id="faN">0</b><span>As first author</span></div>
-        <div class="stat" style="--c:var(--teal)"><b id="coN">0</b><span>Distinct co-authors</span></div>
-        <div class="stat" style="--c:var(--sand)"><b id="veN">0</b><span>Distinct venues</span></div>
-        <div class="stat" style="--c:var(--peri)"><b id="prN">0</b><span>Publishers</span></div>
+      <div class="stats" style="margin-bottom:22px">
+        <div class="stat"><div class="ic" data-ic="pen"></div><b id="faN">–</b><span>As first author</span></div>
+        <div class="stat"><div class="ic" data-ic="users"></div><b id="coN">–</b><span>Distinct co-authors</span></div>
+        <div class="stat"><div class="ic" data-ic="pin"></div><b id="veN">–</b><span>Distinct venues</span></div>
+        <div class="stat"><div class="ic" data-ic="layers"></div><b id="prN">–</b><span>Publishers</span></div>
       </div>
-      <div class="dbars" id="collab"></div>
+      <div class="viz rv">
+        <h3>Recurring collaborators</h3>
+        <div class="sub">Papers written together. Hover a bar for details</div>
+        <div class="dbars" id="collab"></div>
+      </div>
       <p class="note">Recurring collaborators, counted across every paper listed below. Three manuscripts under anonymous review are excluded from the author counts because their author lists are not yet public.</p>
     </div>
 
@@ -477,27 +839,49 @@ footer b{color:var(--dim); font-weight:400}
       <div class="count" id="count"></div>
       <ol class="pubs" id="pubs"></ol>
     </div>
+
+    <div class="pager" data-pager></div>
   </div>
 </div>
 
 <!-- ════════ ABOUT ════════ -->
-<div class="view" data-view="about" hidden>
+<div class="view" data-view="about">
+  <header class="phead"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a><span>/</span><b>About</b></div>
+    <div class="ptitle"><span class="pic" data-ic="user"></span><h1>About</h1><span class="tag">research · teaching · industry</span></div>
+  </div></header>
   <div class="wrap">
     <div class="band">
-      <div class="head"><h2>About</h2></div>
       <div class="abt">
-        <img class="aportrait" src="img/portrait.jpg" alt="Zarif Wasif Bhuiyan">
+        <div class="pwrap"><img class="aportrait" src="img/portrait.jpg" alt="Zarif Wasif Bhuiyan" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg')"></div>
         <div>
-      <p class="intro">I am a Graduate Research Assistant in Data Science and Machine Learning at Independent University, Bangladesh, where I finished an M.Sc. in Software Engineering ranked first in the programme. Before that I did my B.Sc. at the same university and two industry stints building production ML and backend systems.</p>
-      <p class="intro">Most of my time goes to comparative studies: designing the evaluation, tuning the candidates, testing whether the gaps are real, and checking with Grad-CAM++ and LIME that the model is looking where it should. I wrote the analysis workflow the lab now runs on, and I run the lab sessions for Neural Networks and Artificial Intelligence.</p>
+          <p class="intro">I am a Graduate Research Assistant in Data Science and Machine Learning at Independent University, Bangladesh, where I finished an M.Sc. in Software Engineering ranked first in the programme. Before that I did my B.Sc. at the same university and two industry stints building production ML and backend systems.</p>
+          <p class="intro">Most of my time goes to comparative studies: designing the evaluation, tuning the candidates, testing whether the gaps are real, and checking with Grad-CAM++ and LIME that the model is looking where it should. I wrote the analysis workflow the lab now runs on, and I run the lab sessions for Neural Networks and Artificial Intelligence.</p>
         </div>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="head"><h2>Journey</h2><span class="tag">2016 – 2026</span></div>
+      <div class="viz rv">
+        <div class="journey">
+          <div class="ms edu"><i class="d"></i><div class="y">2016</div><b>Secondary School Certificate</b><span>GPA 5.00 / 5.00</span></div>
+          <div class="ms edu"><i class="d"></i><div class="y">2018</div><b>Higher Secondary Certificate</b><span>GPA 4.50 / 5.00</span></div>
+          <div class="ms edu"><i class="d"></i><div class="y">2024</div><b>B.Sc. in CSE</b><span>Independent University, Bangladesh</span></div>
+          <div class="ms wk"><i class="d"></i><div class="y">Feb 2024</div><b>Python Developer Trainee</b><span>Jaish Trade International</span></div>
+          <div class="ms wk"><i class="d"></i><div class="y">May 2024</div><b>Data Scientist Trainee</b><span>Digicon Technologies PLC.</span></div>
+          <div class="ms wk"><i class="d"></i><div class="y">Jan 2025</div><b>Research Assistant</b><span>Dept. of Physical Sciences, IUB</span></div>
+          <div class="ms wk"><i class="d"></i><div class="y">Aug 2025</div><b>Graduate Research Assistant</b><span>Dept. of CSE, IUB</span></div>
+          <div class="ms edu"><i class="d"></i><div class="y">2026</div><b>M.Sc. in Software Engineering</b><span>Ranked 1st · CGPA 3.96</span></div>
+        </div>
+        <div class="vlegend"><span><i class="lg edu"></i>Education</span><span><i class="lg"></i>Work</span></div>
       </div>
     </div>
 
     <div class="band">
       <div class="head"><h2>Experience</h2></div>
       <div class="tl">
-        <div class="job" style="--c:var(--rose)">
+        <div class="job now rv"><div class="jcard">
           <div class="jh"><h3>Graduate Research Assistant — Data Science &amp; Machine Learning</h3><span class="when">Aug 2025 — present</span></div>
           <div class="where">Dept. of Computer Science and Engineering, Independent University, Bangladesh</div>
           <ul>
@@ -507,8 +891,8 @@ footer b{color:var(--dim); font-weight:400}
             <li>Designed and built an IoT prototype for meat freshness and type recognition, pairing sensor instrumentation with a custom CNN.</li>
             <li>Support faculty and student teams with study design, survey instruments, data collection and manuscript preparation; run lab sessions for CSE424 and CSE425 and co-supervise final-year theses.</li>
           </ul>
-        </div>
-        <div class="job" style="--c:var(--blue)">
+        </div></div>
+        <div class="job rv"><div class="jcard">
           <div class="jh"><h3>Research Assistant</h3><span class="when">Jan — Jul 2025</span></div>
           <div class="where">Dept. of Physical Sciences, Independent University, Bangladesh</div>
           <ul>
@@ -516,50 +900,50 @@ footer b{color:var(--dim); font-weight:400}
             <li>Developed MCPNet, a lightweight hybrid CNN for multi-crop pest recognition: 99% across 13 classes on a curated 13,000-image dataset.</li>
             <li>Built a bilingual Bangla/English academic-guidance assistant using large language models and LangChain.</li>
           </ul>
-        </div>
-        <div class="job" style="--c:var(--teal)">
+        </div></div>
+        <div class="job rv"><div class="jcard">
           <div class="jh"><h3>Data Scientist Trainee</h3><span class="when">May — Jul 2024</span></div>
           <div class="where">Digicon Technologies PLC. — Dhaka</div>
           <ul>
             <li>Designed and deployed a face-recognition attendance system for Nagad's Customer Management Platform.</li>
             <li>Built and integrated an AI-powered FAQ chatbot into Uttara Motors' Customer Management System.</li>
           </ul>
-        </div>
-        <div class="job" style="--c:var(--peri)">
+        </div></div>
+        <div class="job rv"><div class="jcard">
           <div class="jh"><h3>Python Developer Trainee</h3><span class="when">Feb — Apr 2024</span></div>
           <div class="where">Jaish Trade International — Dhaka</div>
           <ul><li>Built a Django-based inventory management and tracking system.</li></ul>
-        </div>
+        </div></div>
       </div>
     </div>
 
     <div class="band">
       <div class="head"><h2>Education</h2></div>
-      <div class="grid">
-        <div class="card" style="grid-column:1/-1">
+      <div class="grid edu">
+        <div class="card rv" style="grid-column:1/-1">
           <div class="yr">2026</div>
-          <h3>M.Sc. in Software Engineering</h3>
+          <h3>M.Sc. in Software Engineering <span class="badge">Ranked 1st</span></h3>
           <p>Independent University, Bangladesh — Dhaka</p>
+          <div class="gpa"><div class="row"><span>CGPA</span><b>3.96 / 4.00</b></div><div class="bar"><i style="--w:99%"></i></div></div>
           <dl>
-            <dt>CGPA</dt><dd>3.96 / 4.00</dd>
-            <dt>Standing</dt><dd><b style="color:var(--teal)">Ranked 1st in the programme</b></dd>
+            <dt>Standing</dt><dd><b class="rank">Ranked 1st in the programme</b></dd>
             <dt>Thesis</dt><dd><i>Automated Software Requirement and Design Understanding Using Deep Learning-Based UML Diagram Recognition and LLM-Based Design Pattern Detection</i></dd>
             <dt>Supervisor</dt><dd>Dr. Md. Tarek Habib, Associate Professor, CSE</dd>
             <dt>Archive</dt><dd><a href="https://ar.iub.edu.bd/handle/11348/1597">ar.iub.edu.bd/handle/11348/1597</a></dd>
           </dl>
         </div>
-        <div class="card"><div class="yr">2024</div><h3>B.Sc. in Computer Science and Engineering</h3><p>Independent University, Bangladesh</p></div>
-        <div class="card"><div class="yr">2018</div><h3>Higher Secondary Certificate</h3><p>Dhaka City College · Science</p></div>
-        <div class="card"><div class="yr">2016</div><h3>Secondary School Certificate</h3><p>Govt. Mohammadpur Model School and College · Science</p></div>
+        <div class="card rv"><div class="yr">2024</div><h3>B.Sc. in Computer Science and Engineering</h3><p>Independent University, Bangladesh</p><div class="gpa"><div class="row"><span>CGPA</span><b>3.19 / 4.00</b></div><div class="bar"><i style="--w:79.75%"></i></div></div></div>
+        <div class="card rv"><div class="yr">2018</div><h3>Higher Secondary Certificate</h3><p>Dhaka City College · Science</p><div class="gpa"><div class="row"><span>GPA</span><b>4.50 / 5.00</b></div><div class="bar"><i style="--w:90%"></i></div></div></div>
+        <div class="card rv"><div class="yr">2016</div><h3>Secondary School Certificate</h3><p>Govt. Mohammadpur Model School and College · Science</p><div class="gpa"><div class="row"><span>GPA</span><b>5.00 / 5.00</b></div><div class="bar"><i style="--w:100%"></i></div></div></div>
       </div>
     </div>
 
     <div class="band">
       <div class="head"><h2>Two days that mattered</h2></div>
       <div class="moments">
-        <figure><img src="img/defence1.jpg" alt="Holding the bound M.Sc. thesis on defence day">
+        <figure class="rv"><div class="ph"><img src="img/defence.jpg" alt="Holding the bound M.Sc. thesis on defence day" loading="lazy" decoding="async" style="object-position:50% 72%" onerror="this.parentNode.classList.add('noimg')"></div>
           <figcaption><b>M.Sc. defence · August 2026</b>Holding the bound thesis: <i>Automated Software Requirement and Design Understanding Using Deep Learning-Based UML Diagram Recognition and LLM-Based Design Pattern Detection.</i></figcaption></figure>
-        <figure><img src="img/convocation.jpg" alt="At B.Sc. convocation in cap and gown">
+        <figure class="rv"><div class="ph"><img src="img/convocation.jpg" alt="At B.Sc. convocation in cap and gown" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg')"></div>
           <figcaption><b>B.Sc. convocation · 2024</b>Independent University, Bangladesh — B.Sc. in Computer Science and Engineering.</figcaption></figure>
       </div>
     </div>
@@ -567,48 +951,51 @@ footer b{color:var(--dim); font-weight:400}
     <div class="band">
       <div class="head"><h2>Toolkit</h2></div>
       <dl class="sk">
-        <div class="skrow" style="--c:var(--rose)"><dt>Machine learning</dt><dd>Deep learning · computer vision · image classification and semantic segmentation · NLP and LLMs · explainable AI (Grad-CAM++, LIME, SHAP) · feature engineering · statistical analysis</dd></div>
-        <div class="skrow" style="--c:var(--teal)"><dt>Model development</dt><dd>CNN, ensemble and hybrid architectures · squeeze-and-excitation and residual blocks · Vision Transformers · transfer learning · U-Net and encoder–decoder segmentation · YOLOv8 · augmentation · hyperparameter tuning</dd></div>
-        <div class="skrow" style="--c:var(--blue)"><dt>Data &amp; evaluation</dt><dd>Dataset collection and curation · stratified, leakage-safe splitting · accuracy, precision, recall, F1 · Dice and IoU · confusion-matrix analysis · significance testing · information gain and chi-square ranking · psychometric reliability</dd></div>
-        <div class="skrow" style="--c:var(--sand)"><dt>Frameworks</dt><dd>TensorFlow · PyTorch · Keras · Scikit-learn · Hugging Face Transformers · LangChain · OpenCV · Pandas · NumPy</dd></div>
-        <div class="skrow" style="--c:var(--peri)"><dt>Engineering &amp; hardware</dt><dd>Python · SQL · Django · Flask · FastAPI · Flutter · Docker · Git · Raspberry Pi · ESP32-CAM · MQ-series gas sensors</dd></div>
+        <div class="skrow rv"><dt><span class="ic" data-ic="zap"></span>Machine learning</dt><dd data-split>Deep learning · computer vision · image classification and semantic segmentation · NLP and LLMs · explainable AI (Grad-CAM++, LIME, SHAP) · feature engineering · statistical analysis</dd></div>
+        <div class="skrow rv"><dt><span class="ic" data-ic="box"></span>Model development</dt><dd data-split>CNN, ensemble and hybrid architectures · squeeze-and-excitation and residual blocks · Vision Transformers · transfer learning · U-Net and encoder–decoder segmentation · YOLOv8 · augmentation · hyperparameter tuning</dd></div>
+        <div class="skrow rv"><dt><span class="ic" data-ic="bars"></span>Data &amp; evaluation</dt><dd data-split>Dataset collection and curation · stratified, leakage-safe splitting · accuracy, precision, recall, F1 · Dice and IoU · confusion-matrix analysis · significance testing · information gain and chi-square ranking · psychometric reliability</dd></div>
+        <div class="skrow rv"><dt><span class="ic" data-ic="layers"></span>Frameworks</dt><dd data-split>TensorFlow · PyTorch · Keras · Scikit-learn · Hugging Face Transformers · LangChain · OpenCV · Pandas · NumPy</dd></div>
+        <div class="skrow rv"><dt><span class="ic" data-ic="tool"></span>Engineering &amp; hardware</dt><dd data-split>Python · SQL · Django · Flask · FastAPI · Flutter · Docker · Git · Raspberry Pi · ESP32-CAM · MQ-series gas sensors</dd></div>
       </dl>
     </div>
 
     <div class="band">
       <div class="head"><h2>Talks</h2><span class="tag">11 venues · delivered online at hybrid conferences</span></div>
-      <div id="talks"></div>
+      <div class="tyears" id="tyears"></div>
+      <div class="talks" id="talks"></div>
     </div>
 
     <div class="band">
       <div class="head"><h2>Honours &amp; service</h2></div>
       <ul class="hon">
-        <li><span class="m">01</span><span>Ranked <b>1st in the M.Sc. in Software Engineering programme</b>, Independent University, Bangladesh</span></li>
-        <li><span class="m">02</span><span><b>Merit Scholarship</b>, M.Sc. in Software Engineering, Independent University, Bangladesh</span></li>
-        <li><span class="m">03</span><span><b>Champion</b>, System Analysis &amp; Design Project, IUB Techfest, Summer 2023</span></li>
-        <li><span class="m">04</span><span><b>Second Runner-Up</b>, Microprocessor Interfacing &amp; Assembly Language Project, IUB Techfest, Summer 2023</span></li>
-        <li><span class="m">05</span><span><b>Teaching</b> — lab instructor, CSE424 Neural Networks and CSE425 Artificial Intelligence; co-supervisor for final-year theses</span></li>
-        <li><span class="m">06</span><span><b>Volunteer</b> — IUB SETS Fest, IUB BC Orientation, IUB Club Carnival; moderator, Dhaka City College Science Fair</span></li>
+        <li class="rv"><span class="m gold" data-ic="award"></span><span>Ranked <b>1st in the M.Sc. in Software Engineering programme</b>, Independent University, Bangladesh</span></li>
+        <li class="rv"><span class="m gold" data-ic="award"></span><span><b>Merit Scholarship</b>, M.Sc. in Software Engineering, Independent University, Bangladesh</span></li>
+        <li class="rv"><span class="m gold" data-ic="trophy"></span><span><b>Champion</b>, System Analysis &amp; Design Project, IUB Techfest, Summer 2023</span></li>
+        <li class="rv"><span class="m gold" data-ic="trophy"></span><span><b>Second Runner-Up</b>, Microprocessor Interfacing &amp; Assembly Language Project, IUB Techfest, Summer 2023</span></li>
+        <li class="rv"><span class="m" data-ic="users"></span><span><b>Teaching</b> — lab instructor, CSE424 Neural Networks and CSE425 Artificial Intelligence; co-supervisor for final-year theses</span></li>
+        <li class="rv"><span class="m" data-ic="heart"></span><span><b>Volunteer</b> — IUB SETS Fest, IUB BC Orientation, IUB Club Carnival; moderator, Dhaka City College Science Fair</span></li>
       </ul>
     </div>
+
+    <div class="pager" data-pager></div>
   </div>
 </div>
 
 <!-- ════════ CONTACT ════════ -->
-<div class="view" data-view="contact" hidden>
+<div class="view" data-view="contact">
+  <header class="phead"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a><span>/</span><b>Contact</b></div>
+    <div class="ptitle"><span class="pic" data-ic="send"></span><h1>Get in touch</h1></div>
+    <p>Open to PhD positions and research collaborations in computer vision, medical image analysis and applied machine learning. Happy to share datasets, code or full manuscripts on request.</p>
+  </div></header>
   <div class="wrap">
     <div class="band">
-      <div class="head"><h2>Get in touch</h2></div>
-      <p class="intro">Open to PhD positions and research collaborations in computer vision, medical image analysis and applied machine learning. Happy to share datasets, code or full manuscripts on request.</p>
-    </div>
-
-    <div class="band">
       <div class="cgrid">
-        <div class="ccard"><div class="l">Email</div><div class="v">zarifwasif20@gmail.com</div></div>
-        <div class="ccard"><div class="l">Phone</div><div class="v">+880 1537 108135</div></div>
-        <div class="ccard"><div class="l">Based in</div><div class="v">Dhaka, Bangladesh</div></div>
+        <div class="ccard"><span class="ic" data-ic="mail"></span><div><div class="l">Email</div><div class="v"><a href="mailto:zarifwasif20@gmail.com">zarifwasif20@gmail.com</a></div></div></div>
+        <div class="ccard"><span class="ic" data-ic="phone"></span><div><div class="l">Phone</div><div class="v"><a href="tel:+8801537108135">+880 1537 108135</a></div></div></div>
+        <div class="ccard"><span class="ic" data-ic="pin"></span><div><div class="l">Based in</div><div class="v">Dhaka, Bangladesh</div></div></div>
       </div>
-      <div class="plinks" style="margin-top:14px">
+      <div class="plinks" style="margin-top:16px">
         <a href="https://scholar.google.com/citations?user=mVpBtfYAAAAJ&amp;hl=en">Google Scholar</a>
         <a href="https://www.scopus.com/authid/detail.uri?authorId=58634204800">Scopus</a>
         <a href="https://www.researchgate.net/profile/Zarif-Bhuiyan">ResearchGate</a>
@@ -619,27 +1006,73 @@ footer b{color:var(--dim); font-weight:400}
 
     <div class="band">
       <div class="head"><h2>References</h2></div>
-      <div class="grid">
-        <div class="card"><h3>Prof. Dr. Shipra Banik</h3><p>Professor, Department of Physical Sciences<br>Independent University, Bangladesh</p><dl><dt>Email</dt><dd>banik@iub.edu.bd</dd></dl></div>
-        <div class="card"><h3>Dr. Mahady Hasan</h3><p>Senior Associate Professor, Department of CSE<br>Asian University for Women — Chattogram</p><dl><dt>Email</dt><dd>mahady1891@gmail.com</dd></dl></div>
-        <div class="card"><h3>Dr. Md. Tarek Habib</h3><p>Associate Professor, Department of CSE<br>Independent University, Bangladesh</p><dl><dt>Email</dt><dd>tarek@iub.edu.bd</dd></dl></div>
+      <div class="grid refs">
+        <div class="card"><h3><span class="av">SB</span>Prof. Dr. Shipra Banik</h3><p>Professor, Department of Physical Sciences<br>Independent University, Bangladesh</p><dl><dt>Email</dt><dd>banik@iub.edu.bd</dd></dl></div>
+        <div class="card"><h3><span class="av">MH</span>Dr. Mahady Hasan</h3><p>Senior Associate Professor, Department of CSE<br>Asian University for Women — Chattogram</p><dl><dt>Email</dt><dd>mahady1891@gmail.com</dd></dl></div>
+        <div class="card"><h3><span class="av">TH</span>Dr. Md. Tarek Habib</h3><p>Associate Professor, Department of CSE<br>Independent University, Bangladesh</p><dl><dt>Email</dt><dd>tarek@iub.edu.bd</dd></dl></div>
       </div>
     </div>
+
+    <div class="pager" data-pager></div>
   </div>
 </div>
 
 </main>
 
-<div class="wrap"><footer>
-  <span><b>Zarif Wasif Bhuiyan</b> · Dhaka, Bangladesh</span>
-  <span>zarifwasif20@gmail.com</span>
-  <span>Updated October 2026</span>
-</footer></div>
+<div class="wrap sitecta">
+  <div class="ctaband">
+    <div>
+      <h3>Let's work together.</h3>
+      <p>Open to PhD positions and research collaborations in computer vision, medical image analysis and applied machine learning.</p>
+    </div>
+    <div class="acts">
+      <a class="solid" href="#contact">Get in touch</a>
+      <a class="ghost" href="mailto:zarifwasif20@gmail.com">Send an email</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap fgrid">
+    <div>
+      <a class="brand" href="#home"><span class="mono">ZW</span><span>Zarif Wasif Bhuiyan<i>Machine vision research</i></span></a>
+      <p>Deep learning for visual recognition in medical imaging and agricultural and food machine vision, with a second strand on machine learning for software engineering.</p>
+    </div>
+    <div class="fcol"><h4>Pages</h4>
+      <a href="#home">Home</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </div>
+    <div class="fcol"><h4>Profiles</h4>
+      <a href="https://scholar.google.com/citations?user=mVpBtfYAAAAJ&amp;hl=en">Google Scholar</a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=58634204800">Scopus</a>
+      <a href="https://www.researchgate.net/profile/Zarif-Bhuiyan">ResearchGate</a>
+      <a href="https://github.com/ZarifWasif">GitHub</a>
+      <a href="https://www.linkedin.com/in/zarif-wasif-bhuiyan-8ba79a266/">LinkedIn</a>
+    </div>
+    <div class="fcol"><h4>Contact</h4>
+      <a href="mailto:zarifwasif20@gmail.com">zarifwasif20@gmail.com</a>
+      <a href="tel:+8801537108135">+880 1537 108135</a>
+      <span>Dhaka, Bangladesh</span>
+    </div>
+  </div>
+  <div class="wrap"><div class="fbot">
+    <span><b>Zarif Wasif Bhuiyan</b> · Dhaka, Bangladesh</span>
+    <span>zarifwasif20@gmail.com</span>
+    <span>Updated November 2026</span>
+  </div></div>
+</footer>
+
+<button id="totop" type="button" aria-label="Back to top" data-ic="up"></button>
+<div id="tip" role="tooltip"></div>
 
 <script>
 const ME = "Zarif Wasif Bhuiyan";
-const AREAS = {agri:"Agri & food vision", med:"Medical imaging", se:"Software engineering", env:"Environment & forecasting", other:"Applied AI & platforms"};
-const AC = {agri:"#13806A", med:"#AE3A60", se:"#9C6B14", env:"#2563A8", other:"#5355B8"};
+const AREAS = {agri:"Agri & food vision", se:"Software engineering", med:"Medical imaging", env:"Environment & forecasting", other:"Applied AI & platforms"};
+/* categorical order validated for colour-blind separation: aqua, blue, red, yellow, violet */
+const ORDER = ["agri","se","med","env","other"];
+const AC = {agri:"#1BAF7A", se:"#2A78D6", med:"#E34948", env:"#EDA100", other:"#6250D6"};
+/* manuscript status: one blue hue, darkest = furthest along */
+const STATUS = [["published","Published","#184F95","#FFFFFF"],["inpress","In press","#2A78D6","#FFFFFF"],["review","Under review","#86B6EF","#0E1B2C"]];
+const SEQ = ["#CDE2FB","#9EC5F4","#6DA7EC","#3987E5","#256ABF","#184F95","#0D366B"];
 const esc = function(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;"); };
 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -665,7 +1098,7 @@ const BENCH = [
 ];
 
 const WORK = [
-{ar:"agri", st:"press", stl:"In press", role:"First author", feat:1,
+{ar:"agri", st:"pub", stl:"Published", role:"First author", feat:1,
  h:"Custom MeatSE-ResidualNet — multiclass meat type recognition",
  v:"Intelligent Automation & Soft Computing · Scopus Q1 · CiteScore 7.7",
  p:"Beef, goat and lamb look alike on a market stall, which is exactly what makes substitution profitable. I collected 12,270 original RGB images across six meat types from multiple market locations in Bangladesh, then built a lightweight network combining residual learning, squeeze-and-excitation attention and convolutional refinement to pick up the differences that matter: colour, fibre arrangement, surface texture and moisture. Augmentation touched the training split only, so validation and test stayed clean.",
@@ -686,9 +1119,9 @@ const WORK = [
  s:[["Dataset","9,928 images"],["Freshness set","6,672"],["Species set","3,256"],["Accuracy","99%"]],
  m:["Custom CNN","ESP32-CAM","Raspberry Pi 3","MQ gas sensors","Real-time"]},
 
-{ar:"agri", st:"press", stl:"In press", role:"First author",
+{ar:"agri", st:"pub", stl:"Published", role:"First author",
  h:"Unified multi-crop leaf disease recognition with web deployment",
- v:"Intelligent Automation & Soft Computing · Scopus Q1",
+ v:"Exploration of Foods and Foodomics, 2026 · Scopus Q3 · CiteScore 2.4",
  p:"Fourteen classes of healthy and diseased leaves across corn, potato, rice and tomato, trained through one unified pipeline with standardised splits and preprocessing so the comparison against ResNet-50, VGG-16, k-NN, SVM and Random Forest is genuinely like for like. Deployed as a web application with real-time prediction for field use.",
  s:[["Dataset","21,000 images"],["Classes","14"],["Crops","4"],["Accuracy","99.97%"]],
  m:["Custom CNN","Unified pipeline","Reproducible splits","Web deployment"]},
@@ -714,7 +1147,7 @@ const WORK = [
  s:[["Dataset","30,260 images"],["Varieties","14"],["Grades","3"],["Variety / grade","99% / 96%"]],
  m:["Custom CNN","Fine-grained grading","Real-time deployment","Explainable AI"]},
 
-{ar:"agri", st:"press", stl:"In press", role:"Co-author",
+{ar:"agri", st:"pub", stl:"Published", role:"Co-author",
  h:"Triple-Stream Hybrid Ensemble for medicinal fruit and seed classification",
  v:"Intelligent Automation & Soft Computing · Scopus Q1 · CiteScore 7.7",
  p:"A stacked ensemble that reads the same image three ways — MobileNetV3-Large, ResNet50 and a ViT-B16 — and lets a meta-learner combine them. Focal Loss pushes the network at the classes it keeps getting wrong, and a Cosine Annealing Warm Restarts schedule handles convergence. Dual-layer Grad-CAM++ and LIME diagnostics confirm the model reads the specimen rather than the background.",
@@ -737,9 +1170,9 @@ const WORK = [
 ];
 
 const P = [
-{t:"j",s:"inpress",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Md. Ataur Rahman, Mahady Hasan, and Md. Tarek Habib",ti:"A Profound Exploration of Pretrained, Ensemble, and Custom Convolutional Neural Network Models for Machine-Vision-Based Meat Type Recognition",v:"Intelligent Automation & Soft Computing",d:"Tech Science Press, USA",m:["Scopus","Q1","CiteScore 7.7"]},
-{t:"j",s:"inpress",y:2026,ar:"agri",a:"Habibur Rahman Sajal, Mohammad Monirul Islam, Mahfuzur Rahman, Zarif Wasif Bhuiyan, Subrata Kumar Dey, and Md. Tarek Habib",ti:"Triple-Stream Hybrid Deep Learning with Explainable AI for Medicinal Fruit and Seed Classification",v:"Intelligent Automation & Soft Computing",d:"Tech Science Press, USA",m:["Scopus","Q1","CiteScore 7.7"]},
-{t:"j",s:"inpress",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Mahady Hasan, Shipra Banik, and Md. Tarek Habib",ti:"Unified CNN-Based Recognition of Multi-Crop Leaf Diseases with Web Deployment",v:"Intelligent Automation & Soft Computing",d:"Tech Science Press, USA",m:["Scopus","Q1"]},
+{t:"j",s:"published",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Md. Ataur Rahman, Mahady Hasan, and Md. Tarek Habib",ti:"A Profound Exploration of Pretrained, Ensemble, and Custom Convolutional Neural Network Models for Machine-Vision-Based Meat Type Recognition",v:"Intelligent Automation & Soft Computing",d:"Tech Science Press, USA",doi:"10.32604/iasc.2026.089335",m:["Scopus","Q1","CiteScore 7.7"]},
+{t:"j",s:"published",y:2026,ar:"agri",a:"Habibur Rahman Sajal, Mohammad Monirul Islam, Mahfuzur Rahman, Zarif Wasif Bhuiyan, Subrata Kumar Dey, and Md. Tarek Habib",ti:"Triple-Stream Hybrid Deep Learning with Explainable AI for Medicinal Fruit and Seed Classification",v:"Intelligent Automation & Soft Computing",d:"Tech Science Press, USA",doi:"10.32604/iasc.2026.090057",m:["Scopus","Q1","CiteScore 7.7"]},
+{t:"j",s:"published",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Zaed Bin Monir Atib, Mahady Hasan, and Md. Tarek Habib",ti:"Unified CNN-Based Recognition of Multi-Crop Leaf Diseases with Web Deployment",v:"Exploration of Foods and Foodomics",d:"vol. 4, art. 1010200, 2026, Open Exploration Publishing, China",doi:"10.37349/eff.2026.1010200",m:["Scopus","Q3","CiteScore 2.4"]},
 {t:"j",s:"published",y:2026,ar:"med",a:"Zarif Wasif Bhuiyan, Afroza Sultana, and Md. Tarek Habib",ti:"MOCT-SE-ResidualNet: An Explainable Web-Based Framework Integrating Pretrained, Ensemble, and Novel CNN Models for Multi-Organ Disease Recognition from CT Scan Images",v:"Journal of Intelligent Decision Making and Information Science",d:"vol. 3, no. 10s, pp. 1726–1759, 2026, Nexora Academic Press",m:["Scopus","Q1","SJR 0.771"]},
 {t:"j",s:"published",y:2024,ar:"agri",a:"Zarif Wasif Bhuiyan, Syed Ali Redwanul Haider, Adiba Haque, Mohammad Rejwan Uddin, and Mahady Hasan",ti:"IoT Based Meat Freshness Classification Using Deep Learning",v:"IEEE Access",d:"vol. 12, pp. 196047–196069, 2024, IEEE, USA",doi:"10.1109/ACCESS.2024.3520029",m:["Web of Science","Scopus","Q1","IF 4.2","CiteScore 9.3"]},
 {t:"j",s:"review",y:2026,ar:"agri",a:"Zarif Wasif Bhuiyan, Syed Ali Redwanul Haider, Subrata Kumar Dey, Mahady Hasan, Mohammad Shorif Uddin, and Md. Tarek Habib",ti:"A Machine-Vision Framework for Automated Egg Variety Recognition, Freshness Assessment, and Nutritional Estimation Using Machine Learning Techniques",v:"Manuscript under review",d:"",m:[]},
@@ -771,6 +1204,7 @@ const P = [
 {t:"c",s:"published",y:2024,ar:"agri",a:"Zarif Wasif Bhuiyan, Monayem Hossian Limon, Md. Rakib Rana, Sayeda Rahnuma Akthar, Md. Tarek Habib, and Mahady Hasan",ti:"A Comparative Study of Deep Learning Models for Plant Leaf and Disease Recognition in Jackfruit, Rice, and Rose",v:"4th Int. Conference on Advances in Communication Technology and Computer Engineering (ICACTCE'24)",d:"LNNS vol. 1313, 2024, Springer, Cham",doi:"10.1007/978-3-031-94623-3_40",m:["Scopus"]},
 {t:"c",s:"published",y:2024,ar:"agri",a:"Zarif Wasif Bhuiyan, Md. Rakib Rana, Monayem Hossian Limon, Sayeda Rahnuma Akthar, Md. Tarek Habib, and Mahady Hasan",ti:"A Comparative Analysis of Deep Learning and Machine Learning Models for Fruit and Fruit Disease Recognition: Citrus, Guava, and Mango",v:"4th Int. Conference on Advances in Communication Technology and Computer Engineering (ICACTCE'24)",d:"LNNS vol. 1313, 2024, Springer, Cham",doi:"10.1007/978-3-031-94623-3_35",m:["Scopus"]},
 {t:"c",s:"published",y:2023,ar:"agri",a:"Zarif Wasif Bhuiyan, Syed Ali Redwanul Haider, Adiba Haque, Mahady Hasan, and Mohammad Rejwan Uddin",ti:"Meat Freshness Classifier with Machine and AI",v:"IEEE Region 10 Symposium (TENSYMP)",d:"pp. 1–5, 2023, Canberra, Australia",doi:"10.1109/TENSYMP55890.2023.10223681",m:["Scopus"]},
+{t:"c",s:"inpress",y:2026,ar:"med",a:"Rose Chowdhury Ritu, Zarif Wasif Bhuiyan, Subrata Kumar Dey, and Md. Tarek Habib",ti:"Cross-Country Comparative Study of Heart Disease Prediction Using Explainable AI",v:"3rd International Conference on Machine and Computing Technologies for Sustainable Development",d:"Manila, Philippines",m:["Scopus"]},
 {t:"c",s:"inpress",y:2026,ar:"se",a:"Imtiaz Ahmmed, Monosij Kanti Sarker, Miraz Or Rashid Alvee, Zarif Wasif Bhuiyan, Subrata Kumar Dey, and Md. Tarek Habib",ti:"Zero Trust Architecture with AI-Based Threat Intelligence: A Survey and Hybrid Security Framework",v:"5th World Conference on Information Systems for Business Management (ISBM 2026)",d:"Thailand",m:["Scopus"]},
 {t:"c",s:"inpress",y:2026,ar:"se",a:"Imtiaz Ahmmed, Monosij Kanti Sarker, Miraz Or Rashid Alvee, Zarif Wasif Bhuiyan, Subrata Kumar Dey, and Md. Tarek Habib",ti:"A Context-Aware XGBoost Framework for Vulnerability Remediation Recommendation Using GitHub Security Advisories",v:"12th IEEE Int. Conference on Sustainable Technologies for Engineering (i-COSTE 2026)",d:"IEEE",m:["Scopus"]},
 {t:"c",s:"inpress",y:2026,ar:"agri",a:"Zaed Bin Monir Atib, Zarif Wasif Bhuiyan, Md. Ataur Rahman, Fahad Monir, Mahady Hasan, and Md. Tarek Habib",ti:"Deep and Traditional Machine Learning Approaches for Meat-Type Recognition: Comparative Analysis with a Web-Based System",v:"Int. Conference on Trusted Networks and Intelligent Systems (TrustNet'26)",d:"Manipal University Jaipur, India",m:["Scopus"]},
@@ -795,25 +1229,197 @@ const TALKS = [
  ["TENSYMP 2023","Canberra, Australia",["Meat Freshness Classifier with Machine and AI"]]
 ];
 
-/* ── routing ── */
+const PJ = {
+ deployed:[
+  {c:"med", k:"Web application", h:"Multi-organ CT diagnosis",
+   p:"Upload a CT slice and get a prediction across twelve diagnostic classes spanning brain, kidney and lung, with a Grad-CAM, LIME and SHAP view attached to every answer so the reasoning can be inspected rather than trusted blindly.",
+   t:["MOCT-SE-ResidualNet","Grad-CAM","LIME","SHAP","Web"], s:"Published in JIDMIS, 2026"},
+  {c:"agri", k:"Web application", h:"Multi-crop leaf disease recognition",
+   p:"Fourteen healthy and diseased classes across corn, potato, rice and tomato, served for real-time prediction so a diagnosis is reachable from a phone standing in the field.",
+   t:["Custom CNN","Real-time inference","Web"], s:"Exploration of Foods and Foodomics, 2026"},
+  {c:"agri", k:"Web application", h:"Multi-fruit disease recognition",
+   p:"Seventeen disease classes across citrus, guava, mango and pomegranate, from a 30,260-image dataset, deployed so growers can check a fruit without waiting for an agronomist.",
+   t:["Custom CNN","Fine-grained recognition","Web"], s:"Under review"},
+  {c:"agri", k:"Hardware device", h:"IoT meat freshness monitor",
+   p:"An ESP32-CAM feeds images to a Raspberry Pi 3 running a custom CNN, while MQ135, MQ136 and MQ4 sensors read the ammonia, hydrogen sulfide and methane that spoiling meat releases. A three-colour LED reports fresh, borderline or spoiled on the spot.",
+   t:["ESP32-CAM","Raspberry Pi 3","MQ gas sensors","Custom CNN"], s:"IEEE Access, 2024"},
+  {c:"agri", k:"Pipeline", h:"Egg variety, freshness and nutrition",
+   p:"YOLOv8 segmentation with a Bangladeshi five-taka coin as a known scale turns pixel area into egg mass, then species-specific nutrient tables turn that mass into calories, protein, fat, cholesterol and carbohydrate. Under two seconds on a consumer GPU.",
+   t:["YOLOv8","Segmentation","Scale reference","Custom CNN"], s:"Under review"},
+  {c:"other", k:"LLM assistant", h:"Bilingual academic-guidance assistant",
+   p:"A Bangla and English assistant built on large language models and LangChain, answering student questions on academic, career and financial matters with context pulled from institutional material.",
+   t:["LLM","LangChain","RAG","Bangla / English"], s:"Dept. of Physical Sciences, IUB"}
+ ],
+ models:[
+  {c:"agri", k:"Architecture", h:"Custom MeatSE-ResidualNet",
+   p:"A lightweight network combining residual learning, squeeze-and-excitation attention and convolutional refinement, designed for the subtle colour, fibre and moisture differences that separate six meat types. 97.83% on a held-out test set.",
+   t:["Squeeze-and-excitation","Residual","Lightweight"], s:"Intelligent Automation & Soft Computing, 2026"},
+  {c:"med", k:"Architecture", h:"MOCT-SE-ResidualNet",
+   p:"A residual squeeze-and-excitation network built to carry twelve diagnostic classes across three organ groups in one model instead of three. 98% overall accuracy against transfer-learning, ensemble and classical baselines.",
+   t:["Squeeze-and-excitation","Multi-organ","Transfer learning"], s:"JIDMIS, 2026"},
+  {c:"agri", k:"Architecture", h:"MCPNet",
+   p:"A lightweight hybrid CNN for multi-crop pest recognition, reaching 99% across thirteen pest classes on a curated 13,000-image dataset, small enough to be worth deploying at the edge.",
+   t:["Hybrid CNN","Lightweight","13 classes"], s:"In press, AII 2025"},
+  {c:"agri", k:"Ensemble", h:"Triple-Stream Hybrid Ensemble",
+   p:"MobileNetV3-Large, ResNet50 and a ViT-B16 read the same image in parallel and a meta-learner combines them, trained with Focal Loss and Cosine Annealing Warm Restarts. 99.30% at 24.2 ms per sample.",
+   t:["Vision Transformer","Stacked ensemble","Focal Loss"], s:"Intelligent Automation & Soft Computing, 2026"},
+  {c:"env", k:"Forecasting", h:"Environmental time-series system",
+   p:"A Transformer forecaster over an eight-year multivariate sensor record covering temperature, humidity, rainfall, PM2.5 and PM10, benchmarked against Random Forest, XGBoost, CatBoost and LSTM to see which approach actually held up out of sample.",
+   t:["Transformer","XGBoost","CatBoost","LSTM"], s:"Dept. of Physical Sciences, IUB"}
+ ],
+ industry:[
+  {c:"se", k:"Production system", h:"Face-recognition attendance",
+   p:"Designed and deployed for Nagad's Customer Management Platform, replacing manual entry and improving the accuracy of attendance records.",
+   t:["Computer vision","Python","Deployment"], s:"Digicon Technologies PLC."},
+  {c:"se", k:"Production system", h:"AI-powered FAQ chatbot",
+   p:"Built and integrated into Uttara Motors' Customer Management System, automating routine customer inquiries and cutting response time.",
+   t:["NLP","Chatbot","Integration"], s:"Digicon Technologies PLC."},
+  {c:"se", k:"Backend", h:"Inventory management and tracking",
+   p:"A Django system for stock monitoring, automating what had been a manual operational routine.",
+   t:["Django","Python","SQL"], s:"Jaish Trade International"}
+ ]
+};
+
+/* ── helpers ── */
+const attr = function(s){ return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); };
+const key = function(c){ return '<span class="key" style="--c:' + c + '"></span>'; };
+
+/* ── pages ── */
 const VIEWS = ["home","research","projects","publications","about","contact"];
-function route(){
-  let v = (location.hash || "").replace(/^#/, "");
-  if(VIEWS.indexOf(v) === -1) v = "home";
-  document.querySelectorAll("[data-view]").forEach(function(el){ el.hidden = el.dataset.view !== v; });
+const PAGES = {
+  home:["Home","Overview and highlights"],
+  research:["Research","Datasets, models, results"],
+  projects:["Projects","Things that run, not just results"],
+  publications:["Publications", P.length + " entries"],
+  about:["About","Experience, education, talks"],
+  contact:["Contact","Get in touch"]
+};
+const TITLES = {home:"Zarif Wasif Bhuiyan — Machine Vision Researcher"};
+VIEWS.forEach(function(v){ if(!TITLES[v]) TITLES[v] = PAGES[v][0] + " — Zarif Wasif Bhuiyan"; });
+
+/* previous / next page links at the foot of every page */
+document.querySelectorAll("[data-pager]").forEach(function(el){
+  const i = VIEWS.indexOf(el.closest("[data-view]").dataset.view);
+  const prev = i > 0 ? VIEWS[i-1] : null;
+  const last = i === VIEWS.length - 1, next = last ? "home" : VIEWS[i+1];
+  el.innerHTML = (prev ? '<a class="np prev" href="#' + prev + '"><span class="arr" data-ic="back"></span><span><small>Previous page</small><b>' + PAGES[prev][0] + "</b><em>" + PAGES[prev][1] + "</em></span></a>" : "") +
+    '<a class="np next" href="#' + next + '"><span><small>' + (last ? "Back to start" : "Next page") + "</small><b>" + PAGES[next][0] + "</b><em>" + PAGES[next][1] +
+    '</em></span><span class="arr" data-ic="' + (last ? "home" : "arrow") + '"></span></a>';
+});
+
+/* ── icons ── */
+const IC = {
+  doc:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>',
+  book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+  db:'<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>',
+  monitor:'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
+  clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  pulse:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  leaf:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+  code:'<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>',
+  camera:'<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>',
+  split:'<path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>',
+  cpu:'<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>',
+  eye:'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+  cloud:'<path d="M16 16l-4-4-4 4M12 12v9"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>',
+  users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>',
+  pen:'<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+  pin:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+  zap:'<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>',
+  box:'<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/>',
+  bars:'<path d="M12 20V10M18 20V4M6 20v-4"/>',
+  layers:'<path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>',
+  tool:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+  award:'<circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/>',
+  trophy:'<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',
+  heart:'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/>',
+  phone:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  flask:'<path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21.5h11.6a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7 15h10"/>',
+  send:'<path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/>',
+  home:'<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
+  arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+  back:'<path d="M19 12H5M11 18l-6-6 6-6"/>',
+  up:'<path d="M12 19V5M6 11l6-6 6 6"/>'
+};
+document.querySelectorAll("[data-ic]").forEach(function(el){
+  el.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (IC[el.dataset.ic] || "") + "</svg>";
+});
+
+/* ── figures computed from the publication list ── */
+const ACC = P.filter(function(p){ return p.s !== "review"; });
+const COUNTRIES = Array.from(new Set(TALKS.map(function(t){ return t[1].split(",").pop().trim(); })));
+document.querySelectorAll(".share[data-area]").forEach(function(el){
+  const n = ACC.filter(function(p){ return p.ar === el.dataset.area; }).length;
+  el.querySelector("b").textContent = n + (n === 1 ? " publication" : " publications");
+  el.querySelector(".of").textContent = "of " + ACC.length + " accepted";
+  el.querySelector(".bar i").style.setProperty("--w", (n/ACC.length*100).toFixed(1) + "%");
+});
+
+/* ── page switching: works from the address bar, the back button, and inside embedded previews ── */
+const navEl = document.querySelector(".nav"), burger = document.querySelector(".burger");
+function viewFromHash(){ const v = (location.hash || "").replace(/^#/, ""); return VIEWS.indexOf(v) === -1 ? "home" : v; }
+function show(v){
+  document.documentElement.setAttribute("data-page", v);
   document.querySelectorAll("[data-nav]").forEach(function(a){
     if(a.dataset.nav === v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
   });
-  window.scrollTo(0,0);
+  document.title = TITLES[v];
+  navEl.classList.remove("open"); burger.setAttribute("aria-expanded","false");
+  window.scrollTo(0, 0);
+  if(v === "home" && window.__field) window.__field();
+  if(v === "publications" && typeof drawYearChart === "function") drawYearChart();
+  if(window.__sweep) setTimeout(window.__sweep, 120);
 }
-addEventListener("hashchange", route);
+function go(v){
+  show(v);
+  try{ if(location.hash !== "#" + v) history.pushState(null, "", "#" + v); }catch(e){}
+}
+document.addEventListener("click", function(e){
+  const a = e.target.closest && e.target.closest('a[href^="#"]');
+  if(!a) return;
+  const v = a.getAttribute("href").slice(1);
+  if(VIEWS.indexOf(v) === -1) return;
+  e.preventDefault();
+  go(v);
+});
+addEventListener("popstate", function(){ show(viewFromHash()); });
+addEventListener("hashchange", function(){ show(viewFromHash()); });
+burger.addEventListener("click", function(){
+  const o = navEl.classList.toggle("open");
+  burger.setAttribute("aria-expanded", o ? "true" : "false");
+});
+function closeMenu(){ navEl.classList.remove("open"); burger.setAttribute("aria-expanded","false"); }
+document.addEventListener("click", function(e){ if(navEl.classList.contains("open") && !navEl.contains(e.target)) closeMenu(); });
+document.addEventListener("keydown", function(e){ if(e.key === "Escape" && navEl.classList.contains("open")){ closeMenu(); burger.focus(); } });
+document.querySelectorAll("[data-jump]").forEach(function(b){
+  b.addEventListener("click", function(){
+    const t = document.getElementById(b.dataset.jump);
+    if(t) t.scrollIntoView({behavior: reduce ? "auto" : "smooth", block:"start"});
+  });
+});
 
-/* ── activation field ── */
+/* ── reading progress + back to top ── */
+(function(){
+  const bar = document.getElementById("progress"), top = document.getElementById("totop");
+  function onScroll(){
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? Math.min(100, scrollY/h*100) : 0) + "%";
+    top.classList.toggle("on", scrollY > 700);
+  }
+  addEventListener("scroll", onScroll, {passive:true});
+  addEventListener("resize", onScroll);
+  onScroll();
+  top.addEventListener("click", function(){ window.scrollTo({top:0, behavior: reduce ? "auto" : "smooth"}); });
+})();
+
+/* ── activation field (hero background) ── */
 (function(){
   const cv = document.getElementById("field");
   if(!cv || !cv.getContext) return;
   const ctx = cv.getContext("2d");
-  const STOPS = [[0,[238,242,246]],[.36,[205,222,238]],[.60,[150,194,221]],[.80,[109,176,172]],[1,[214,178,118]]];
+  const STOPS = [[0,[22,44,78]],[.45,[33,86,160]],[.75,[56,135,224]],[1,[92,211,168]]];
   function ramp(t){
     if(t < 0) t = 0; if(t > 1) t = 1;
     for(let i=1;i<STOPS.length;i++){
@@ -822,17 +1428,18 @@ addEventListener("hashchange", route);
         return "rgb(" + c0.map(function(c,j){ return Math.round(c + (c1[j]-c)*k); }).join(",") + ")";
       }
     }
-    return "rgb(214,178,118)";
+    return "rgb(92,211,168)";
   }
   const CELL = 18, GAP = 2;
-  let cols, rows, srcs;
+  let cols, rows, srcs, running = false, onScreen = true, odd = false;
+  if("IntersectionObserver" in window) new IntersectionObserver(function(es){ onScreen = es[0].isIntersecting; }).observe(cv);
   function size(){
-    const w = Math.max(320, cv.clientWidth || 900), h = 380;
+    const w = Math.max(320, cv.clientWidth || 1100), h = Math.max(300, cv.clientHeight || 560);
     cv.width = w; cv.height = h;
     cols = Math.ceil(w/CELL); rows = Math.ceil(h/CELL);
     srcs = [];
-    for(let i=0;i<5;i++) srcs.push({x:Math.random()*cols, y:Math.random()*rows,
-      vx:(Math.random()-.5)*.045, vy:(Math.random()-.5)*.032, r:6+Math.random()*7, w:.55+Math.random()*.55});
+    for(let i=0;i<6;i++) srcs.push({x:cols*.35 + Math.random()*cols*.65, y:Math.random()*rows,
+      vx:(Math.random()-.5)*.045, vy:(Math.random()-.5)*.032, r:6+Math.random()*7, w:.55+Math.random()*.5});
   }
   function frame(){
     ctx.clearRect(0,0,cv.width,cv.height);
@@ -843,55 +1450,156 @@ addEventListener("hashchange", route);
         v += s.w*Math.exp(-(dx*dx+dy*dy)/(2*s.r*s.r));
       }
       if(v > 1) v = 1;
-      if(v < .07) continue;
+      if(v < .08) continue;
       ctx.fillStyle = ramp(v);
-      ctx.globalAlpha = Math.min(.9, .2 + v*.8);
+      ctx.globalAlpha = Math.min(.85, .12 + v*.75);
       ctx.fillRect(gx*CELL, gy*CELL, CELL-GAP, CELL-GAP);
     }
     ctx.globalAlpha = 1;
   }
   function tick(){
-    for(let i=0;i<srcs.length;i++){
-      const s = srcs[i]; s.x += s.vx; s.y += s.vy;
-      if(s.x < -4 || s.x > cols+4) s.vx *= -1;
-      if(s.y < -4 || s.y > rows+4) s.vy *= -1;
+    odd = !odd;
+    if(odd && onScreen && !document.hidden && document.documentElement.getAttribute("data-page") === "home"){
+      for(let i=0;i<srcs.length;i++){
+        const s = srcs[i]; s.x += s.vx; s.y += s.vy;
+        if(s.x < -4 || s.x > cols+4) s.vx *= -1;
+        if(s.y < -4 || s.y > rows+4) s.vy *= -1;
+      }
+      frame();
     }
-    frame(); requestAnimationFrame(tick);
+    requestAnimationFrame(tick);
   }
   size(); frame();
-  if(!reduce) requestAnimationFrame(tick);
+  if(!reduce && !running){ running = true; requestAnimationFrame(tick); }
+  window.__field = function(){ size(); frame(); };
   let t;
-  addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(function(){ size(); frame(); }, 180); });
+  addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(window.__field, 180); });
+})();
+
+/* ── tooltip ── */
+(function(){
+  const tip = document.getElementById("tip");
+  function place(x, y){
+    const r = tip.getBoundingClientRect();
+    let L = x + 14, T = y - r.height - 12;
+    if(L + r.width > innerWidth - 8) L = x - r.width - 14;
+    if(T < 8) T = y + 18;
+    tip.style.left = Math.max(8, L) + "px"; tip.style.top = T + "px";
+  }
+  function show(el, x, y){ tip.innerHTML = el.getAttribute("data-tip"); tip.classList.add("on"); place(x, y); }
+  document.addEventListener("mouseover", function(e){ const el = e.target.closest && e.target.closest("[data-tip]"); if(el) show(el, e.clientX, e.clientY); });
+  document.addEventListener("mousemove", function(e){ if(tip.classList.contains("on")) place(e.clientX, e.clientY); });
+  document.addEventListener("mouseout", function(e){ const el = e.target.closest && e.target.closest("[data-tip]"); if(el && !el.contains(e.relatedTarget)) tip.classList.remove("on"); });
+  document.addEventListener("focusin", function(e){ const el = e.target.closest && e.target.closest("[data-tip]"); if(el){ const r = el.getBoundingClientRect(); show(el, r.left + r.width/2, r.top); } });
+  document.addEventListener("focusout", function(){ tip.classList.remove("on"); });
+  document.addEventListener("pointerdown", function(e){
+    if(e.pointerType === "mouse") return;
+    const el = e.target.closest && e.target.closest("[data-tip]");
+    if(el){ const r = el.getBoundingClientRect(); show(el, r.left + r.width/2, r.top); } else tip.classList.remove("on");
+  });
+  addEventListener("scroll", function(){ tip.classList.remove("on"); }, {passive:true});
+})();
+
+/* ── chart: accepted publications per year, stacked by area (drawn at the real on-screen width) ── */
+const drawYearChart = (function(){
+  const svg = document.getElementById("yearChart");
+  const years = [2023,2024,2025,2026];
+  const M = {};
+  years.forEach(function(y){ M[y] = {}; ORDER.forEach(function(k){ M[y][k] = 0; }); });
+  ACC.forEach(function(p){ if(M[p.y]) M[p.y][p.ar]++; });
+  const tot = function(y){ return ORDER.reduce(function(s,k){ return s + M[y][k]; }, 0); };
+  const top = Math.ceil(Math.max.apply(null, years.map(tot))/5)*5;
+  document.getElementById("yearLegend").innerHTML = ORDER.map(function(k){ return "<span>" + key(AC[k]) + AREAS[k] + "</span>"; }).join("");
+  let lastW = 0;
+  return function(){
+    const w = Math.round(svg.getBoundingClientRect().width);
+    if(!w || w === lastW) return;
+    lastW = w;
+    const W = Math.max(240, w), L = 46, R = 32, T = 6, row = 50, bar = 24, plotH = years.length*row, H = T + plotH + 26;
+    const step = W < 380 ? 10 : 5;
+    const x = function(v){ return L + v/top*(W-L-R); };
+    let g = "", m = "";
+    for(let v=0; v<=top; v+=5){
+      g += '<line x1="' + x(v) + '" x2="' + x(v) + '" y1="' + T + '" y2="' + (T+plotH) + '" class="' + (v ? "gl" : "bl") + '"/>';
+      if(v % step === 0) g += '<text x="' + x(v) + '" y="' + (H-6) + '" text-anchor="middle" class="tk">' + v + "</text>";
+    }
+    years.forEach(function(y, i){
+      const cy = T + i*row + (row-bar)/2;
+      g += '<text x="' + (L-12) + '" y="' + (cy+bar/2+5) + '" text-anchor="end" class="yl">' + y + "</text>";
+      const segs = ORDER.filter(function(k){ return M[y][k]; });
+      let acc = 0;
+      segs.forEach(function(k, j){
+        const n = M[y][k], x0 = x(acc), x1 = x(acc+n); acc += n;
+        const last = j === segs.length-1;
+        const w2 = Math.max(1, x1 - x0 - (last ? 0 : 2));
+        const tp = attr(key(AC[k]) + "<b>" + y + "</b> · " + AREAS[k] + ": <b>" + n + "</b>");
+        if(last){
+          const r = Math.min(4, w2/2);
+          m += '<path class="mark" tabindex="0" data-tip="' + tp + '" fill="' + AC[k] + '" d="M' + x0 + "," + cy + " h" + (w2-r) +
+               " q" + r + ",0 " + r + "," + r + " v" + (bar-2*r) + " q0," + r + " -" + r + "," + r + " h-" + (w2-r) + ' z"/>';
+        } else {
+          m += '<rect class="mark" tabindex="0" data-tip="' + tp + '" fill="' + AC[k] + '" x="' + x0 + '" y="' + cy + '" width="' + w2 + '" height="' + bar + '"/>';
+        }
+      });
+      m += '<text x="' + (x(tot(y))+8) + '" y="' + (cy+bar/2+4) + '" class="vlabel">' + tot(y) + "</text>";
+    });
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    svg.setAttribute("width", W); svg.setAttribute("height", H);
+    svg.innerHTML = g + '<g class="grow">' + m + "</g>";
+  };
+})();
+drawYearChart();
+(function(){ let t; addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(drawYearChart, 150); }); })();
+
+/* ── chart: manuscript status (tall segmented bar) + quick facts ── */
+(function(){
+  const total = P.length;
+  document.getElementById("totalAll").textContent = total;
+  const seg = document.getElementById("statusSeg");
+  seg.setAttribute("aria-label", STATUS.map(function(s){ return s[1] + " " + P.filter(function(p){ return p.s === s[0]; }).length; }).join(", "));
+  seg.innerHTML = STATUS.map(function(s){
+    const n = P.filter(function(p){ return p.s === s[0]; }).length;
+    const pct = n/total*100;
+    return '<div tabindex="0" style="--w:' + pct.toFixed(2) + "%;background:" + s[2] + ";color:" + s[3] + '" data-tip="' +
+      attr(key(s[2]) + "<b>" + s[1] + "</b>: " + n + " (" + Math.round(pct) + "%)") + '">' + n + "</div>";
+  }).join("");
+  document.getElementById("statusLegend").innerHTML = STATUS.map(function(s){ return "<span>" + key(s[2]) + s[1] + "</span>"; }).join("");
+  document.getElementById("fQ1").textContent = ACC.filter(function(p){ return p.t === "j" && p.m.indexOf("Q1") !== -1; }).length;
+  document.getElementById("fFirst").textContent = ACC.filter(function(p){ return p.a.indexOf(ME) === 0; }).length;
+  document.getElementById("fVenues").textContent = TALKS.length;
+  document.getElementById("fCountries").textContent = COUNTRIES.length;
 })();
 
 /* ── dataset bars ── */
 (function(){
   const max = Math.max.apply(null, DATA.map(function(d){ return d[1]; }));
   document.getElementById("dbars").innerHTML = DATA.map(function(d){
-    const pct = (d[1]/max*100).toFixed(1);
+    const n = d[1].toLocaleString("en-US");
     return '<div class="dbar" style="--c:' + AC[d[3]] + '">' +
       '<div class="lab">' + d[0] + "<i>" + d[2] + "</i></div>" +
-      '<div class="track" style="--w:' + pct + '%"><i style="width:' + pct + '%"></i>' +
-      '<span class="' + (pct > 68 ? "inside" : "") + '">' + d[1].toLocaleString("en-US") + "</span></div></div>";
+      '<div class="track"><i tabindex="0" style="--w:' + (d[1]/max*100).toFixed(1) + '%" data-tip="' +
+      attr(key(AC[d[3]]) + "<b>" + d[0] + "</b><br>" + n + " images · " + d[2]) + '"></i><span>' + n + "</span></div></div>";
   }).join("");
+  const used = ORDER.filter(function(k){ return DATA.some(function(d){ return d[3] === k; }); });
+  document.getElementById("dlegend").innerHTML = used.map(function(k){ return "<span>" + key(AC[k]) + AREAS[k] + "</span>"; }).join("");
 })();
 
 /* ── benchmarks ── */
 document.getElementById("bench").innerHTML = BENCH.map(function(b){
   const FLOOR = 85;
-  return '<div class="bcard" style="--c:' + AC[b.c] + '"><h3>' + esc(b.h) + '</h3><div class="u">' + esc(b.u) + "</div>" +
+  return '<div class="bcard rv" style="--c:' + AC[b.c] + '"><h3>' + key(AC[b.c]) + esc(b.h) + '</h3><div class="u">' + esc(b.u) + "</div>" +
     b.r.map(function(x){
       const w = Math.max(2, (x[1]-FLOOR)/(100-FLOOR)*100);
       return '<div class="brow' + (x[2] ? " win" : "") + '"><div class="n"><b>' + esc(x[0]) + "</b><em>" +
-        x[1].toFixed(2) + '%</em></div><div class="btrack"><i style="width:' + w.toFixed(1) + '%"></i></div></div>';
+        x[1].toFixed(2) + '%</em></div><div class="btrack"><i style="--w:' + w.toFixed(1) + '%"></i></div></div>';
     }).join("") + '<div class="bfoot">scale 85 – 100%</div></div>';
 }).join("");
 
 /* ── project cards ── */
 function workCard(w){
-  return '<article class="work" style="--c:' + AC[w.ar] + '">' +
-    '<div class="wtop"><span class="pill ' + w.st + '">' + w.stl + '</span><span class="pill">' + w.role + '</span>' +
-      '<span class="pill" style="border-color:' + AC[w.ar] + ';color:' + AC[w.ar] + '">' + AREAS[w.ar] + '</span></div>' +
+  return '<article class="work rv" style="--c:' + AC[w.ar] + '">' +
+    '<div class="wtop"><span class="pill ' + w.st + '"><span class="key"></span>' + w.stl + '</span><span class="pill">' + w.role + "</span>" +
+      '<span class="pill" style="--c:' + AC[w.ar] + '"><span class="key"></span>' + AREAS[w.ar] + "</span></div>" +
     "<h3>" + esc(w.h) + '</h3><div class="venue">' + esc(w.v) + "</div><p>" + esc(w.p) + "</p>" +
     '<dl class="spec">' + w.s.map(function(x){ return "<div><dt>" + x[0] + "</dt><dd>" + x[1] + "</dd></div>"; }).join("") + "</dl>" +
     '<div class="meth">' + w.m.map(function(x){ return "<span>" + x + "</span>"; }).join("") + "</div></article>";
@@ -899,41 +1607,61 @@ function workCard(w){
 document.getElementById("works").innerHTML = WORK.map(workCard).join("");
 document.getElementById("featured").innerHTML = WORK.filter(function(w){ return w.feat; }).map(workCard).join("");
 
-/* ── matrix ── */
+/* ── matrix: area × year, single-hue sequential ── */
 (function(){
   const cols = ["2023","2024","2025","2026"];
-  const keys = Object.keys(AREAS);
   const M = {};
-  keys.forEach(function(k){ M[k] = {}; cols.forEach(function(c){ M[k][c] = 0; }); });
-  const acc = P.filter(function(p){ return p.s !== "review"; });
-  acc.forEach(function(p){ M[p.ar][String(p.y)]++; });
+  ORDER.forEach(function(k){ M[k] = {}; cols.forEach(function(c){ M[k][c] = 0; }); });
+  ACC.forEach(function(p){ M[p.ar][String(p.y)]++; });
   let max = 0;
-  keys.forEach(function(k){ cols.forEach(function(c){ if(M[k][c] > max) max = M[k][c]; }); });
+  ORDER.forEach(function(k){ cols.forEach(function(c){ if(M[k][c] > max) max = M[k][c]; }); });
   const total = function(k){ return cols.reduce(function(s,c){ return s + M[k][c]; }, 0); };
-  const order = keys.slice().sort(function(a,b){ return total(b) - total(a); });
-  let html = "<tr><th></th>" + cols.map(function(c){ return "<th>"+c+"</th>"; }).join("") + "<th>Σ</th></tr>";
-  order.forEach(function(k){
-    html += '<tr><th class="rowlab">' + AREAS[k] + "</th>" + cols.map(function(c){
+  const rows = ORDER.slice().sort(function(a,b){ return total(b) - total(a); });
+  let html = "<tr><th></th>" + cols.map(function(c){ return "<th>" + c + "</th>"; }).join("") + "<th>Σ</th></tr>";
+  rows.forEach(function(k){
+    html += '<tr><th class="rowlab">' + key(AC[k]) + AREAS[k] + "</th>" + cols.map(function(c){
       const n = M[k][c];
-      if(!n) return '<td class="z" style="background:#FFFFFF">·</td>';
-      const a = .14 + .72*(n/max);
-      return '<td style="background:color-mix(in srgb, ' + AC[k] + " " + Math.round(a*100) +
-        '%, #FFFFFF);color:' + (a > .5 ? "#FFFFFF" : AC[k]) + '" title="' + AREAS[k] + " · " + c + ": " + n + '">' + n + "</td>";
-    }).join("") + '<td style="background:#FFFFFF;color:' + AC[k] + '">' + total(k) + "</td></tr>";
+      if(!n) return '<td class="z">·</td>';
+      const i = Math.min(SEQ.length-1, Math.ceil(n/max*SEQ.length)-1);
+      return '<td tabindex="0" style="background:' + SEQ[i] + ";color:" + (i >= 3 ? "#FFFFFF" : "#0E1B2C") + '" data-tip="' +
+        attr(key(AC[k]) + "<b>" + AREAS[k] + "</b> · " + c + ": <b>" + n + "</b>") + '">' + n + "</td>";
+    }).join("") + '<td class="sum">' + total(k) + "</td></tr>";
   });
   html += '<tr><th class="rowlab">Σ</th>' + cols.map(function(c){
-    return '<th style="font-size:13px;color:#16202C;font-weight:600">' + keys.reduce(function(a,k){ return a + M[k][c]; }, 0) + "</th>";
-  }).join("") + '<th style="font-size:13px;color:#16202C;font-weight:600">' + acc.length + "</th></tr>";
+    return '<td class="sum">' + ORDER.reduce(function(a,k){ return a + M[k][c]; }, 0) + "</td>";
+  }).join("") + '<td class="sum">' + ACC.length + "</td></tr>";
   document.getElementById("matrix").innerHTML = html;
-  document.getElementById("legend").innerHTML = order.map(function(k){
-    return '<span><i style="background:' + AC[k] + '"></i>' + AREAS[k] + "</span>";
+  document.getElementById("ramp").innerHTML = "<span>fewer</span>" + SEQ.map(function(c){ return '<i style="background:' + c + '"></i>'; }).join("") + "<span>more</span>";
+  document.getElementById("legend").innerHTML = rows.map(function(k){ return "<span>" + key(AC[k]) + AREAS[k] + "</span>"; }).join("");
+})();
+
+/* ── publishers ── */
+function publisherOf(p){
+  const d = (p.d || "") + " " + p.v + " " + (p.doi || "");
+  if(/10\.1109|IEEE/.test(d)) return "IEEE";
+  if(/10\.1007|Springer/.test(d)) return "Springer";
+  if(/Tech Science/.test(d)) return "Tech Science Press";
+  if(/ACM/.test(d)) return "ACM";
+  if(/Nexora/.test(d)) return "Nexora Academic Press";
+  if(/Open Exploration/.test(d)) return "Open Exploration";
+  return "";
+}
+(function(){
+  const c = {}, NA = "Not yet announced";
+  ACC.forEach(function(p){ const k = publisherOf(p) || NA; c[k] = (c[k] || 0) + 1; });
+  const names = Object.keys(c).sort(function(a,b){ if(a === NA) return 1; if(b === NA) return -1; return c[b] - c[a]; });
+  const max = Math.max.apply(null, names.map(function(n){ return c[n]; }));
+  document.getElementById("publishers").innerHTML = names.map(function(n){
+    const col = n === NA ? "#B9C4D2" : "var(--brand)";
+    return '<div class="dbar" style="--c:' + col + '"><div class="lab">' + esc(n) + (n === NA ? "<i>in press</i>" : "") + "</div>" +
+      '<div class="track"><i tabindex="0" style="--w:' + (c[n]/max*100).toFixed(1) + '%" data-tip="' + attr("<b>" + n + "</b>: " + c[n] + " accepted") + '"></i><span>' + c[n] + "</span></div></div>";
   }).join("");
 })();
 
 /* ── count-up ── */
 function countUp(el, n){
   if(!el) return;
-  if(reduce || !isFinite(n) || n <= 0){ el.textContent = isFinite(n) ? n : "0"; return; }
+  if(reduce || !isFinite(n) || n <= 0){ el.textContent = isFinite(n) ? (n > 999 ? n.toLocaleString("en-US") : n) : "0"; return; }
   let i = 0; const step = Math.max(1, Math.round(n/24));
   const id = setInterval(function(){
     i = Math.min(n, i + step);
@@ -943,9 +1671,10 @@ function countUp(el, n){
 }
 document.querySelectorAll(".stat b[data-n]").forEach(function(el){ countUp(el, +el.dataset.n); });
 
-/* ── publications ── */
+/* ── publications list ── */
 const state = {type:"all", status:"all", q:""};
 const markMe = function(s){ return esc(s).split(ME).join("<b>"+ME+"</b>"); };
+const ST = {}; STATUS.forEach(function(s){ ST[s[0]] = s; });
 function render(){
   const q = state.q.trim().toLowerCase();
   const list = P.filter(function(p){
@@ -966,13 +1695,12 @@ function render(){
       const hi = /^Q[1-4]$/.test(t) || t.indexOf("IF ") === 0 || t.indexOf("CiteScore") === 0 || t.indexOf("SJR") === 0 || t === "Web of Science";
       return '<span class="t' + (hi ? " q" : "") + '">' + esc(t) + "</span>";
     }).join("");
-    const st = p.s === "inpress" ? '<span class="t ip">In press</span>'
-             : p.s === "review" ? '<span class="t rv">Under review</span>' : "";
+    const s = ST[p.s];
     return '<li style="--c:' + AC[p.ar] + '"><span class="idx">' + String(i+1).padStart(2,"0") + '</span><div class="pb">' +
       '<div class="ti">' + esc(p.ti) + "</div>" +
       (p.a ? '<div class="au">' + markMe(p.a) + "</div>" : "") +
       '<div class="vn"><i>' + esc(p.v) + "</i>" + (p.d ? ", " + esc(p.d) : "") + "</div>" +
-      '<div class="meta"><span class="t area">' + AREAS[p.ar] + "</span>" + st + tags + "</div>" +
+      '<div class="meta"><span class="t">' + key(AC[p.ar]) + AREAS[p.ar] + '</span><span class="t">' + key(s[2]) + s[1] + "</span>" + tags + "</div>" +
       (p.doi ? '<div class="doi">doi: <a href="https://doi.org/' + p.doi + '">' + p.doi + "</a></div>" : "") + "</div></li>";
   }).join("");
 }
@@ -994,60 +1722,10 @@ document.getElementById("q").addEventListener("input", function(e){ state.q = e.
 render();
 
 /* ── projects ── */
-const PJ = {
- deployed:[
-  {c:"med", k:"Web application", h:"Multi-organ CT diagnosis",
-   p:"Upload a CT slice and get a prediction across twelve diagnostic classes spanning brain, kidney and lung, with a Grad-CAM, LIME and SHAP view attached to every answer so the reasoning can be inspected rather than trusted blindly.",
-   t:["MOCT-SE-ResidualNet","Grad-CAM","LIME","SHAP","Web"], s:"Published in JIDMIS, 2026"},
-  {c:"agri", k:"Web application", h:"Multi-crop leaf disease recognition",
-   p:"Fourteen healthy and diseased classes across corn, potato, rice and tomato, served for real-time prediction so a diagnosis is reachable from a phone standing in the field.",
-   t:["Custom CNN","Real-time inference","Web"], s:"In press, Intelligent Automation & Soft Computing"},
-  {c:"agri", k:"Web application", h:"Multi-fruit disease recognition",
-   p:"Seventeen disease classes across citrus, guava, mango and pomegranate, from a 30,260-image dataset, deployed so growers can check a fruit without waiting for an agronomist.",
-   t:["Custom CNN","Fine-grained recognition","Web"], s:"Under review"},
-  {c:"agri", k:"Hardware device", h:"IoT meat freshness monitor",
-   p:"An ESP32-CAM feeds images to a Raspberry Pi 3 running a custom CNN, while MQ135, MQ136 and MQ4 sensors read the ammonia, hydrogen sulfide and methane that spoiling meat releases. A three-colour LED reports fresh, borderline or spoiled on the spot.",
-   t:["ESP32-CAM","Raspberry Pi 3","MQ gas sensors","Custom CNN"], s:"IEEE Access, 2024"},
-  {c:"agri", k:"Pipeline", h:"Egg variety, freshness and nutrition",
-   p:"YOLOv8 segmentation with a Bangladeshi five-taka coin as a known scale turns pixel area into egg mass, then species-specific nutrient tables turn that mass into calories, protein, fat, cholesterol and carbohydrate. Under two seconds on a consumer GPU.",
-   t:["YOLOv8","Segmentation","Scale reference","Custom CNN"], s:"Under review"},
-  {c:"other", k:"LLM assistant", h:"Bilingual academic-guidance assistant",
-   p:"A Bangla and English assistant built on large language models and LangChain, answering student questions on academic, career and financial matters with context pulled from institutional material.",
-   t:["LLM","LangChain","RAG","Bangla / English"], s:"Dept. of Physical Sciences, IUB"}
- ],
- models:[
-  {c:"agri", k:"Architecture", h:"Custom MeatSE-ResidualNet",
-   p:"A lightweight network combining residual learning, squeeze-and-excitation attention and convolutional refinement, designed for the subtle colour, fibre and moisture differences that separate six meat types. 97.83% on a held-out test set.",
-   t:["Squeeze-and-excitation","Residual","Lightweight"], s:"In press, IASC"},
-  {c:"med", k:"Architecture", h:"MOCT-SE-ResidualNet",
-   p:"A residual squeeze-and-excitation network built to carry twelve diagnostic classes across three organ groups in one model instead of three. 98% overall accuracy against transfer-learning, ensemble and classical baselines.",
-   t:["Squeeze-and-excitation","Multi-organ","Transfer learning"], s:"JIDMIS, 2026"},
-  {c:"agri", k:"Architecture", h:"MCPNet",
-   p:"A lightweight hybrid CNN for multi-crop pest recognition, reaching 99% across thirteen pest classes on a curated 13,000-image dataset, small enough to be worth deploying at the edge.",
-   t:["Hybrid CNN","Lightweight","13 classes"], s:"In press, AII 2025"},
-  {c:"agri", k:"Ensemble", h:"Triple-Stream Hybrid Ensemble",
-   p:"MobileNetV3-Large, ResNet50 and a ViT-B16 read the same image in parallel and a meta-learner combines them, trained with Focal Loss and Cosine Annealing Warm Restarts. 99.30% at 24.2 ms per sample.",
-   t:["Vision Transformer","Stacked ensemble","Focal Loss"], s:"In press, IASC"},
-  {c:"env", k:"Forecasting", h:"Environmental time-series system",
-   p:"A Transformer forecaster over an eight-year multivariate sensor record covering temperature, humidity, rainfall, PM2.5 and PM10, benchmarked against Random Forest, XGBoost, CatBoost and LSTM to see which approach actually held up out of sample.",
-   t:["Transformer","XGBoost","CatBoost","LSTM"], s:"Dept. of Physical Sciences, IUB"}
- ],
- industry:[
-  {c:"se", k:"Production system", h:"Face-recognition attendance",
-   p:"Designed and deployed for Nagad's Customer Management Platform, replacing manual entry and improving the accuracy of attendance records.",
-   t:["Computer vision","Python","Deployment"], s:"Digicon Technologies PLC."},
-  {c:"se", k:"Production system", h:"AI-powered FAQ chatbot",
-   p:"Built and integrated into Uttara Motors' Customer Management System, automating routine customer inquiries and cutting response time.",
-   t:["NLP","Chatbot","Integration"], s:"Digicon Technologies PLC."},
-  {c:"se", k:"Backend", h:"Inventory management and tracking",
-   p:"A Django system for stock monitoring, automating what had been a manual operational routine.",
-   t:["Django","Python","SQL"], s:"Jaish Trade International"}
- ]
-};
-["deployed","models","industry"].forEach(function(key){
-  const id = "pj" + key.charAt(0).toUpperCase() + key.slice(1);
-  document.getElementById(id).innerHTML = PJ[key].map(function(x){
-    return '<article class="pj" style="--c:' + AC[x.c] + '"><div class="kind">' + x.k + "</div>" +
+["deployed","models","industry"].forEach(function(k){
+  const id = "pj" + k.charAt(0).toUpperCase() + k.slice(1);
+  document.getElementById(id).innerHTML = PJ[k].map(function(x){
+    return '<article class="pj rv" style="--c:' + AC[x.c] + '"><div class="kind"><span class="key"></span>' + x.k + "</div>" +
       "<h3>" + esc(x.h) + "</h3><p>" + esc(x.p) + "</p>" +
       '<div class="stack">' + x.t.map(function(t){ return "<span>" + esc(t) + "</span>"; }).join("") + "</div>" +
       '<div class="src">' + esc(x.s) + "</div></article>";
@@ -1070,10 +1748,7 @@ const PJ = {
   const venues = {}, pubs = {};
   P.forEach(function(p){
     if(p.v && p.v !== "Manuscript under review") venues[p.v] = 1;
-    const d = p.d || "";
-    ["IEEE","Springer","ACM","Tech Science Press","Nexora Academic Press"].forEach(function(x){
-      if(d.indexOf(x) !== -1 || p.v.indexOf(x) !== -1) pubs[x] = 1;
-    });
+    const k = publisherOf(p); if(k) pubs[k] = 1;
   });
   countUp(document.getElementById("faN"), firstAuthor);
   countUp(document.getElementById("coN"), names.length);
@@ -1082,23 +1757,62 @@ const PJ = {
 
   const top = names.sort(function(a,b){ return counts[b] - counts[a]; }).slice(0,7);
   const max = counts[top[0]];
-  document.getElementById("collab").innerHTML = top.map(function(n,i){
-    const pct = (counts[n]/max*100).toFixed(1);
-    const col = [AC.med, AC.agri, AC.env, AC.se, AC.other][i % 5];
-    return '<div class="dbar" style="--c:' + col + '">' +
-      '<div class="lab">' + esc(n) + "</div>" +
-      '<div class="track" style="--w:' + pct + '%"><i style="width:' + pct + '%"></i>' +
-      '<span class="' + (pct > 68 ? "inside" : "") + '">' + counts[n] + " papers</span></div></div>";
+  document.getElementById("collab").innerHTML = top.map(function(n){
+    return '<div class="dbar" style="--c:var(--brand)"><div class="lab">' + esc(n) + "</div>" +
+      '<div class="track"><i tabindex="0" style="--w:' + (counts[n]/max*100).toFixed(1) + '%" data-tip="' + attr("<b>" + n + "</b>: " + counts[n] + " papers together") + '"></i><span>' + counts[n] + " papers</span></div></div>";
   }).join("");
 })();
 
-/* ── talks ── */
-document.getElementById("talks").innerHTML = TALKS.map(function(t){
-  return '<div class="talk"><div class="th"><span class="ev">' + t[0] + '</span><span class="loc">' + t[1] + "</span></div><ul>" +
-    t[2].map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ul></div>";
-}).join("");
+/* ── talks: one dot per paper presented, grouped by year ── */
+(function(){
+  const byYear = {};
+  TALKS.forEach(function(t){ const y = t[0].slice(-4); (byYear[y] = byYear[y] || []).push(t); });
+  document.getElementById("tyears").innerHTML = Object.keys(byYear).sort().map(function(y){
+    const list = byYear[y];
+    const n = list.reduce(function(s,t){ return s + t[2].length; }, 0);
+    const dots = list.map(function(t){
+      return t[2].map(function(title){ return '<i tabindex="0" data-tip="' + attr("<b>" + t[0] + "</b> · " + t[1] + "<br>" + title) + '"></i>'; }).join("");
+    }).join("");
+    return '<div class="ty rv"><div class="y">' + y + "<span>" + n + " paper" + (n === 1 ? "" : "s") + ' presented</span></div><div class="dots">' + dots + '</div><div class="v">' +
+      list.map(function(t){ return t[0].replace(/ \d{4}$/, ""); }).join(" · ") + "</div></div>";
+  }).join("");
+  document.getElementById("talks").innerHTML = TALKS.map(function(t){
+    return '<div class="talk"><div class="th"><span class="ev">' + t[0] + '</span><span class="loc">' + t[1] + "</span></div><ul>" +
+      t[2].map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ul></div>";
+  }).join("");
+})();
 
-route();
+/* ── toolkit chips ── */
+document.querySelectorAll("dd[data-split]").forEach(function(dd){
+  dd.innerHTML = dd.textContent.split(" · ").map(function(x){ return "<span>" + esc(x.trim()) + "</span>"; }).join("");
+});
+
+/* ── reveal on scroll (content is never hidden if this fails) ── */
+(function(){
+  const els = Array.prototype.slice.call(document.querySelectorAll(".rv"));
+  function open(el){ el.classList.add("in"); }
+  function sweep(){
+    els.forEach(function(el){
+      if(el.classList.contains("in")) return;
+      const r = el.getBoundingClientRect();
+      if(r.height > 0 && r.top < innerHeight - 20 && r.bottom > 0) open(el);
+    });
+  }
+  window.__sweep = sweep;
+  if(reduce){ els.forEach(open); return; }
+  if("IntersectionObserver" in window){
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ open(e.target); io.unobserve(e.target); } });
+    }, {threshold:.08, rootMargin:"0px 0px -30px 0px"});
+    els.forEach(function(el){ io.observe(el); });
+  }
+  let t;
+  addEventListener("scroll", function(){ clearTimeout(t); t = setTimeout(sweep, 160); }, {passive:true});
+  addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(sweep, 160); });
+  setTimeout(sweep, 450);
+})();
+
+show(viewFromHash());
 </script>
 
 </body>
